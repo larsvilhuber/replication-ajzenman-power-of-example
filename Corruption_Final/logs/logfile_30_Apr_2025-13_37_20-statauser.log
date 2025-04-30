@@ -1,0 +1,818 @@
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_37_20-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:37:20
+r; t=0.00 13:37:20
+
+. 
+. /* capture what system we are running on */
+. 
+. di in red "HOSTNAME: `c(hostname)'"
+HOSTNAME: 268099a8e38e
+r; t=0.00 13:37:20
+
+. 
+. /* used only for system info */
+. log using "`systeminfo'", name(system) replace text
+(file /project/logs/system_30_Apr_2025-13_37_20-statauser.log not found)
+-------------------------------------------------------------------------------
+      name:  system
+       log:  /project/logs/system_30_Apr_2025-13_37_20-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:37:20
+r; t=0.00 13:37:20
+
+. 
+. /* It will provide some info about how and when the program was run */
+. 
+. /* install any packages locally */
+. di "=== Redirecting where Stata searches for ado files ==="
+=== Redirecting where Stata searches for ado files ===
+r; t=0.00 13:37:20
+
+. capture mkdir "$rootdir/ado"
+r; t=0.00 13:37:20
+
+. adopath - PERSONAL
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+  [5]  (OLDPLACE)  "~/ado/"
+r; t=0.00 13:37:20
+
+. adopath - OLDPLACE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:37:20
+
+. adopath - SITE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:37:20
+
+. sysdir set PLUS     "$rootdir/ado/plus"
+r; t=0.00 13:37:20
+
+. sysdir set PERSONAL "$rootdir/ado"       // may be needed for some packages
+r; t=0.00 13:37:20
+
+. sysdir
+   STATA:  /usr/local/stata/
+    BASE:  /usr/local/stata/ado/base/
+    SITE:  /usr/local/ado/
+    PLUS:  /project/ado/plus/
+PERSONAL:  /project/ado/
+OLDPLACE:  ~/ado/
+r; t=0.00 13:37:20
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If present, add the authors' replication-package specific ado file path   
+>                    */
+. /* This is defined above                                                     
+>                    */
+. /*===========================================================================
+> ===================*/
+. 
+. if "`author_adopath'" != "" {             // The author adopath variable is f
+> illed out
+.     adopath ++ "$rootdir/`author_adopath'"
+r; t=0.00 13:37:20
+. }
+r; t=0.00 13:37:20
+
+. 
+. /* now let's check what's there */
+. 
+. di "=== Verifying pre-existing ado files - normally, this should be EMPTY upo
+> n first run"
+=== Verifying pre-existing ado files - normally, this should be EMPTY upon firs
+> t run
+r; t=0.00 13:37:20
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:37:20
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli
+> -compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written w
+> ith GUI Stata in mind.
+r; t=0.00 13:37:20
+
+. di "=========================="
+==========================
+r; t=0.00 13:37:20
+
+. 
+. 
+. /* this is long, so we pause the main log file */
+. log off ldi
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_37_20-statauser.log
+  log type:  text
+ paused on:  30 Apr 2025, 13:37:20
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_37_20-statauser.log
+  log type:  text
+resumed on:  30 Apr 2025, 13:37:20
+r; t=0.00 13:37:20
+
+. 
+. 
+. /* add packages to the macro */
+.     
+.     display in red "============ Installing packages/commands from SSC ======
+> ======="
+============ Installing packages/commands from SSC =============
+r; t=0.00 13:37:20
+
+.     display in red "== Packages: `ssc_packages'"
+== Packages: 
+r; t=0.00 13:37:20
+
+.     if !missing("`ssc_packages'") {
+.         foreach pkg in `ssc_packages' {
+  2.             capture which `pkg'
+  3.             if _rc == 111 {                 
+  4.                dis "Installing `pkg'"
+  5.                 ssc install `pkg', replace
+  6.             }
+  7.             which `pkg'
+  8.         }
+r; t=0.00 13:37:20
+.     }
+r; t=0.00 13:37:20
+
+. 
+. /* add unconditionally installed packages */
+.     display in red "=============== Unconditionally installed packages from S
+> SC ==============="
+=============== Unconditionally installed packages from SSC ===============
+r; t=0.00 13:37:20
+
+.     display in red "== Packages: `ssc_unconditional'"
+== Packages: 
+r; t=0.00 13:37:20
+
+.     if !missing("`ssc_unconditional'") {
+.         foreach pkg in `ssc_unconditional' {
+  2.             dis "Installing `pkg'"
+  3.             ssc install `pkg', replace
+  4.         }
+r; t=0.00 13:37:20
+.     }
+r; t=0.00 13:37:20
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If you need to "net install" packages, add lines to this section          
+>                    */
+.     * Install packages using net
+.     * net install grc1leg, from("http://www.stata.com/users/vwiggins/")
+. 
+. /*===========================================================================
+> ===================*/
+. /* yet other programs have no install capability, and may need to be copied *
+> /
+. /*===========================================================================
+> ===================*/
+. 
+. // e.g.
+. //  copy (URL) (name_of_file.ado)
+. // example:
+. // copy http://www.sacarny.com/wp-content/uploads/2015/08/ebayes.ado ebayes.a
+> do
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* This toolbox allows us to run code that still contains interactive command
+> s (which it should not) */
+. /*===========================================================================
+> ===================*/
+. 
+. net install cli-compat, all replace from("https://raw.githubusercontent.com/a
+> eadataeditor/cli-compat-stata/master")
+checking cli-compat consistency and verifying not already installed...
+all files already exist and are up to date.
+r; t=0.65 13:37:21
+
+. 
+. /*-------------- Sometimes, you may get the dreaded esttab error about paths 
+> -------------------*/
+. /* in that case, uncomment the following line, and overwrite the estout packa
+> ge with the newer one */
+. 
+. // net install estout, replace from(https://raw.githubusercontent.com/benjann
+> /estout/master/)
+. 
+. /*===========================================================================
+> ===================*/
+. /* after installing all packages, it may be necessary to issue the mata mlib 
+> index command */
+. /* This should always be the LAST command after installing all packages      
+>               */
+. /*===========================================================================
+> ===================*/
+. 
+.         mata: mata mlib index
+.mlib libraries to be searched are now
+    lmatabase;lmatamcmc;lmatasem;lmataivqreg;lmatapss;lmatanumlib;lmatabma;lmat
+> acollect;lmatasvy;lmatami;lmatadata;lmatafc;lmataopt;lmatagsem;lmatalasso;lma
+> taado;lmatats;lmatamixlog;lmatapostest;lmatahetdid;lmatameta;lmataerm;lmatata
+> b;lmatapath;lmatasp;lmatajm
+r; t=0.00 13:37:21
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* This is specific to AEA replication environment. May not be needed if no c
+> onfidential data   */
+. /* are used in the reproducibility check.                                    
+>                    */
+. /* Replicator should check the JIRA field "Working location of restricted dat
+> a" for right path  */
+. /*===========================================================================
+> ===================*/
+. 
+. global sdrive ""
+r; t=0.00 13:37:21
+
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* After all the setup work, let's check again what's installed in the ado di
+> rectories          */
+. /*===========================================================================
+> ===================*/
+. 
+. 
+. di "=== Verifying ado files after all install steps"
+=== Verifying ado files after all install steps
+r; t=0.00 13:37:21
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:37:21
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli
+> -compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written w
+> ith GUI Stata in mind.
+r; t=0.00 13:37:21
+
+. di "=========================="
+==========================
+r; t=0.00 13:37:21
+
+. 
+. 
+. 
+. di "========================================= END SETUP + DIAGNOSTICS =======
+> ============================="
+========================================= END SETUP + DIAGNOSTICS =============
+> =======================
+r; t=0.00 13:37:21
+
+. r; t=0.00 13:37:21
+
+. 
+. clear all
+r; t=0.00 13:37:21
+
+. set more off
+r; t=0.00 13:37:21
+
+. set maxvar 32767
+
+r; t=0.00 13:37:21
+
+. set matsize 11000
+set matsize ignored.
+    Matrix sizes are no longer limited by c(matsize) in modern Statas.
+    Matrix sizes are now limited by edition of Stata.  See limits for more
+    details.
+r; t=0.00 13:37:21
+
+. * Checking:
+. 
+. * Change globals!
+. 
+. *global cdname "C:\EESP\"
+. ** TO RUN THE DO FILE YOU JUST NEED TO CHANGE THIS LINE.
+. global cdname "$rootdir"
+r; t=0.00 13:37:21
+
+. 
+. global cd_do "$cdname/Do"
+r; t=0.00 13:37:21
+
+. global cd_data "$cdname/Data"
+r; t=0.00 13:37:21
+
+. 
+. cd "$cdname/"
+/project
+r; t=0.00 13:37:21
+
+. 
+. 
+. ** Create some of the controls
+. do "Do/Raw.do"
+
+. 
+. 
+. *** Process Census data
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2005.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,490 obs)
+r; t=0.32 13:37:21
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:37:21
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(291 real changes made)
+r; t=0.00 13:37:21
+
+. keep clave_mun total
+r; t=0.00 13:37:21
+
+. ren total total_2005
+r; t=0.02 13:37:21
+
+. drop if clave_mun == "."
+(3 observations deleted)
+r; t=0.00 13:37:21
+
+. save "$cd_data/Censo/Population_2005.dta", replace
+file /project/Data/Censo/Population_2005.dta saved
+r; t=0.00 13:37:21
+
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2010.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,492 obs)
+r; t=0.05 13:37:21
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:37:21
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(291 real changes made)
+r; t=0.00 13:37:21
+
+. keep clave_mun total
+r; t=0.00 13:37:21
+
+. ren total total_2010
+r; t=0.00 13:37:21
+
+. drop if clave_mun == "."
+(3 observations deleted)
+r; t=0.00 13:37:21
+
+. save "$cd_data/Censo/Population_2010.dta", replace
+file /project/Data/Censo/Population_2010.dta saved
+r; t=0.00 13:37:21
+
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2015.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,463 obs)
+r; t=0.03 13:37:21
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:37:21
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(261 real changes made)
+r; t=0.00 13:37:21
+
+. keep clave_mun total
+r; t=0.00 13:37:21
+
+. ren total total_2015
+r; t=0.00 13:37:21
+
+. drop if clave_mun == "."
+(6 observations deleted)
+r; t=0.00 13:37:21
+
+. save "$cd_data/Censo/Population_2015.dta", replace
+file /project/Data/Censo/Population_2015.dta saved
+r; t=0.00 13:37:21
+
+. 
+. drop if clave_mun =="."
+(0 observations deleted)
+r; t=0.00 13:37:21
+
+. merge 1:1 clave_mun using "$cd_data/Censo/Population_2010.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            74
+        from master                        21  (_merge==1)
+        from using                         53  (_merge==2)
+
+    Matched                             2,436  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:37:21
+
+. 
+. drop _merge
+r; t=0.00 13:37:21
+
+. 
+. merge 1:1 clave_mun using "$cd_data/Censo/Population_2005.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            23
+        from master                        23  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             2,487  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:37:21
+
+. 
+. drop _merge
+r; t=0.00 13:37:21
+
+. 
+. 
+. 
+. 
+. 
+. egen pob_tot_int = rowmean(total_2005 total_2010 total_2015)
+r; t=0.00 13:37:21
+
+. format pob_tot_int %10.0g
+r; t=0.00 13:37:21
+
+. 
+. keep clave_mun pob_tot_int
+r; t=0.00 13:37:21
+
+. merge  1:1 clave_mun using "$cd_data/Bases Madre/clave_mun.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            53
+        from master                        53  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             2,457  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:37:21
+
+. keep if _merge ==3
+(53 observations deleted)
+r; t=0.00 13:37:21
+
+. drop _merge
+r; t=0.00 13:37:21
+
+. save "$cd_data/Censo/Population_MUN.dta", replace
+file /project/Data/Censo/Population_MUN.dta saved
+r; t=0.00 13:37:21
+
+. 
+. 
+. 
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/Census_raw.csv", clear
+(encoding automatically selected: UTF-8)
+(9 vars, 198,488 obs)
+r; t=0.72 13:37:22
+
+. ren entidad ent
+r; t=0.00 13:37:22
+
+. tostring ent, gen(ENT)
+ENT generated as str2
+r; t=0.14 13:37:22
+
+. tostring mun, gen(MUN)
+MUN generated as str3
+r; t=0.21 13:37:22
+
+. tostring loc, gen(LOC)
+LOC generated as str4
+r; t=0.21 13:37:22
+
+. 
+. replace ENT = "0" + ENT if ent <10
+(50,877 real changes made)
+r; t=0.01 13:37:22
+
+. replace MUN = "00" + MUN if mun <10
+(40,361 real changes made)
+r; t=0.01 13:37:22
+
+. replace MUN = "0" + MUN if mun >=10 & mun<100
+(124,006 real changes made)
+r; t=0.03 13:37:23
+
+. replace LOC = "000" + LOC if loc <10
+(16,509 real changes made)
+r; t=0.00 13:37:23
+
+. replace LOC = "00" + LOC if loc >=10 & loc<100
+(62,524 real changes made)
+r; t=0.01 13:37:23
+
+. replace LOC = "0" + LOC if loc >=100 & loc<1000
+(94,115 real changes made)
+r; t=0.02 13:37:23
+
+. 
+. gen clave_mun = ENT+MUN
+r; t=0.03 13:37:23
+
+. gen clave_loc = ENT+MUN+LOC
+r; t=0.04 13:37:23
+
+. *drop if inlist(nom_loc, "Total nacional", "Localidades de una vivienda", "Lo
+> calidades de dos viviendas", "Total de la Entidad", "Localidades de una vivie
+> nda", "Localidades de dos viviendas")
+. 
+. replace vph_radio = "." if vph_radio == "N/D"
+(230 real changes made)
+r; t=0.00 13:37:23
+
+. replace vph_radio = "." if vph_radio == "*"
+(84,460 real changes made)
+r; t=0.00 13:37:23
+
+. 
+. destring vph_radio, replace
+vph_radio: all characters numeric; replaced as long
+(84690 missing values generated)
+r; t=0.16 13:37:23
+
+. 
+. gen tasa_radio_missing = vph_radio/vivtot
+(84,693 missing values generated)
+r; t=0.00 13:37:23
+
+. gen tasa_radio = tasa_radio_missing
+(84,693 missing values generated)
+r; t=0.00 13:37:23
+
+. replace tasa_radio_missing = . if tasa_radio_missing<0
+(0 real changes made)
+r; t=0.00 13:37:23
+
+. bys clave_mun: egen prom_radio = mean(tasa_radio_missing)
+r; t=0.03 13:37:23
+
+. replace tasa_radio = prom_radio if tasa_radio_missing ==.
+(84,693 real changes made)
+r; t=0.00 13:37:23
+
+. 
+. save "$cd_data/Censo/Radio_Localidad.dta", replace
+file /project/Data/Censo/Radio_Localidad.dta saved
+r; t=0.01 13:37:23
+
+. 
+. *** Process taxes data
+. 
+. foreach archivo in 2006 2007 2008 2009 2010 2011 2012 2013 { 
+  2.         import delimited using  "$cd_data/Bases Madre/Tax/tax_`archivo'.cs
+> v", clear
+  3.         ren v1 clave_mun
+  4.         ren v2 estado
+  5.         ren v3 municipio
+  6.         ren v4 total
+  7.         drop if total == "TOTAL"
+  8.         replace total = subinstr(total, ",", "",.) 
+  9.         destring total, replace
+ 10.         gen year =      `archivo'
+ 11.         save "$cd_data/Censo/Tax_`archivo'.dta", replace
+ 12. }
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,095 real changes made)
+total: all characters numeric; replaced as double
+(364 missing values generated)
+file /project/Data/Censo/Tax_2006.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,031 real changes made)
+total: all characters numeric; replaced as double
+(428 missing values generated)
+file /project/Data/Censo/Tax_2007.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,171 real changes made)
+total: all characters numeric; replaced as double
+(288 missing values generated)
+file /project/Data/Censo/Tax_2008.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,177 real changes made)
+total: all characters numeric; replaced as double
+(282 missing values generated)
+file /project/Data/Censo/Tax_2009.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,177 real changes made)
+total: all characters numeric; replaced as double
+(282 missing values generated)
+file /project/Data/Censo/Tax_2010.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,141 real changes made)
+total: all characters numeric; replaced as double
+(318 missing values generated)
+file /project/Data/Censo/Tax_2011.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,141 real changes made)
+total: all characters numeric; replaced as double
+(318 missing values generated)
+file /project/Data/Censo/Tax_2012.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(1,759 real changes made)
+total: all characters numeric; replaced as double
+(700 missing values generated)
+file /project/Data/Censo/Tax_2013.dta saved
+r; t=0.41 13:37:23
+
+. 
+. 
+. use "$cd_data/Censo/Tax_2006.dta", replace
+r; t=0.00 13:37:23
+
+. foreach archivo in 2007 2008 2009 2010 2011 2012 2013 { 
+  2.         append using "$cd_data/Censo/Tax_`archivo'.dta", force
+  3.         
+. }
+r; t=0.00 13:37:23
+
+. 
+. drop if clave_mun ==""
+(8 observations deleted)
+r; t=0.00 13:37:23
+
+. replace total =0 if total ==.
+(2,972 real changes made)
+r; t=0.00 13:37:23
+
+. gen mis_tot=total==0
+r; t=0.00 13:37:23
+
+. 
+. save "$cd_data/Censo/Taxes_mun_2006_2013.dta", replace
+file /project/Data/Censo/Taxes_mun_2006_2013.dta saved
+r; t=0.00 13:37:23
+
+. 
+. /*
+> use "$cd_data/Censo/Population_MUN.dta", replace
+> keep clave_mun
+> expand 8
+> bys clave_mun: gen year = 2005+_n
+> 
+> merge 1:1 clave_mun year  using  "$cd_data/Censo/Taxes_mun_2006_2013.dta", ge
+> n (merg)
+> replace total = 0 if total ==.
+> replace mis_tot = total ==0
+> drop merg
+> 
+> save "$cd_data/Censo/Taxes_mun_2006_2013.dta", replace
+> 
+> */
+. *** Process crime data
+. 
+. foreach archivo in 06 07 08 09 10 { 
+  2.         import dbase "$cd_data/Bases Madre/Homicides/DEFUN`archivo'.dbf", 
+> clear
+  3.         keep if PRESUNTO ==2
+  4.         tostring ENT_REGIS, gen (ent)
+  5.         replace ent = "0" + ent if ENT_REGIS<10
+  6.         tostring MUN_REGIS, gen (mun)
+  7.         replace mun = "00" + mun if MUN_REGIS<10
+  8.         replace mun = "0" + mun if MUN_REGIS>=10 & MUN_REGIS<100
+  9.         gen clave_mun = ent+mun
+ 10.         gen homicidios = 1
+ 11.         collapse (sum) homicidios, by (clave_mun)
+ 12.         gen year = 2000+`archivo'
+ 13.         save "$cd_data/Censo/Homicides_`archivo'.dta", replace
+ 14. 
+. }
+(53 vars, 494,471 obs)
+(484,017 observations deleted)
+ent generated as str2
+(2,706 real changes made)
+mun generated as str3
+(2,267 real changes made)
+(6,549 real changes made)
+file /project/Data/Censo/Homicides_06.dta saved
+(53 vars, 514,420 obs)
+(505,552 observations deleted)
+ent generated as str2
+(2,116 real changes made)
+mun generated as str3
+(2,068 real changes made)
+(5,576 real changes made)
+file /project/Data/Censo/Homicides_07.dta saved
+(53 vars, 539,530 obs)
+(525,523 observations deleted)
+ent generated as str2
+(5,214 real changes made)
+mun generated as str3
+(3,474 real changes made)
+(9,129 real changes made)
+file /project/Data/Censo/Homicides_08.dta saved
+(53 vars, 564,673 obs)
+(544,869 observations deleted)
+ent generated as str2
+(7,193 real changes made)
+mun generated as str3
+(5,157 real changes made)
+(12,831 real changes made)
+file /project/Data/Censo/Homicides_09.dta saved
+(53 vars, 592,018 obs)
+(566,261 observations deleted)
+ent generated as str2
+(9,969 real changes made)
+mun generated as str3
+(6,165 real changes made)
+(17,920 real changes made)
+file /project/Data/Censo/Homicides_10.dta saved
+r; t=24.43 13:37:48
+
+. 
+. 
+. foreach archivo in 11 12 13 { 
+  2.         import dbase "$cd_data/Bases Madre/Homicides/DEFUN`archivo'.dbf", 
+> clear
+  3.         keep if PRESUNTO ==2
+  4.         ren ENT_REGIS ent
+  5.         ren MUN_REGIS mun
+  6.         gen clave_mun = ent+mun
+  7.         gen homicidios = 1
+  8.         collapse (sum) homicidios, by (clave_mun)
+  9.         gen year = 2000+`archivo'
+ 10.         save "$cd_data/Censo/Homicides_`archivo'.dta", replace
+ 11. }
+(53 vars, 590,693 obs)
+(563,480 observations deleted)
+file /project/Data/Censo/Homicides_11.dta saved
+(58 vars, 602,354 obs)
+(576,387 observations deleted)
+file /project/Data/Censo/Homicides_12.dta saved
+file /project/Data/Bases Madre/Homicides/DEFUN13.dbf not found
+r(601); t=9.48 13:37:57
+
+end of do-file
+r(601); t=36.51 13:37:57
+
+end of do-file
+r(601); t=0.00 13:37:57

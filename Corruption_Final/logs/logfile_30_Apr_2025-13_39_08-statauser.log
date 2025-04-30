@@ -1,0 +1,2430 @@
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_39_08-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:39:08
+r; t=0.00 13:39:08
+
+. 
+. /* capture what system we are running on */
+. 
+. di in red "HOSTNAME: `c(hostname)'"
+HOSTNAME: 268099a8e38e
+r; t=0.00 13:39:08
+
+. 
+. /* used only for system info */
+. log using "`systeminfo'", name(system) replace text
+(file /project/logs/system_30_Apr_2025-13_39_08-statauser.log not found)
+-------------------------------------------------------------------------------
+      name:  system
+       log:  /project/logs/system_30_Apr_2025-13_39_08-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:39:08
+r; t=0.00 13:39:08
+
+. 
+. /* It will provide some info about how and when the program was run */
+. 
+. /* install any packages locally */
+. di "=== Redirecting where Stata searches for ado files ==="
+=== Redirecting where Stata searches for ado files ===
+r; t=0.00 13:39:08
+
+. capture mkdir "$rootdir/ado"
+r; t=0.00 13:39:08
+
+. adopath - PERSONAL
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+  [5]  (OLDPLACE)  "~/ado/"
+r; t=0.00 13:39:08
+
+. adopath - OLDPLACE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:39:08
+
+. adopath - SITE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:39:08
+
+. sysdir set PLUS     "$rootdir/ado/plus"
+r; t=0.00 13:39:08
+
+. sysdir set PERSONAL "$rootdir/ado"       // may be needed for some packages
+r; t=0.00 13:39:08
+
+. sysdir
+   STATA:  /usr/local/stata/
+    BASE:  /usr/local/stata/ado/base/
+    SITE:  /usr/local/ado/
+    PLUS:  /project/ado/plus/
+PERSONAL:  /project/ado/
+OLDPLACE:  ~/ado/
+r; t=0.00 13:39:08
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If present, add the authors' replication-package specific ado file path   
+>                    */
+. /* This is defined above                                                     
+>                    */
+. /*===========================================================================
+> ===================*/
+. 
+. if "`author_adopath'" != "" {             // The author adopath variable is f
+> illed out
+.     adopath ++ "$rootdir/`author_adopath'"
+r; t=0.00 13:39:08
+. }
+r; t=0.00 13:39:08
+
+. 
+. /* now let's check what's there */
+. 
+. di "=== Verifying pre-existing ado files - normally, this should be EMPTY upo
+> n first run"
+=== Verifying pre-existing ado files - normally, this should be EMPTY upon firs
+> t run
+r; t=0.00 13:39:08
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:39:08
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli
+> -compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written w
+> ith GUI Stata in mind.
+r; t=0.00 13:39:08
+
+. di "=========================="
+==========================
+r; t=0.00 13:39:08
+
+. 
+. 
+. /* this is long, so we pause the main log file */
+. log off ldi
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_39_08-statauser.log
+  log type:  text
+ paused on:  30 Apr 2025, 13:39:08
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_39_08-statauser.log
+  log type:  text
+resumed on:  30 Apr 2025, 13:39:08
+r; t=0.00 13:39:08
+
+. 
+. 
+. /* add packages to the macro */
+.     
+.     display in red "============ Installing packages/commands from SSC ======
+> ======="
+============ Installing packages/commands from SSC =============
+r; t=0.00 13:39:08
+
+.     display in red "== Packages: `ssc_packages'"
+== Packages: 
+r; t=0.00 13:39:08
+
+.     if !missing("`ssc_packages'") {
+.         foreach pkg in `ssc_packages' {
+  2.             capture which `pkg'
+  3.             if _rc == 111 {                 
+  4.                dis "Installing `pkg'"
+  5.                 ssc install `pkg', replace
+  6.             }
+  7.             which `pkg'
+  8.         }
+r; t=0.00 13:39:08
+.     }
+r; t=0.00 13:39:08
+
+. 
+. /* add unconditionally installed packages */
+.     display in red "=============== Unconditionally installed packages from S
+> SC ==============="
+=============== Unconditionally installed packages from SSC ===============
+r; t=0.00 13:39:08
+
+.     display in red "== Packages: `ssc_unconditional'"
+== Packages: 
+r; t=0.00 13:39:08
+
+.     if !missing("`ssc_unconditional'") {
+.         foreach pkg in `ssc_unconditional' {
+  2.             dis "Installing `pkg'"
+  3.             ssc install `pkg', replace
+  4.         }
+r; t=0.00 13:39:08
+.     }
+r; t=0.00 13:39:08
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If you need to "net install" packages, add lines to this section          
+>                    */
+.     * Install packages using net
+.     * net install grc1leg, from("http://www.stata.com/users/vwiggins/")
+. 
+. /*===========================================================================
+> ===================*/
+. /* yet other programs have no install capability, and may need to be copied *
+> /
+. /*===========================================================================
+> ===================*/
+. 
+. // e.g.
+. //  copy (URL) (name_of_file.ado)
+. // example:
+. // copy http://www.sacarny.com/wp-content/uploads/2015/08/ebayes.ado ebayes.a
+> do
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* This toolbox allows us to run code that still contains interactive command
+> s (which it should not) */
+. /*===========================================================================
+> ===================*/
+. 
+. net install cli-compat, all replace from("https://raw.githubusercontent.com/a
+> eadataeditor/cli-compat-stata/master")
+checking cli-compat consistency and verifying not already installed...
+all files already exist and are up to date.
+r; t=0.60 13:39:09
+
+. 
+. /*-------------- Sometimes, you may get the dreaded esttab error about paths 
+> -------------------*/
+. /* in that case, uncomment the following line, and overwrite the estout packa
+> ge with the newer one */
+. 
+. // net install estout, replace from(https://raw.githubusercontent.com/benjann
+> /estout/master/)
+. 
+. /*===========================================================================
+> ===================*/
+. /* after installing all packages, it may be necessary to issue the mata mlib 
+> index command */
+. /* This should always be the LAST command after installing all packages      
+>               */
+. /*===========================================================================
+> ===================*/
+. 
+.         mata: mata mlib index
+.mlib libraries to be searched are now
+    lmatabase;lmatamcmc;lmatasem;lmataivqreg;lmatapss;lmatanumlib;lmatabma;lmat
+> acollect;lmatasvy;lmatami;lmatadata;lmatafc;lmataopt;lmatagsem;lmatalasso;lma
+> taado;lmatats;lmatamixlog;lmatapostest;lmatahetdid;lmatameta;lmataerm;lmatata
+> b;lmatapath;lmatasp;lmatajm
+r; t=0.00 13:39:09
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* This is specific to AEA replication environment. May not be needed if no c
+> onfidential data   */
+. /* are used in the reproducibility check.                                    
+>                    */
+. /* Replicator should check the JIRA field "Working location of restricted dat
+> a" for right path  */
+. /*===========================================================================
+> ===================*/
+. 
+. global sdrive ""
+r; t=0.00 13:39:09
+
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* After all the setup work, let's check again what's installed in the ado di
+> rectories          */
+. /*===========================================================================
+> ===================*/
+. 
+. 
+. di "=== Verifying ado files after all install steps"
+=== Verifying ado files after all install steps
+r; t=0.00 13:39:09
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:39:09
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli
+> -compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written w
+> ith GUI Stata in mind.
+r; t=0.00 13:39:09
+
+. di "=========================="
+==========================
+r; t=0.00 13:39:09
+
+. 
+. 
+. 
+. di "========================================= END SETUP + DIAGNOSTICS =======
+> ============================="
+========================================= END SETUP + DIAGNOSTICS =============
+> =======================
+r; t=0.00 13:39:09
+
+. r; t=0.00 13:39:09
+
+. 
+. clear all
+r; t=0.00 13:39:09
+
+. set more off
+r; t=0.00 13:39:09
+
+. set maxvar 32767
+
+r; t=0.00 13:39:09
+
+. set matsize 11000
+set matsize ignored.
+    Matrix sizes are no longer limited by c(matsize) in modern Statas.
+    Matrix sizes are now limited by edition of Stata.  See limits for more
+    details.
+r; t=0.00 13:39:09
+
+. * Checking:
+. 
+. * Change globals!
+. 
+. *global cdname "C:\EESP\"
+. ** TO RUN THE DO FILE YOU JUST NEED TO CHANGE THIS LINE.
+. global cdname "$rootdir"
+r; t=0.00 13:39:09
+
+. 
+. global cd_do "$cdname/Do"
+r; t=0.00 13:39:09
+
+. global cd_data "$cdname/Data"
+r; t=0.00 13:39:09
+
+. 
+. cd "$cdname/"
+/project
+r; t=0.00 13:39:09
+
+. 
+. 
+. ** Create some of the controls
+. do "Do/Raw.do"
+
+. 
+. 
+. *** Process Census data
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2005.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,490 obs)
+r; t=0.21 13:39:09
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:39:09
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(291 real changes made)
+r; t=0.00 13:39:09
+
+. keep clave_mun total
+r; t=0.00 13:39:09
+
+. ren total total_2005
+r; t=0.01 13:39:09
+
+. drop if clave_mun == "."
+(3 observations deleted)
+r; t=0.00 13:39:09
+
+. save "$cd_data/Censo/Population_2005.dta", replace
+file /project/Data/Censo/Population_2005.dta saved
+r; t=0.00 13:39:09
+
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2010.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,492 obs)
+r; t=0.04 13:39:09
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:39:09
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(291 real changes made)
+r; t=0.00 13:39:09
+
+. keep clave_mun total
+r; t=0.00 13:39:09
+
+. ren total total_2010
+r; t=0.00 13:39:09
+
+. drop if clave_mun == "."
+(3 observations deleted)
+r; t=0.00 13:39:09
+
+. save "$cd_data/Censo/Population_2010.dta", replace
+file /project/Data/Censo/Population_2010.dta saved
+r; t=0.00 13:39:09
+
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/population2015.csv", cle
+> ar
+(encoding automatically selected: UTF-8)
+(4 vars, 2,463 obs)
+r; t=0.02 13:39:09
+
+. 
+. tostring cve_inegi, gen(clave_mun)
+clave_mun generated as str5
+r; t=0.00 13:39:09
+
+. replace clave_mun = "0" + clave_mun if cve_inegi<10000
+(261 real changes made)
+r; t=0.00 13:39:09
+
+. keep clave_mun total
+r; t=0.00 13:39:09
+
+. ren total total_2015
+r; t=0.00 13:39:09
+
+. drop if clave_mun == "."
+(6 observations deleted)
+r; t=0.00 13:39:09
+
+. save "$cd_data/Censo/Population_2015.dta", replace
+file /project/Data/Censo/Population_2015.dta saved
+r; t=0.00 13:39:09
+
+. 
+. drop if clave_mun =="."
+(0 observations deleted)
+r; t=0.00 13:39:09
+
+. merge 1:1 clave_mun using "$cd_data/Censo/Population_2010.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            74
+        from master                        21  (_merge==1)
+        from using                         53  (_merge==2)
+
+    Matched                             2,436  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:39:09
+
+. 
+. drop _merge
+r; t=0.00 13:39:09
+
+. 
+. merge 1:1 clave_mun using "$cd_data/Censo/Population_2005.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            23
+        from master                        23  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             2,487  (_merge==3)
+    -----------------------------------------
+r; t=0.00 13:39:09
+
+. 
+. drop _merge
+r; t=0.00 13:39:09
+
+. 
+. 
+. 
+. 
+. 
+. egen pob_tot_int = rowmean(total_2005 total_2010 total_2015)
+r; t=0.00 13:39:09
+
+. format pob_tot_int %10.0g
+r; t=0.00 13:39:09
+
+. 
+. keep clave_mun pob_tot_int
+r; t=0.00 13:39:09
+
+. merge  1:1 clave_mun using "$cd_data/Bases Madre/clave_mun.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            53
+        from master                        53  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             2,457  (_merge==3)
+    -----------------------------------------
+r; t=0.00 13:39:09
+
+. keep if _merge ==3
+(53 observations deleted)
+r; t=0.00 13:39:09
+
+. drop _merge
+r; t=0.00 13:39:09
+
+. save "$cd_data/Censo/Population_MUN.dta", replace
+file /project/Data/Censo/Population_MUN.dta saved
+r; t=0.00 13:39:09
+
+. 
+. 
+. 
+. 
+. 
+. import delimited using  "$cd_data/Bases Madre/Census/Census_raw.csv", clear
+(encoding automatically selected: UTF-8)
+(9 vars, 198,488 obs)
+r; t=0.63 13:39:10
+
+. ren entidad ent
+r; t=0.00 13:39:10
+
+. tostring ent, gen(ENT)
+ENT generated as str2
+r; t=0.11 13:39:10
+
+. tostring mun, gen(MUN)
+MUN generated as str3
+r; t=0.15 13:39:10
+
+. tostring loc, gen(LOC)
+LOC generated as str4
+r; t=0.14 13:39:10
+
+. 
+. replace ENT = "0" + ENT if ent <10
+(50,877 real changes made)
+r; t=0.00 13:39:10
+
+. replace MUN = "00" + MUN if mun <10
+(40,361 real changes made)
+r; t=0.00 13:39:10
+
+. replace MUN = "0" + MUN if mun >=10 & mun<100
+(124,006 real changes made)
+r; t=0.01 13:39:10
+
+. replace LOC = "000" + LOC if loc <10
+(16,509 real changes made)
+r; t=0.00 13:39:10
+
+. replace LOC = "00" + LOC if loc >=10 & loc<100
+(62,524 real changes made)
+r; t=0.01 13:39:10
+
+. replace LOC = "0" + LOC if loc >=100 & loc<1000
+(94,115 real changes made)
+r; t=0.01 13:39:10
+
+. 
+. gen clave_mun = ENT+MUN
+r; t=0.01 13:39:10
+
+. gen clave_loc = ENT+MUN+LOC
+r; t=0.03 13:39:10
+
+. *drop if inlist(nom_loc, "Total nacional", "Localidades de una vivienda", "Lo
+> calidades de dos viviendas", "Total de la Entidad", "Localidades de una vivie
+> nda", "Localidades de dos viviendas")
+. 
+. replace vph_radio = "." if vph_radio == "N/D"
+(230 real changes made)
+r; t=0.00 13:39:10
+
+. replace vph_radio = "." if vph_radio == "*"
+(84,460 real changes made)
+r; t=0.00 13:39:10
+
+. 
+. destring vph_radio, replace
+vph_radio: all characters numeric; replaced as long
+(84690 missing values generated)
+r; t=0.19 13:39:10
+
+. 
+. gen tasa_radio_missing = vph_radio/vivtot
+(84,693 missing values generated)
+r; t=0.00 13:39:10
+
+. gen tasa_radio = tasa_radio_missing
+(84,693 missing values generated)
+r; t=0.00 13:39:10
+
+. replace tasa_radio_missing = . if tasa_radio_missing<0
+(0 real changes made)
+r; t=0.00 13:39:10
+
+. bys clave_mun: egen prom_radio = mean(tasa_radio_missing)
+r; t=0.03 13:39:10
+
+. replace tasa_radio = prom_radio if tasa_radio_missing ==.
+(84,693 real changes made)
+r; t=0.00 13:39:10
+
+. 
+. save "$cd_data/Censo/Radio_Localidad.dta", replace
+file /project/Data/Censo/Radio_Localidad.dta saved
+r; t=0.02 13:39:11
+
+. 
+. *** Process taxes data
+. 
+. foreach archivo in 2006 2007 2008 2009 2010 2011 2012 2013 { 
+  2.         import delimited using  "$cd_data/Bases Madre/Tax/tax_`archivo'.cs
+> v", clear
+  3.         ren v1 clave_mun
+  4.         ren v2 estado
+  5.         ren v3 municipio
+  6.         ren v4 total
+  7.         drop if total == "TOTAL"
+  8.         replace total = subinstr(total, ",", "",.) 
+  9.         destring total, replace
+ 10.         gen year =      `archivo'
+ 11.         save "$cd_data/Censo/Tax_`archivo'.dta", replace
+ 12. }
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,095 real changes made)
+total: all characters numeric; replaced as double
+(364 missing values generated)
+file /project/Data/Censo/Tax_2006.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,031 real changes made)
+total: all characters numeric; replaced as double
+(428 missing values generated)
+file /project/Data/Censo/Tax_2007.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,171 real changes made)
+total: all characters numeric; replaced as double
+(288 missing values generated)
+file /project/Data/Censo/Tax_2008.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,177 real changes made)
+total: all characters numeric; replaced as double
+(282 missing values generated)
+file /project/Data/Censo/Tax_2009.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,177 real changes made)
+total: all characters numeric; replaced as double
+(282 missing values generated)
+file /project/Data/Censo/Tax_2010.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,141 real changes made)
+total: all characters numeric; replaced as double
+(318 missing values generated)
+file /project/Data/Censo/Tax_2011.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(2,141 real changes made)
+total: all characters numeric; replaced as double
+(318 missing values generated)
+file /project/Data/Censo/Tax_2012.dta saved
+(encoding automatically selected: UTF-8)
+(4 vars, 2,460 obs)
+(1 observation deleted)
+(1,759 real changes made)
+total: all characters numeric; replaced as double
+(700 missing values generated)
+file /project/Data/Censo/Tax_2013.dta saved
+r; t=0.30 13:39:11
+
+. 
+. 
+. use "$cd_data/Censo/Tax_2006.dta", replace
+r; t=0.00 13:39:11
+
+. foreach archivo in 2007 2008 2009 2010 2011 2012 2013 { 
+  2.         append using "$cd_data/Censo/Tax_`archivo'.dta", force
+  3.         
+. }
+r; t=0.00 13:39:11
+
+. 
+. drop if clave_mun ==""
+(8 observations deleted)
+r; t=0.00 13:39:11
+
+. replace total =0 if total ==.
+(2,972 real changes made)
+r; t=0.00 13:39:11
+
+. gen mis_tot=total==0
+r; t=0.00 13:39:11
+
+. 
+. save "$cd_data/Censo/Taxes_mun_2006_2013.dta", replace
+file /project/Data/Censo/Taxes_mun_2006_2013.dta saved
+r; t=0.00 13:39:11
+
+. 
+. /*
+> use "$cd_data/Censo/Population_MUN.dta", replace
+> keep clave_mun
+> expand 8
+> bys clave_mun: gen year = 2005+_n
+> 
+> merge 1:1 clave_mun year  using  "$cd_data/Censo/Taxes_mun_2006_2013.dta", ge
+> n (merg)
+> replace total = 0 if total ==.
+> replace mis_tot = total ==0
+> drop merg
+> 
+> save "$cd_data/Censo/Taxes_mun_2006_2013.dta", replace
+> 
+> */
+. *** Process crime data
+. 
+. foreach archivo in 06 07 08 09 10 { 
+  2.         import dbase "$cd_data/Bases Madre/Homicides/DEFUN`archivo'.dbf", 
+> clear
+  3.         keep if PRESUNTO ==2
+  4.         tostring ENT_REGIS, gen (ent)
+  5.         replace ent = "0" + ent if ENT_REGIS<10
+  6.         tostring MUN_REGIS, gen (mun)
+  7.         replace mun = "00" + mun if MUN_REGIS<10
+  8.         replace mun = "0" + mun if MUN_REGIS>=10 & MUN_REGIS<100
+  9.         gen clave_mun = ent+mun
+ 10.         gen homicidios = 1
+ 11.         collapse (sum) homicidios, by (clave_mun)
+ 12.         gen year = 2000+`archivo'
+ 13.         save "$cd_data/Censo/Homicides_`archivo'.dta", replace
+ 14. 
+. }
+(53 vars, 494,471 obs)
+(484,017 observations deleted)
+ent generated as str2
+(2,706 real changes made)
+mun generated as str3
+(2,267 real changes made)
+(6,549 real changes made)
+file /project/Data/Censo/Homicides_06.dta saved
+(53 vars, 514,420 obs)
+(505,552 observations deleted)
+ent generated as str2
+(2,116 real changes made)
+mun generated as str3
+(2,068 real changes made)
+(5,576 real changes made)
+file /project/Data/Censo/Homicides_07.dta saved
+(53 vars, 539,530 obs)
+(525,523 observations deleted)
+ent generated as str2
+(5,214 real changes made)
+mun generated as str3
+(3,474 real changes made)
+(9,129 real changes made)
+file /project/Data/Censo/Homicides_08.dta saved
+(53 vars, 564,673 obs)
+(544,869 observations deleted)
+ent generated as str2
+(7,193 real changes made)
+mun generated as str3
+(5,157 real changes made)
+(12,831 real changes made)
+file /project/Data/Censo/Homicides_09.dta saved
+(53 vars, 592,018 obs)
+(566,261 observations deleted)
+ent generated as str2
+(9,969 real changes made)
+mun generated as str3
+(6,165 real changes made)
+(17,920 real changes made)
+file /project/Data/Censo/Homicides_10.dta saved
+r; t=24.54 13:39:35
+
+. 
+. 
+. foreach archivo in 11 12 13 { 
+  2.         import dbase "$cd_data/Bases Madre/Homicides/DEFUN`archivo'.dbf", 
+> clear
+  3.         keep if PRESUNTO ==2
+  4.         ren ENT_REGIS ent
+  5.         ren MUN_REGIS mun
+  6.         gen clave_mun = ent+mun
+  7.         gen homicidios = 1
+  8.         collapse (sum) homicidios, by (clave_mun)
+  9.         gen year = 2000+`archivo'
+ 10.         save "$cd_data/Censo/Homicides_`archivo'.dta", replace
+ 11. }
+(53 vars, 590,693 obs)
+(563,480 observations deleted)
+file /project/Data/Censo/Homicides_11.dta saved
+(58 vars, 602,354 obs)
+(576,387 observations deleted)
+file /project/Data/Censo/Homicides_12.dta saved
+(59 vars, 623,599 obs)
+(600,536 observations deleted)
+file /project/Data/Censo/Homicides_13.dta saved
+r; t=15.02 13:39:50
+
+. 
+. use "$cd_data/Censo/Homicides_06.dta", replace
+r; t=0.00 13:39:50
+
+. foreach archivo in 07 08 09 10 11 12 13 { 
+  2.         append using "$cd_data/Censo/Homicides_`archivo'.dta", force
+  3.         
+. }
+r; t=0.00 13:39:50
+
+. 
+. 
+. 
+. save "$cd_data/Censo/Homicides_2006_2013_Poblacion.dta", replace
+file /project/Data/Censo/Homicides_2006_2013_Poblacion.dta saved
+r; t=0.00 13:39:50
+
+. 
+. use "$cd_data/Bases Madre/clave_mun.dta", clear
+r; t=0.00 13:39:50
+
+. expand 8
+(17,199 observations created)
+r; t=0.00 13:39:50
+
+. bys clave_mun: gen year = _n+2005
+r; t=0.00 13:39:50
+
+. 
+. merge 1:1 clave_mun year using "$cd_data/Censo/Homicides_2006_2013_Poblacion.
+> dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        10,299
+        from master                    10,299  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             9,357  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:39:50
+
+. replace homicidios = 0 if homicidios ==.
+(10,299 real changes made)
+r; t=0.00 13:39:50
+
+. drop _merge
+r; t=0.00 13:39:50
+
+. 
+. merge m:1 clave_mun using "$cd_data/Censo/Population_MUN.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                            19,656  (_merge==3)
+    -----------------------------------------
+r; t=0.00 13:39:50
+
+. drop _merge
+r; t=0.00 13:39:50
+
+. 
+. gen HOMI_CAP_MUN = homicidios/pob_tot_int
+r; t=0.00 13:39:50
+
+. replace HOMI_CAP_MUN = 0 if HOMI_CAP_MUN ==.
+(0 real changes made)
+r; t=0.00 13:39:50
+
+. save "$cd_data/Censo/Homicides_2006_2013_Poblacion.dta", replace
+file /project/Data/Censo/Homicides_2006_2013_Poblacion.dta saved
+r; t=0.00 13:39:50
+
+. 
+. 
+end of do-file
+r; t=41.64 13:39:50
+
+. ** Create the cheating db
+. do "Do/DB_Secondary.do"
+
+. 
+. ************ PUT ALL THE INDIVIDUAL DATABASES (CHEATING) TOGETHER
+. 
+. foreach archivo in 2006 2007 2008{ 
+  2.         use "$cd_data/Bases Madre/Secundario`archivo'.dta", clear
+  3.         capture drop grado
+  4.         gen grado = 3
+  5.         ren grado GradoSecundaria
+  6.         destring GradoSecundaria, replace
+  7.         ren prop_3 prop
+  8.         drop if prop ==.
+  9.         capture drop ClaveUnicaEscuelaTurno
+ 10.         tostring turno, replace
+ 11.         gen ClaveUnicaEscuelaTurno =clavedelaescuela + "_" + turno
+ 12.         capture drop year
+ 13.         gen year = `archivo'
+ 14.         save "$cd_data/Bases Madre/Secundario`archivo'_Expanded.dta", repl
+> ace
+ 15. }
+GradoSecundaria already numeric; no replace
+(0 observations deleted)
+turno already string; no replace
+file /project/Data/Bases Madre/Secundario2006_Expanded.dta saved
+GradoSecundaria already numeric; no replace
+(0 observations deleted)
+turno already string; no replace
+file /project/Data/Bases Madre/Secundario2007_Expanded.dta saved
+GradoSecundaria already numeric; no replace
+(0 observations deleted)
+turno was byte now str1
+file /project/Data/Bases Madre/Secundario2008_Expanded.dta saved
+r; t=0.20 13:39:51
+
+. 
+. foreach archivo in 2009 2010 2011 2012 2013{ 
+  2.         use "$cd_data/Bases Madre/Secundario`archivo'.dta", clear
+  3.         replace turno = "1" if turno == "MATUTINO"
+  4.         replace turno = "2" if turno == "VESPERTINO"
+  5.         replace turno = "3" if turno == "NOCTURNO"
+  6.         replace turno = "4" if turno == "DISCONTINU"
+  7.         capture drop ClaveUnicaEscuelaTurno
+  8.         gen clave_mun = ent + clavemun
+  9. 
+.         gen clave_loc = ent + clavemun +clavemun
+ 10. 
+.         gen ClaveUnicaEscuelaTurno =clavedelaescuela + "_" + turno
+ 11. 
+.         expand 3
+ 12.         bysort ClaveUnicaEscuelaTurno: gen GradoSecundaria = _n 
+ 13.         gen prop = prop_1 if GradoSecundaria ==1
+ 14.         replace prop = prop_2 if GradoSecundaria ==2
+ 15.         replace prop = prop_3 if GradoSecundaria ==3
+ 16.         drop if prop==.
+ 17.         cap drop year
+ 18.         gen year = `archivo' 
+ 19.         save "$cd_data/Bases Madre/Secundario`archivo'_Expanded.dta", repl
+> ace
+ 20. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(62,756 observations created)
+(63,827 missing values generated)
+(30,702 real changes made)
+(30,059 real changes made)
+(3,066 observations deleted)
+file /project/Data/Bases Madre/Secundario2009_Expanded.dta saved
+(28,572 real changes made)
+(3,437 real changes made)
+(292 real changes made)
+(1 real change made)
+(64,604 observations created)
+(65,105 missing values generated)
+(31,679 real changes made)
+(31,173 real changes made)
+(2,253 observations deleted)
+file /project/Data/Bases Madre/Secundario2010_Expanded.dta saved
+(29,396 real changes made)
+(3,497 real changes made)
+(287 real changes made)
+(1 real change made)
+(66,362 observations created)
+(66,362 missing values generated)
+(33,181 real changes made)
+(33,181 real changes made)
+(0 observations deleted)
+file /project/Data/Bases Madre/Secundario2011_Expanded.dta saved
+(28,699 real changes made)
+(3,421 real changes made)
+(275 real changes made)
+(1 real change made)
+(64,792 observations created)
+(65,175 missing values generated)
+(31,800 real changes made)
+(31,171 real changes made)
+(2,204 observations deleted)
+file /project/Data/Bases Madre/Secundario2012_Expanded.dta saved
+(91,494 real changes made)
+(10,494 real changes made)
+(795 real changes made)
+(3 real changes made)
+(205,572 observations created)
+(274,473 missing values generated)
+(33,534 real changes made)
+(33,104 real changes made)
+(207,835 observations deleted)
+file /project/Data/Bases Madre/Secundario2013_Expanded.dta saved
+r; t=0.61 13:39:51
+
+. 
+. 
+. use "$cd_data/Bases Madre/Secundario2006_Expanded.dta", clear
+r; t=0.01 13:39:51
+
+. 
+. foreach archivo in 2007 2008 2009 2010 2011 2012 2013{ 
+  2.         append using "$cd_data/Bases Madre/Secundario`archivo'_Expanded.dt
+> a", force
+  3. }
+(variable prop was float, now double to accommodate using data's values)
+(variable prop_tot was float, now double to accommodate using data's values)
+(variable turno was str1, now str10 to accommodate using data's values)
+(variable cheat_1 was byte, now int to accommodate using data's values)
+r; t=0.53 13:39:52
+
+. 
+. keep if year !=.
+(0 observations deleted)
+r; t=0.01 13:39:52
+
+. capture drop clave_mun
+r; t=0.00 13:39:52
+
+. 
+. gen clave_mun = ent + clavemun
+r; t=0.05 13:39:52
+
+. replace prop = . if prop <0
+(2,551 real changes made, 2,551 to missing)
+r; t=0.00 13:39:52
+
+. save "$cd_data/BasesAnalisis/Secundario2006-2013ParaAnalisis.dta", replace
+file /project/Data/BasesAnalisis/Secundario2006-2013ParaAnalisis.dta saved
+r; t=0.20 13:39:52
+
+. 
+end of do-file
+r; t=1.65 13:39:52
+
+. ** Create a balanced panel of corruption scandals
+. do "Do/GenerarBaseCuadradaDeMunicipiosTotal.do"
+
+. 
+. 
+. 
+. 
+. ** create balanced panel of corruption by mun-year. 
+. 
+. * keep the municipality codes (clave_mun) from cheating data, 2006-2013 
+. use "$cd_data/BasesAnalisis/Secundario2006-2013ParaAnalisis.dta", clear
+r; t=0.26 13:39:52
+
+. keep clave_mun
+r; t=0.06 13:39:52
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(563,992 observations deleted)
+r; t=0.50 13:39:53
+
+. ** Expand (to cover all years) and create an empty balanced panel clave_mun-y
+> ear
+. expand 15
+(33,712 observations created)
+r; t=0.00 13:39:53
+
+. 
+. gen year = .
+(36,120 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: replace year = 2004 if _n==1
+(2408 real changes made)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: replace year = year[_n-1]+1 if year !=2004
+(33712 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. ** merge with corruption data
+. merge m:1 clave_mun year using "$cd_data/Data_Corruption/TotalAuditoriasConMu
+> nicipio.dta"
+(variable clave_mun was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        34,475
+        from master                    34,474  (_merge==1)
+        from using                          1  (_merge==2)
+
+    Matched                             1,646  (_merge==3)
+    -----------------------------------------
+r; t=0.01 13:39:53
+
+. keep if _merge !=2
+(1 observation deleted)
+r; t=0.00 13:39:53
+
+. 
+. gen Au2 = Aud
+(34,474 missing values generated)
+r; t=0.00 13:39:53
+
+. replace Au2 = . if year ==2004
+(108 real changes made, 108 to missing)
+r; t=0.00 13:39:53
+
+. 
+. sort clave_mun Au2 year 
+r; t=0.00 13:39:53
+
+. cap drop nro_auditoria
+r; t=0.00 13:39:53
+
+. 
+. bysort clave_mun  Au2 : gen nro_auditoria = _n if Au2==1
+(34,582 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. ** put a 0 in audit where there's a missing
+. 
+. replace Auditada = 0 if Auditada ==.
+(34,474 real changes made)
+r; t=0.00 13:39:53
+
+. replace nro = 0 if nro ==.
+(34,582 real changes made)
+r; t=0.00 13:39:53
+
+. replace una = 0 if una ==.
+(34,474 real changes made)
+r; t=0.00 13:39:53
+
+. drop _merge
+r; t=0.00 13:39:53
+
+. gen AlreadyAudited = 0
+r; t=0.00 13:39:53
+
+. sort clave_mun year
+r; t=0.00 13:39:53
+
+. 
+. ** Dummy indicating if the mun was already audited (within the sample period)
+. 
+. bysort clave_mun: replace Already = max(Auditada, Already[_n-1]) if year>2005
+(4657 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. * Corruption (binary)
+. gen Corrupt =0
+r; t=0.00 13:39:53
+
+. replace Corrupt = 1 if una >0
+(745 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: gen lag_Already  = Already[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. ** Create leads and lags of everything (corruption and audit)
+. 
+. bysort clave_mun: gen lag_Auditada1  = Auditada[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen lag_Auditada2  = Auditada[_n+2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. bysort clave_mun: gen lead_Auditada1  = Auditada[_n-1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen lead_Auditada2  = Auditada[_n-2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: gen C_1 = Corrupt[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen C_2 = Corrupt[_n+2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: gen C_menos1 = Corrupt[_n-1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen C_menos2 = Corrupt[_n-2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: gen una_1 = unau[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen una_2 = unau[_n+2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. bysort clave_mun: gen una_menos1 = unau[_n-1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen una_menos2 = unau[_n-2]
+(4,816 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. *replace una_menos1 =0 if year==2006 
+. *replace una_menos2 =0 if inlist(year,2007)
+. 
+. *replace C_menos1 =0 if year==2006 
+. *replace C_menos2 =0 if inlist(year,2005,2007)
+. 
+. 
+. ** only a few municipalities presented information about unauthorized use of 
+> FISM in 2005, I'm including them here:
+. *replace C_menos1 = 1 if year ==2006 & inlist(clave_mun, "02002", "02004", "0
+> 2001", "14039","14067","14098","14101","14120","16050")
+. *replace C_menos2 = 1 if year ==2007 & inlist(clave_mun, "02002", "02004", "0
+> 2001", "14039","14067","14098","14101","14120","16050")
+. 
+. 
+. *replace una_menos1 = 50 if year ==2006 & inlist(clave_mun, "02002", "02004",
+>  "02001", "14039","14067","14098","14101","14120","16050")
+. *replace una_menos2 = 50 if year ==2007 & inlist(clave_mun, "02002", "02004",
+>  "02001", "14039","14067","14098","14101","14120","16050")
+. 
+. 
+. ** Create percentiles of corruption (25 and 15)
+. egen p25 = pctile(unauthorized) if inrange(year,2006,2013) & unau>0, p(25)
+(35,638 missing values generated)
+r; t=0.00 13:39:53
+
+. egen p15 = pctile(unauthorized) if inrange(year,2006,2013) & unau>0, p(15)
+(35,638 missing values generated)
+r; t=0.00 13:39:53
+
+. ** Percentile 25
+. gen Corrupt_25 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_25 = 1 if unauthorized >=p25
+(358 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_25_1 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_25_1 = 1 if una_1 >=p25
+(2,441 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_25_2 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_25_2 = 1 if una_2 >=p25
+(4,891 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. gen Corrupt_25_menos1 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_25_menos1 = 1 if una_menos1 >=p25
+(2,438 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_25_menos2 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_25_menos2 = 1 if una_menos2 >=p25
+(4,879 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. * Percentil 15
+. gen Corrupt_15 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_15 = 1 if unauthorized >=p15
+(414 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_15_1 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_15_1 = 1 if una_1 >=p15
+(2,445 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_15_2 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_15_2 = 1 if una_2 >=p15
+(4,901 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. gen Corrupt_15_menos1 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_15_menos1= 1 if una_menos1 >=p15
+(2,445 real changes made)
+r; t=0.00 13:39:53
+
+. gen Corrupt_15_menos2 = 0
+r; t=0.00 13:39:53
+
+. replace Corrupt_15_menos2 = 1 if una_menos2 >=p15
+(4,887 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. 
+. 
+. keep if inlist(year, 2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2015)
+(9,632 observations deleted)
+r; t=0.00 13:39:53
+
+. 
+. ** I am not using this. It's an  indicator of the number of audits.
+. 
+. gen VecesAuditada = nro_auditoria
+r; t=0.00 13:39:53
+
+. 
+. bysort clave_mun: replace Veces = Veces[_n-1] if Auditada ==0
+(24950 real changes made, 23125 to missing)
+r; t=0.00 13:39:53
+
+. replace Veces = 0 if Veces ==.
+(23,125 real changes made)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen Seleccionada= Auditada[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. bysort clave_mun (year) : gen Corr_Acum = sum(Corrupt)
+r; t=0.00 13:39:53
+
+. bysort clave_mun (year) : gen Corr_Acum_15 = sum(Corrupt_15)
+r; t=0.00 13:39:53
+
+. bysort clave_mun (year) : gen Corr_Acum_25 = sum(Corrupt_25)
+r; t=0.00 13:39:53
+
+. 
+. gen CorruptPast=0
+r; t=0.00 13:39:53
+
+. gen CorruptPast_15=0
+r; t=0.00 13:39:53
+
+. gen CorruptPast_25=0
+r; t=0.00 13:39:53
+
+. 
+. ** Dummy: the mun was declared corrupt in the past (within the sample period)
+. replace CorruptPast = 1 if (Corr_Acum==1 & Corrupt !=1) | Corr_Acum>1
+(1,751 real changes made)
+r; t=0.00 13:39:53
+
+. replace CorruptPast_15 = 1 if (Corr_Acum_15==1 & Corrupt_15 !=1) | Corr_Acum_
+> 15>1
+(1,541 real changes made)
+r; t=0.00 13:39:53
+
+. replace CorruptPast_25 = 1 if (Corr_Acum_25==1 & Corrupt_25 !=1) | Corr_Acum_
+> 25>1
+(1,401 real changes made)
+r; t=0.00 13:39:53
+
+. 
+. 
+. bysort clave_mun: gen lag_CorruptPast  = CorruptPast[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen lag_CorruptPast_15  = CorruptPast_15[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. bysort clave_mun: gen lag_CorruptPast_25  = CorruptPast_25[_n+1]
+(2,408 missing values generated)
+r; t=0.00 13:39:53
+
+. 
+. save "$cd_data/Data_Corruption/TodosLosMuni_ConAudits_ConAlreadyAudited.dta",
+>  replace
+file
+    /project/Data/Data_Corruption/TodosLosMuni_ConAudits_ConAlreadyAudited.dt
+    > a saved
+r; t=0.00 13:39:53
+
+. 
+. 
+. 
+end of do-file
+r; t=0.91 13:39:53
+
+. ** Create the cheating dataset (secondary schools), merge it with corruption 
+> and run regessions
+. do "Do/MergeAnalysisBaseCompleta2.do"
+
+. 
+. *** Now merge both datasets
+. 
+. *cd "C:\EESP\Corruption_G"
+. 
+. ** Open municipality corruption data
+. 
+. use "$cd_data/Data_Corruption/TotalAuditoriasConMunicipio.dta", clear
+r; t=0.00 13:39:53
+
+. keep clave_mun
+r; t=0.00 13:39:53
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(1,066 observations deleted)
+r; t=0.00 13:39:53
+
+. save "$cd_data/BasesAnalisis/ListadoMunicipiosCompleto.dta", replace
+file /project/Data/BasesAnalisis/ListadoMunicipiosCompleto.dta saved
+r; t=0.00 13:39:53
+
+. 
+. 
+. **** only 2006-2013
+. use "$cd_data/Data_Corruption/TotalAuditoriasConMunicipio.dta", clear
+r; t=0.00 13:39:53
+
+. 
+. 
+. 
+. 
+. keep if inlist(year,2004,2005, 2006,2007,2008,2009,2010,2011,2012,2013,2014,2
+> 015)
+(0 observations deleted)
+r; t=0.00 13:39:53
+
+. 
+. * graph density of unauthorized exp
+. 
+. *** FIGURE A2
+. kdensity unau, title ("") yline(0, lstyle(foreground)) xtitle("") ytitle("") 
+>  graphregion(color(white)) ylab(,nogrid) bw(5)
+r; t=0.62 13:39:54
+
+. graph save Graph "Graficos/Kernel_Corruption.gph", replace
+file Graficos/Kernel_Corruption.gph saved
+r; t=0.02 13:39:54
+
+. graph export "Graficos/Kernel_Corruption.pdf", replace
+file Graficos/Kernel_Corruption.pdf saved as PDF format
+r; t=0.00 13:39:54
+
+. 
+. keep clave_mun
+r; t=0.00 13:39:54
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(1,066 observations deleted)
+r; t=0.00 13:39:54
+
+. save "$cd_data/BasesAnalisis/ListadoMunicipiosCompleto.dta", replace
+file /project/Data/BasesAnalisis/ListadoMunicipiosCompleto.dta saved
+r; t=0.00 13:39:54
+
+. 
+. ** open cheating data
+. 
+. use "$cd_data/BasesAnalisis/Secundario2006-2013ParaAnalisis.dta", clear
+r; t=0.38 13:39:54
+
+. destring turno, replace
+turno: all characters numeric; replaced as byte
+(7 missing values generated)
+r; t=0.62 13:39:55
+
+. cap drop numobs
+r; t=0.01 13:39:55
+
+. ** this is just to get the number of students per grade-year-school
+. 
+. merge 1:1 clavedelaescuela turno GradoS year using "$cd_data/Bases Madre/numo
+> bs.dta", gen(asdg)
+(variable clavedelaescuela was str10, now str11 to accommodate using data's
+       values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,351
+        from master                         4  (asdg==1)
+        from using                     11,347  (asdg==2)
+
+    Matched                           566,396  (asdg==3)
+    -----------------------------------------
+r; t=1.34 13:39:56
+
+. keep if asdg !=2
+(11,347 observations deleted)
+r; t=0.03 13:39:56
+
+. drop asdg
+r; t=0.00 13:39:56
+
+. ** merge with the list (clave_mun) of municipalities that were audited in the
+>  relevant period
+. 
+. merge m:1 clave_mun using "$cd_data/BasesAnalisis/ListadoMunicipiosCompleto.d
+> ta", gen(m)
+(variable clave_mun was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       221,100
+        from master                   221,099  (m==1)
+        from using                          1  (m==2)
+
+    Matched                           345,301  (m==3)
+    -----------------------------------------
+r; t=0.69 13:39:57
+
+. 
+. * Keep only the municipalities with at least one audit in 2006-2015
+. keep if m == 3
+(221,100 observations deleted)
+r; t=0.27 13:39:57
+
+. drop m
+r; t=0.00 13:39:57
+
+. 
+. 
+. 
+. *** merge with corruption data
+. 
+. merge m:1 year clave_mun using "$cd_data/Data_Corruption/TodosLosMuni_ConAudi
+> ts_ConAlreadyAudited.dta", gen(mm)
+(variable municipio was str3, now str45 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        22,020
+        from master                         0  (mm==1)
+        from using                     22,020  (mm==2)
+
+    Matched                           345,301  (mm==3)
+    -----------------------------------------
+r; t=1.10 13:39:58
+
+. 
+. drop if mm ==2
+(22,020 observations deleted)
+r; t=0.02 13:39:58
+
+. gen YearTreatment = 0
+r; t=0.00 13:39:58
+
+. replace nro_auditoria = 0 if nro_auditoria == .
+(0 real changes made)
+r; t=0.00 13:39:58
+
+. replace YearTreatment =1 if Auditada ==1 
+(111,876 real changes made)
+r; t=0.01 13:39:58
+
+. 
+. tostring year, gen(year_string)
+year_string generated as str4
+r; t=0.48 13:39:59
+
+. 
+. 
+. * FE: school * grade (1st, 2nd, etc)
+. tostring GradoSecundaria, gen(grade_string)
+grade_string generated as str1
+r; t=0.26 13:39:59
+
+. drop if !inlist(grade_string, "1","2","3")
+(0 observations deleted)
+r; t=0.03 13:39:59
+
+. cap drop Corrupt
+r; t=0.01 13:39:59
+
+. gen Corrupt = 0 
+r; t=0.00 13:39:59
+
+. * define corruption as a binary var
+. replace Corrupt = 1 if unauthorized > 0 & YearTreatment == 1
+(52,771 real changes made)
+r; t=0.00 13:39:59
+
+. 
+. 
+. label var clavedelaescuela "Unique Key per School"
+r; t=0.00 13:39:59
+
+. label var turno "morning/evening/night"
+r; t=0.00 13:39:59
+
+. label var prop "Proportion of Students Cheating"
+r; t=0.00 13:39:59
+
+. label var GradoS "First, Second or Third Year of Secondary School"
+r; t=0.00 13:39:59
+
+. label var ClaveUnicaEscuela "Unique Key per School+Turno (evening, morning, n
+> ight)"
+r; t=0.00 13:39:59
+
+. label var tipodees "general, particular, technical, etc"
+r; t=0.00 13:39:59
+
+. label var unauthorized "% of unauthorized expenditure"
+r; t=0.00 13:39:59
+
+. label var YearTreatment "1 if the mun was treated, 0 otherwise"
+r; t=0.00 13:39:59
+
+. 
+. label var Corrupt "1 if unauthorized>0, 0 otherwise"
+r; t=0.00 13:39:59
+
+. 
+. save "$cd_data/BasesAnalisis/FinalDataBase_SecundariaBaseCompleta.dta", repla
+> ce
+file /project/Data/BasesAnalisis/FinalDataBase_SecundariaBaseCompleta.dta
+    saved
+r; t=0.36 13:39:59
+
+. 
+. * define municipality and locality keys
+. destring ent, gen(entnum)
+ent: all characters numeric; entnum generated as byte
+r; t=0.54 13:40:00
+
+. tostring entnum, gen(ent_string)
+ent_string generated as str2
+r; t=0.33 13:40:00
+
+. ren claveloc loc
+r; t=0.00 13:40:00
+
+. gen claveloc = ent_s + clavemun + loc
+r; t=0.08 13:40:00
+
+. 
+. ta grade_string, gen(grade_)
+
+GradoSecund |
+       aria |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |     98,613       28.56       28.56
+          2 |     98,481       28.52       57.08
+          3 |    148,207       42.92      100.00
+------------+-----------------------------------
+      Total |    345,301      100.00
+r; t=0.08 13:40:00
+
+. ta year, gen (yy)
+
+       year |      Freq.     Percent        Cum.
+------------+-----------------------------------
+       2006 |     16,466        4.77        4.77
+       2007 |     17,586        5.09        9.86
+       2008 |     17,041        4.94       14.80
+       2009 |     55,759       16.15       30.94
+       2010 |     57,837       16.75       47.69
+       2011 |     61,029       17.67       65.37
+       2012 |     57,907       16.77       82.14
+       2013 |     61,676       17.86      100.00
+------------+-----------------------------------
+      Total |    345,301      100.00
+r; t=0.07 13:40:00
+
+. 
+. cap ren NRO nro
+r; t=0.00 13:40:00
+
+. 
+. bysort clave_mun: egen maximo = max(nro)
+r; t=0.22 13:40:01
+
+. 
+. 
+. ** log of corrruption (continuous). Do it for current and 2 leads, 2 lags.
+. gen ln_unau=ln(unau+1)
+r; t=0.01 13:40:01
+
+. gen ln_una_1=ln(una_1+1)
+r; t=0.00 13:40:01
+
+. gen ln_una_2=ln(una_2+1)
+r; t=0.01 13:40:01
+
+. gen ln_unamenos1=ln(una_menos1+1)
+r; t=0.00 13:40:01
+
+. gen ln_unamenos2=ln(una_menos2+1)
+r; t=0.00 13:40:01
+
+. 
+. ** center the variable
+. qui sum ln_unau, meanonly
+r; t=0.00 13:40:01
+
+. gen ln_unau_center=ln_unau-`r(mean)'
+r; t=0.00 13:40:01
+
+. 
+. 
+. 
+. ta turno, gen(Turn_)
+
+morning/eve |
+ ning/night |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |    300,038       86.89       86.89
+          2 |     42,185       12.22       99.11
+          3 |      3,055        0.88      100.00
+          4 |         16        0.00      100.00
+------------+-----------------------------------
+      Total |    345,294      100.00
+r; t=0.06 13:40:01
+
+. 
+. 
+. 
+. *************** CLASS SIZE DATA
+. 
+. merge m:1 GradoS clavedelaescuela turno using "$cd_data/Censo/divisiones_escu
+> ela.dta", gen(asdasd)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        55,396
+        from master                    17,948  (asdasd==1)
+        from using                     37,448  (asdasd==2)
+
+    Matched                           327,353  (asdasd==3)
+    -----------------------------------------
+r; t=0.71 13:40:01
+
+. drop if asdasd==2
+(37,448 observations deleted)
+r; t=0.02 13:40:01
+
+. gen N=numobs/divisiones
+(17,951 missing values generated)
+r; t=0.00 13:40:01
+
+. ** log of size
+. gen ln_big = ln(N+1)
+(17,951 missing values generated)
+r; t=0.00 13:40:01
+
+. qui sum ln_big, meanonly
+r; t=0.02 13:40:02
+
+. return list
+
+scalars:
+                  r(N) =  327350
+              r(sum_w) =  327350
+                r(sum) =  962063.9880054891
+               r(mean) =  2.938946045533799
+                r(min) =  .087011381983757
+                r(max) =  5.493061542510986
+r; t=0.00 13:40:02
+
+. ** center log of size, create interactions with corruption AND with the audit
+>  var
+. gen ln_big_center=ln_big-`r(mean)'
+(17,951 missing values generated)
+r; t=0.00 13:40:02
+
+. gen i_b=ln_big_center*Corrupt
+(17,951 missing values generated)
+r; t=0.00 13:40:02
+
+. gen i_a=ln_big_center*Auditada
+(17,951 missing values generated)
+r; t=0.02 13:40:02
+
+. 
+. 
+. 
+. *************** PARTY IN GOVERNMENT (MUN) DATA AND ELECTION (MUN) DATA
+. 
+. *merge with politicians database (year corruption happened)
+. merge m:m clave_mun year using "$cd_data/Base Presidentes/Muni_Presidentes_De
+> sfasado.dta", gen(tt)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         9,176
+        from master                     3,528  (tt==1)
+        from using                      5,648  (tt==2)
+
+    Matched                           341,773  (tt==3)
+    -----------------------------------------
+r; t=0.78 13:40:02
+
+. keep if tt ==3
+(9,176 observations deleted)
+r; t=0.04 13:40:02
+
+. 
+. *merge with politicians database (year corruption was released)
+. 
+. merge m:m clave_mun year using "$cd_data/Base Presidentes/Muni_Presidentes.dt
+> a", gen(mmm) force
+(variable municipio was str45, now str61 to accommodate using data's values)
+(label _merge already defined)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         5,827
+        from master                       173  (mmm==1)
+        from using                      5,654  (mmm==2)
+
+    Matched                           341,600  (mmm==3)
+    -----------------------------------------
+r; t=0.40 13:40:03
+
+. 
+. keep if mmm==3
+(5,827 observations deleted)
+r; t=0.04 13:40:03
+
+. 
+. 
+. ** merge with the dataset that contians the dummy indicating if there were mu
+> nicipal elections that year
+. 
+. merge m:1 clave_mun year using "$cd_data/Base Presidentes/mun_elec.dta", gen(
+> xxxx)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        17,675
+        from master                         0  (xxxx==1)
+        from using                     17,675  (xxxx==2)
+
+    Matched                           341,600  (xxxx==3)
+    -----------------------------------------
+r; t=0.51 13:40:03
+
+. keep if xxxx==3
+(17,675 observations deleted)
+r; t=0.02 13:40:03
+
+. drop xxxx
+r; t=0.00 13:40:03
+
+. 
+. ** LABOR DATA
+. merge m:1 clave_mun year using "$cd_data/Censo/Registrados_2006_2013.dta", ge
+> n(XX2)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        15,218
+        from master                         0  (XX2==1)
+        from using                     15,218  (XX2==2)
+
+    Matched                           341,600  (XX2==3)
+    -----------------------------------------
+r; t=0.09 13:40:03
+
+. keep if XX2==3
+(15,218 observations deleted)
+r; t=0.02 13:40:03
+
+. drop XX2
+r; t=0.00 13:40:03
+
+. 
+. ** CRIME DATA
+. 
+. merge m:1 clave_mun year using "$cd_data/Censo/Homicides_2006_2013_Poblacion.
+> dta", gen(merg)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        15,218
+        from master                         0  (merg==1)
+        from using                     15,218  (merg==2)
+
+    Matched                           341,600  (merg==3)
+    -----------------------------------------
+r; t=0.48 13:40:04
+
+. keep if merg ==3
+(15,218 observations deleted)
+r; t=0.02 13:40:04
+
+. drop merg
+r; t=0.00 13:40:04
+
+. 
+. 
+. 
+. 
+. keep if inlist(year, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013)
+(0 observations deleted)
+r; t=0.01 13:40:04
+
+. 
+. replace Partido = "NS" if Partido == ""
+(2,228 real changes made)
+r; t=0.01 13:40:04
+
+. replace PartidoDesf = "NS" if PartidoDesf == ""
+(2,113 real changes made)
+r; t=0.01 13:40:04
+
+. 
+. qui ta PartidoD, gen(P_)
+r; t=0.72 13:40:05
+
+. qui ta Partido, gen(P_L_)
+r; t=0.44 13:40:05
+
+. 
+. 
+. qui ta clave_mun, gen(muni_)
+r; t=3.93 13:40:09
+
+. gen year_trend = year-2005
+r; t=0.00 13:40:09
+
+. 
+. ** create mun trends
+. egen Group_Mun= group(clave_mun)
+r; t=0.08 13:40:09
+
+. egen Num_Mun = max(Group_Mun)
+r; t=0.02 13:40:09
+
+. su Num_Mun
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     Num_Mun |    341,600         577           0        577        577
+r; t=0.00 13:40:09
+
+. return list
+
+scalars:
+                  r(N) =  341600
+              r(sum_w) =  341600
+               r(mean) =  577
+                r(Var) =  0
+                 r(sd) =  0
+                r(min) =  577
+                r(max) =  577
+                r(sum) =  197103200
+r; t=0.00 13:40:09
+
+. forvalues x = 1/`r(mean)'{
+  2.         gen trend_`x' = muni_`x'*year_trend 
+  3. }
+r; t=6.73 13:40:16
+
+. 
+. 
+. 
+. 
+. ** Some controls at the state level (I'm not using this but it's useful for r
+> obustness)
+. 
+. gen codigo_estado = substr(clave_mun,1,2)
+r; t=0.07 13:40:16
+
+. destring codigo_estado, replace
+codigo_estado: all characters numeric; replaced as byte
+r; t=0.61 13:40:17
+
+. 
+. merge m:1 codigo_estado year using "$cd_data/Censo/Homicides_State.dta", gen(
+> m_aux2)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           584
+        from master                         0  (m_aux2==1)
+        from using                        584  (m_aux2==2)
+
+    Matched                           341,600  (m_aux2==3)
+    -----------------------------------------
+r; t=2.26 13:40:19
+
+. merge m:1 codigo_estado year using "$cd_data/Censo/GDP_State.dta", gen(m_aux)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           512
+        from master                       512  (m_aux==1)
+        from using                          0  (m_aux==2)
+
+    Matched                           341,672  (m_aux==3)
+    -----------------------------------------
+r; t=0.34 13:40:19
+
+. merge m:1 codigo_estado year using "$cd_data/Censo/Partido_State.dta", gen(m_
+> aux3)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           576
+        from master                       576  (m_aux3==1)
+        from using                          0  (m_aux3==2)
+
+    Matched                           341,608  (m_aux3==3)
+    -----------------------------------------
+r; t=1.54 13:40:21
+
+. 
+. ** Party at the state level (keep only have data on the 3 main parties, group
+>  the rest)
+. gen PartState =c
+(576 missing values generated)
+r; t=0.11 13:40:21
+
+. replace PartState = "OTROS" if !inlist(PartState, "PAN", "PRI", "PRD")
+(8,044 real changes made)
+r; t=0.03 13:40:21
+
+. qui ta PartState, gen(Part_State_)
+r; t=0.15 13:40:21
+
+. 
+. 
+. ** Employment at the state level (not using it now but could be useful for ro
+> bustness)
+. 
+. merge m:1 codigo_estado year using "$cd_data/Censo/Empleo_State.dta", gen(m_a
+> ux4)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           576
+        from master                       576  (m_aux4==1)
+        from using                          0  (m_aux4==2)
+
+    Matched                           341,608  (m_aux4==3)
+    -----------------------------------------
+r; t=1.73 13:40:23
+
+. 
+. ******** PUBLIC OR PRIVATE SCHOOLS DATA
+. 
+. cap drop _merge
+r; t=0.10 13:40:23
+
+. merge m:1 clavedelaescuela using "$cd_data/Censo/Escuelas_Pub_Priv.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        59,771
+        from master                    38,697  (_merge==1)
+        from using                     21,074  (_merge==2)
+
+    Matched                           303,487  (_merge==3)
+    -----------------------------------------
+r; t=1.95 13:40:25
+
+. 
+. drop if _merge ==2
+(21,074 observations deleted)
+r; t=0.03 13:40:25
+
+. gen Privado = Publica_Privada == "PRIVADO"
+r; t=0.00 13:40:25
+
+. gen missing = _merge ==1
+r; t=0.00 13:40:25
+
+. gen inter_privado = Corrupt*Privado
+(584 missing values generated)
+r; t=0.00 13:40:25
+
+. gen inter_audit_privado =Auditada*Privado
+(584 missing values generated)
+r; t=0.00 13:40:25
+
+. 
+. ******** TAX COLLECTION DATA
+. 
+. merge m:1 clave_mun year using  "$cd_data/Censo/Taxes_mun_2006_2013.dta", gen
+> (m_taxes)
+(variable clave_mun was str6, now str74 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        15,810
+        from master                       584  (m_taxes==1)
+        from using                     15,226  (m_taxes==2)
+
+    Matched                           341,600  (m_taxes==3)
+    -----------------------------------------
+r; t=2.48 13:40:27
+
+. drop if m_taxes ==2
+(15,226 observations deleted)
+r; t=0.03 13:40:27
+
+. drop m_taxes
+r; t=0.00 13:40:27
+
+. 
+. 
+. *** INTERACTIONS FOR CONTROL IN ANALYSIS OF HETEROGENEITY: normalize the cont
+> rols (tax collection, homicides) and create the interactions with corruption 
+> and audit
+. 
+. qui sum total if total>0, meanonly
+r; t=0.02 13:40:27
+
+. gen total_mean=total-`r(mean)'
+(584 missing values generated)
+r; t=0.00 13:40:27
+
+. replace total_mean = 0 if mis_tot==1
+(14,511 real changes made)
+r; t=0.02 13:40:27
+
+. gen inter_total_mean_c=total_mean*Corrupt
+(584 missing values generated)
+r; t=0.05 13:40:28
+
+. gen inter_total_mean_c15=total_mean*Corrupt_15
+(584 missing values generated)
+r; t=0.02 13:40:28
+
+. gen inter_total_mean_c25=total_mean*Corrupt_25
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. gen inter_total_mean_clog=total_mean*ln_unau_center
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. 
+. 
+. gen inter_total_mean_a=total_mean*Auditada
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. 
+. qui sum HOMI_CAP_MUN , meanonly
+r; t=0.00 13:40:28
+
+. gen HOMI_CAP_MUN_MEAN=HOMI_CAP_MUN-`r(mean)'
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. gen inter_homi_mean_c=HOMI_CAP_MUN_MEAN*Corrupt
+(584 missing values generated)
+r; t=0.00 13:40:28
+
+. gen inter_homi_mean_c15=HOMI_CAP_MUN_MEAN*Corrupt_15
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. gen inter_homi_mean_c25=HOMI_CAP_MUN_MEAN*Corrupt_25
+(584 missing values generated)
+r; t=0.02 13:40:28
+
+. gen inter_homi_mean_clog=HOMI_CAP_MUN_MEAN*ln_unau_center
+(584 missing values generated)
+r; t=0.00 13:40:28
+
+. 
+. 
+. gen inter_homi_mean_a=HOMI_CAP_MUN_MEAN*Auditada
+(584 missing values generated)
+r; t=0.01 13:40:28
+
+. 
+. 
+. 
+. 
+. *** MEDIA DATA
+. 
+. cap drop clave_loc
+r; t=0.13 13:40:28
+
+. cap drop _merge
+r; t=0.02 13:40:28
+
+. cap drop tasa_radio
+r; t=0.00 13:40:28
+
+. gen clave_loc = clave_mun + loc
+(584 missing values generated)
+r; t=0.09 13:40:28
+
+. 
+. ** Merge with local media data
+. 
+. merge m:1 clave_mun using "$cd_data/Censo/Radio_Emision2.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       122,546
+        from master                   122,373  (_merge==1)
+        from using                        173  (_merge==2)
+
+    Matched                           219,811  (_merge==3)
+    -----------------------------------------
+r; t=0.10 13:40:28
+
+. replace cant = 0 if _merge ==1
+(122,373 real changes made)
+r; t=0.00 13:40:28
+
+. drop if _merge ==2
+(173 observations deleted)
+r; t=0.08 13:40:28
+
+. drop _merge
+r; t=0.00 13:40:28
+
+. merge m:1 clave_loc using  "$cd_data/Censo/Radio_Localidad.dta", force
+(note: variable ent was byte in the using data, but will be str2 now)
+(note: variable loc was int in the using data, but will be str4 now)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       197,396
+        from master                    11,658  (_merge==1)
+        from using                    185,738  (_merge==2)
+
+    Matched                           330,526  (_merge==3)
+    -----------------------------------------
+r; t=2.51 13:40:31
+
+. drop if _merge ==2
+(185,738 observations deleted)
+r; t=0.06 13:40:31
+
+. cap drop Missing
+r; t=0.00 13:40:31
+
+. gen Missing = (_merge ==1 | tasa_radio_missing==.)
+r; t=0.00 13:40:31
+
+. 
+. drop _merge
+r; t=0.01 13:40:31
+
+. replace tasa_radio_missing = 0 if Missing ==1
+(13,929 real changes made)
+r; t=0.04 13:40:31
+
+. 
+. su tasa_radio_missing if Auditada ==1 & Missing ==0, de
+
+                     tasa_radio_missing
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .1657077              0
+ 5%     .3191489              0
+10%     .4054054              0       Obs             107,202
+25%     .5367647              0       Sum of wgt.     107,202
+
+50%     .6407401                      Mean           .6088516
+                        Largest       Std. dev.      .1426524
+75%     .7078294              1
+90%     .7529854              1       Variance       .0203497
+95%     .7861068              1       Skewness      -1.112963
+99%      .818082              1       Kurtosis       4.278116
+r; t=0.14 13:40:31
+
+. 
+. ** Median = .6256658   
+. 
+. * Define high demand of media as radio at home > median
+. gen AltaDemanda = tasa_radio_missing> .6256658         
+r; t=0.02 13:40:31
+
+. 
+. ** define supply media as the number of stations per capita (mun level)
+. gen tasa_oferta = cant*100000/pob_tot_int
+(584 missing values generated)
+r; t=0.02 13:40:31
+
+. 
+. ** Take 1 if there is at least one radio station at the mun, 0 otherwise
+. 
+. gen RadiosPresent= tasa_oferta>0
+r; t=0.00 13:40:31
+
+. 
+. su tasa_oferta,  de
+
+                         tasa_oferta
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs             341,600
+25%            0              0       Sum of wgt.     341,600
+
+50%     1.119425                      Mean           1.459536
+                        Largest       Std. dev.      1.887815
+75%     2.377731       29.53919
+90%      3.33151       29.53919       Variance       3.563845
+95%     4.062618       29.53919       Skewness       4.910356
+99%     6.979179       29.53919       Kurtosis       55.04368
+r; t=0.12 13:40:31
+
+. *Median  1.119425 
+. 
+. gen AltaOferta = tasa_oferta>= 1.119425 
+r; t=0.00 13:40:31
+
+. 
+. * High penetration of media: high demand in areas with at least 1 radio stati
+> on
+. gen AltosBoth=RadiosPresent&AltaDemanda
+r; t=0.00 13:40:31
+
+. * Create interactions with corruption and audit vars
+. gen inter_1=AltosBoth*Corrupt
+(584 missing values generated)
+r; t=0.01 13:40:31
+
+. gen inter_2=AltosBoth*Auditada
+(584 missing values generated)
+r; t=0.04 13:40:31
+
+. gen inter_3=AltaDemanda*Corrupt
+(584 missing values generated)
+r; t=0.02 13:40:31
+
+. gen inter_4=AltaDemanda*Auditada
+(584 missing values generated)
+r; t=0.01 13:40:31
+
+. gen inter_5=AltaOferta*Corrupt
+(584 missing values generated)
+r; t=0.01 13:40:31
+
+. gen inter_6=AltaOferta*Auditada
+(584 missing values generated)
+r; t=0.03 13:40:31
+
+. gen inter_1_15=AltosBoth*Corrupt_15
+(584 missing values generated)
+r; t=0.00 13:40:31
+
+. gen inter_1_25=AltosBoth*Corrupt_25
+(584 missing values generated)
+r; t=0.00 13:40:31
+
+. gen inter_1_log=AltosBoth*ln_unau
+(584 missing values generated)
+r; t=0.00 13:40:31
+
+. 
+. ** create percentiles of media penetration for the graph
+. 
+. 
+. ** Create quintiles of media penetration to gen the graph
+. 
+. cap drop Z
+r; t=0.00 13:40:31
+
+. gen Z = tasa_radio_missing*RadiosPres
+r; t=0.00 13:40:31
+
+. 
+. egen r = xtile(Z) if Missing ==0 & Z>0, nq(4)
+unknown egen function xtile()
+r(133); t=0.01 13:40:31
+
+end of do-file
+r(133); t=38.27 13:40:31
+
+end of do-file
+r(133); t=0.00 13:40:31

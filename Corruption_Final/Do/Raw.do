@@ -58,7 +58,7 @@ save "$cd_data/Censo/Population_MUN.dta", replace
 
 
 import delimited using  "$cd_data/Bases Madre/Census/Census_raw.csv", clear
-ren ïentidad ent
+ren entidad ent
 tostring ent, gen(ENT)
 tostring mun, gen(MUN)
 tostring loc, gen(LOC)

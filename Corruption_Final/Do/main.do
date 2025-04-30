@@ -2,6 +2,8 @@
 *** THE POWER OF EXAMPLE: CORRUPTION SPURS CORRUPTION (BY NICOLAS AJZENMAN)
 *** PROJECT ID: openicpsr-118971
 
+include "config.do"
+
 clear all
 set more off
 set maxvar 32767
@@ -12,12 +14,12 @@ set matsize 11000
 
 *global cdname "C:\EESP\"
 ** TO RUN THE DO FILE YOU JUST NEED TO CHANGE THIS LINE.
-global cdname /Users/nicolasajzenman/Dropbox
+global cdname "$rootdir"
 
-global cd_do "$cdname/Corruption_G/Do"
-global cd_data "$cdname/Corruption_G/Data"
+global cd_do "$cdname/Do"
+global cd_data "$cdname/Data"
 
-cd "$cdname/Corruption_G/"
+cd "$cdname/"
 
 
 ** Create some of the controls

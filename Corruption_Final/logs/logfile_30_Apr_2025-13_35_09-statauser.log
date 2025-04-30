@@ -1,0 +1,334 @@
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_35_09-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:35:09
+r; t=0.00 13:35:09
+
+. 
+. /* capture what system we are running on */
+. 
+. di in red "HOSTNAME: `c(hostname)'"
+HOSTNAME: 268099a8e38e
+r; t=0.00 13:35:09
+
+. 
+. /* used only for system info */
+. log using "`systeminfo'", name(system) replace text
+(file /project/logs/system_30_Apr_2025-13_35_09-statauser.log not found)
+-------------------------------------------------------------------------------
+      name:  system
+       log:  /project/logs/system_30_Apr_2025-13_35_09-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 13:35:09
+r; t=0.00 13:35:09
+
+. 
+. /* It will provide some info about how and when the program was run */
+. 
+. /* install any packages locally */
+. di "=== Redirecting where Stata searches for ado files ==="
+=== Redirecting where Stata searches for ado files ===
+r; t=0.00 13:35:09
+
+. capture mkdir "$rootdir/ado"
+r; t=0.00 13:35:09
+
+. adopath - PERSONAL
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+  [5]  (OLDPLACE)  "~/ado/"
+r; t=0.00 13:35:09
+
+. adopath - OLDPLACE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:35:09
+
+. adopath - SITE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "~/ado/plus/"
+r; t=0.00 13:35:09
+
+. sysdir set PLUS     "$rootdir/ado/plus"
+r; t=0.00 13:35:09
+
+. sysdir set PERSONAL "$rootdir/ado"       // may be needed for some packages
+r; t=0.00 13:35:09
+
+. sysdir
+   STATA:  /usr/local/stata/
+    BASE:  /usr/local/stata/ado/base/
+    SITE:  /usr/local/ado/
+    PLUS:  /project/ado/plus/
+PERSONAL:  /project/ado/
+OLDPLACE:  ~/ado/
+r; t=0.00 13:35:09
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If present, add the authors' replication-package specific ado file path   
+>                    */
+. /* This is defined above                                                     
+>                    */
+. /*===========================================================================
+> ===================*/
+. 
+. if "`author_adopath'" != "" {             // The author adopath variable is f
+> illed out
+.     adopath ++ "$rootdir/`author_adopath'"
+r; t=0.00 13:35:09
+. }
+r; t=0.00 13:35:09
+
+. 
+. /* now let's check what's there */
+. 
+. di "=== Verifying pre-existing ado files - normally, this should be EMPTY upo
+> n first run"
+=== Verifying pre-existing ado files - normally, this should be EMPTY upon firs
+> t run
+r; t=0.00 13:35:09
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:35:09
+
+. ado
+r; t=0.00 13:35:09
+
+. di "=========================="
+==========================
+r; t=0.00 13:35:09
+
+. 
+. 
+. /* this is long, so we pause the main log file */
+. log off ldi
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_35_09-statauser.log
+  log type:  text
+ paused on:  30 Apr 2025, 13:35:09
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-13_35_09-statauser.log
+  log type:  text
+resumed on:  30 Apr 2025, 13:35:09
+r; t=0.00 13:35:09
+
+. 
+. 
+. /* add packages to the macro */
+.     
+.     display in red "============ Installing packages/commands from SSC ======
+> ======="
+============ Installing packages/commands from SSC =============
+r; t=0.00 13:35:09
+
+.     display in red "== Packages: `ssc_packages'"
+== Packages: 
+r; t=0.00 13:35:09
+
+.     if !missing("`ssc_packages'") {
+.         foreach pkg in `ssc_packages' {
+  2.             capture which `pkg'
+  3.             if _rc == 111 {                 
+  4.                dis "Installing `pkg'"
+  5.                 ssc install `pkg', replace
+  6.             }
+  7.             which `pkg'
+  8.         }
+r; t=0.00 13:35:09
+.     }
+r; t=0.00 13:35:09
+
+. 
+. /* add unconditionally installed packages */
+.     display in red "=============== Unconditionally installed packages from S
+> SC ==============="
+=============== Unconditionally installed packages from SSC ===============
+r; t=0.00 13:35:09
+
+.     display in red "== Packages: `ssc_unconditional'"
+== Packages: 
+r; t=0.00 13:35:09
+
+.     if !missing("`ssc_unconditional'") {
+.         foreach pkg in `ssc_unconditional' {
+  2.             dis "Installing `pkg'"
+  3.             ssc install `pkg', replace
+  4.         }
+r; t=0.00 13:35:09
+.     }
+r; t=0.00 13:35:09
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* If you need to "net install" packages, add lines to this section          
+>                    */
+.     * Install packages using net
+.     * net install grc1leg, from("http://www.stata.com/users/vwiggins/")
+. 
+. /*===========================================================================
+> ===================*/
+. /* yet other programs have no install capability, and may need to be copied *
+> /
+. /*===========================================================================
+> ===================*/
+. 
+. // e.g.
+. //  copy (URL) (name_of_file.ado)
+. // example:
+. // copy http://www.sacarny.com/wp-content/uploads/2015/08/ebayes.ado ebayes.a
+> do
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* This toolbox allows us to run code that still contains interactive command
+> s (which it should not) */
+. /*===========================================================================
+> ===================*/
+. 
+. net install cli-compat, all replace from("https://raw.githubusercontent.com/a
+> eadataeditor/cli-compat-stata/master")
+checking cli-compat consistency and verifying not already installed...
+installing into /project/ado/plus/...
+installation complete.
+r; t=1.89 13:35:11
+
+. 
+. /*-------------- Sometimes, you may get the dreaded esttab error about paths 
+> -------------------*/
+. /* in that case, uncomment the following line, and overwrite the estout packa
+> ge with the newer one */
+. 
+. // net install estout, replace from(https://raw.githubusercontent.com/benjann
+> /estout/master/)
+. 
+. /*===========================================================================
+> ===================*/
+. /* after installing all packages, it may be necessary to issue the mata mlib 
+> index command */
+. /* This should always be the LAST command after installing all packages      
+>               */
+. /*===========================================================================
+> ===================*/
+. 
+.         mata: mata mlib index
+.mlib libraries to be searched are now
+    lmatabase;lmatamcmc;lmatasem;lmataivqreg;lmatapss;lmatanumlib;lmatabma;lmat
+> acollect;lmatasvy;lmatami;lmatadata;lmatafc;lmataopt;lmatagsem;lmatalasso;lma
+> taado;lmatats;lmatamixlog;lmatapostest;lmatahetdid;lmatameta;lmataerm;lmatata
+> b;lmatapath;lmatasp;lmatajm
+r; t=0.00 13:35:11
+
+. 
+. /*===========================================================================
+> ===================*/
+. /* This is specific to AEA replication environment. May not be needed if no c
+> onfidential data   */
+. /* are used in the reproducibility check.                                    
+>                    */
+. /* Replicator should check the JIRA field "Working location of restricted dat
+> a" for right path  */
+. /*===========================================================================
+> ===================*/
+. 
+. global sdrive ""
+r; t=0.00 13:35:11
+
+. 
+. 
+. /*===========================================================================
+> ===================*/
+. /* After all the setup work, let's check again what's installed in the ado di
+> rectories          */
+. /*===========================================================================
+> ===================*/
+. 
+. 
+. di "=== Verifying ado files after all install steps"
+=== Verifying ado files after all install steps
+r; t=0.00 13:35:11
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 13:35:11
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli
+> -compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written w
+> ith GUI Stata in mind.
+r; t=0.00 13:35:11
+
+. di "=========================="
+==========================
+r; t=0.00 13:35:11
+
+. 
+. 
+. 
+. di "========================================= END SETUP + DIAGNOSTICS =======
+> ============================="
+========================================= END SETUP + DIAGNOSTICS =============
+> =======================
+r; t=0.00 13:35:11
+
+. r; t=0.00 13:35:11
+
+. 
+. clear all
+r; t=0.02 13:35:11
+
+. set more off
+r; t=0.00 13:35:11
+
+. set maxvar 32767
+
+r; t=0.00 13:35:11
+
+. set matsize 11000
+set matsize ignored.
+    Matrix sizes are no longer limited by c(matsize) in modern Statas.
+    Matrix sizes are now limited by edition of Stata.  See limits for more
+    details.
+r; t=0.00 13:35:11
+
+. * Checking:
+. 
+. * Change globals!
+. 
+. *global cdname "C:\EESP\"
+. ** TO RUN THE DO FILE YOU JUST NEED TO CHANGE THIS LINE.
+. global cdname "$rootdir"
+r; t=0.00 13:35:11
+
+. 
+. global cd_do "$cdname/Corruption_G/Do"
+r; t=0.00 13:35:11
+
+. global cd_data "$cdname/Corruption_G/Data"
+r; t=0.00 13:35:11
+
+. 
+. cd "$cdname/Corruption_G/"
+unable to change to /project/Corruption_G/
+r(170); t=0.00 13:35:11
+
+end of do-file
+r(170); t=0.00 13:35:11

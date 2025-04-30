@@ -1,0 +1,31 @@
+* 00000001
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S https://raw.githubusercontent.com/aeadataeditor/cli-compat-stata/master
+N cli-compat.pkg
+D 30 Apr 2025
+U 1
+d 'cli-compat': Commands that provide compatibility with programs written with GUI Stata in mind.
+d These provide commands that are missing from CLI versions of Stata.
+d This should be harmless on GUI systems!
+d 
+d KW: technical
+d KW: compatibility
+d 
+d Requires: Stata version any
+d 
+d Distribution-Date: 20240416
+d 
+d Authors: Lars Vilhuber, Sergio Correia
+d Support: On Github
+f b/browse.ado
+f b/br.ado
+f c/cls.ado
+f p/pause.ado
+f e/edit.ado
+f e/ed.ado
+f w/window.ado
+e

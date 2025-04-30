@@ -1,12 +1,17 @@
 # Notes on replication of Ajzenman
 
-## System
+## System 1 
 
 - OS: "openSUSE Leap 15.6"
 - Processor:  AMD Ryzen 9 3900X 12-Core Processor, 24 cores
 - Memory available: 125GB memory
 - Docker version 27.5.1-ce, build 4c9b3b011ae4 
 - stata version 18-mp-i (Docker image dataeditors/stata18-mp-i:2024-12-18)
+
+## System 2
+
+## System 3
+
 
 
 ## Bugs
@@ -62,7 +67,9 @@ Reverse engineering variable names:
 - `Tres` = "1st component PCA with 4 incivic values"
 - `Count_Index` = "Count index (sum 5 incivic values)"
 
-## Checked variable definitions
+## Robustness check 1
+
+### Checked variable definitions
 
 - `Count_Index`:
 
@@ -150,7 +157,6 @@ Results
       Total |      1,606      100.00
 ```
 
-## Robustness checks
 
 > Definitions: “Count
 index”: sum of five incivic answers; “At least 1”: at least one incivic answer; “At least 2”: at least two incivic
@@ -252,4 +258,15 @@ Results:
 
 Strongly reduces magnitude (by about half), and significance of many of the coefficients (mostly the PCA remains significant, none of the others at conventional levels).
 
+
+> - Program: [Corruption_Final/Do/Values_robustness.do](Corruption_Final/Do/Values_robustness.do)
+> - Output: [Corruption_Final/Do/Values_robustness.log](Corruption_Final/Do/Values_robustness.log) and [Corruption_Final/Tables/Table4-robustness1.txt](Corruption_Final/Tables/Table4-robustness1.txt)
+
+## Robustness check 2
+
+> - Program: [Corruption_Final/Do/robustness_GAB_1&2.do](Corruption_Final/Do/robustness_GAB_1&2.do)
+
+## Robustness check 3
+
+> - Program: [Corruption_Final/Do/Robust_3_LPM.do](Corruption_Final/Do/Robust_3_LPM.do)
 

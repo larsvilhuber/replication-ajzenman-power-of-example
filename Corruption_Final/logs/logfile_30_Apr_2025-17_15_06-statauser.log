@@ -1,27 +1,27 @@
 --------------------------------------------------------------------------------------------------------------------------------
       name:  ldi
-       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+       log:  /project/logs/logfile_30_Apr_2025-17_15_06-statauser.log
   log type:  text
- opened on:  30 Apr 2025, 17:10:35
-r; t=0.00 17:10:35
+ opened on:  30 Apr 2025, 17:15:06
+r; t=0.00 17:15:06
 
 . 
 . /* capture what system we are running on */
 . 
 . di in red "HOSTNAME: `c(hostname)'"
 HOSTNAME: 212d1bc448ba
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . 
 . /* used only for system info */
 . log using "`systeminfo'", name(system) replace text
-(file /project/logs/system_30_Apr_2025-17_10_35-statauser.log not found)
+(file /project/logs/system_30_Apr_2025-17_15_06-statauser.log not found)
 --------------------------------------------------------------------------------------------------------------------------------
       name:  system
-       log:  /project/logs/system_30_Apr_2025-17_10_35-statauser.log
+       log:  /project/logs/system_30_Apr_2025-17_15_06-statauser.log
   log type:  text
- opened on:  30 Apr 2025, 17:10:35
-r; t=0.00 17:10:35
+ opened on:  30 Apr 2025, 17:15:06
+r; t=0.00 17:15:06
 
 . 
 . /* It will provide some info about how and when the program was run */
@@ -29,10 +29,10 @@ r; t=0.00 17:10:35
 . /* install any packages locally */
 . di "=== Redirecting where Stata searches for ado files ==="
 === Redirecting where Stata searches for ado files ===
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . capture mkdir "$rootdir/ado"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . adopath - PERSONAL
   [1]  (BASE)      "/usr/local/stata/ado/base/"
@@ -40,26 +40,26 @@ r; t=0.00 17:10:35
   [3]              "."
   [4]  (PLUS)      "~/ado/plus/"
   [5]  (OLDPLACE)  "~/ado/"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . adopath - OLDPLACE
   [1]  (BASE)      "/usr/local/stata/ado/base/"
   [2]  (SITE)      "/usr/local/ado/"
   [3]              "."
   [4]  (PLUS)      "~/ado/plus/"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . adopath - SITE
   [1]  (BASE)      "/usr/local/stata/ado/base/"
   [2]              "."
   [3]  (PLUS)      "~/ado/plus/"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . sysdir set PLUS     "$rootdir/ado/plus"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . sysdir set PERSONAL "$rootdir/ado"       // may be needed for some packages
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . sysdir
    STATA:  /usr/local/stata/
@@ -68,7 +68,7 @@ r; t=0.00 17:10:35
     PLUS:  /project/ado/plus/
 PERSONAL:  /project/ado/
 OLDPLACE:  ~/ado/
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . 
 . /*==============================================================================================*/
@@ -78,22 +78,22 @@ r; t=0.00 17:10:35
 . 
 . if "`author_adopath'" != "" {             // The author adopath variable is filled out
 .     adopath ++ "$rootdir/`author_adopath'"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 . }
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . 
 . /* now let's check what's there */
 . 
 . di "=== Verifying pre-existing ado files - normally, this should be EMPTY upon first run"
 === Verifying pre-existing ado files - normally, this should be EMPTY upon first run
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . adopath
   [1]  (BASE)      "/usr/local/stata/ado/base/"
   [2]              "."
   [3]  (PLUS)      "/project/ado/plus/"
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . ado
 
@@ -102,27 +102,27 @@ r; t=0.00 17:10:35
 
 [2] package egenmore from http://fmwww.bc.edu/repec/bocode/e
       'EGENMORE': modules to extend the generate function
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . di "=========================="
 ==========================
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . 
 . 
 . /* this is long, so we pause the main log file */
 . log off ldi
       name:  ldi
-       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+       log:  /project/logs/logfile_30_Apr_2025-17_15_06-statauser.log
   log type:  text
- paused on:  30 Apr 2025, 17:10:35
+ paused on:  30 Apr 2025, 17:15:06
 --------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------
       name:  ldi
-       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+       log:  /project/logs/logfile_30_Apr_2025-17_15_06-statauser.log
   log type:  text
-resumed on:  30 Apr 2025, 17:10:35
-r; t=0.00 17:10:35
+resumed on:  30 Apr 2025, 17:15:06
+r; t=0.00 17:15:06
 
 . 
 . 
@@ -130,11 +130,11 @@ r; t=0.00 17:10:35
 .     
 .     display in red "============ Installing packages/commands from SSC ============="
 ============ Installing packages/commands from SSC =============
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 .     display in red "== Packages: `ssc_packages'"
 == Packages: 
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 .     if !missing("`ssc_packages'") {
 .         foreach pkg in `ssc_packages' {
@@ -145,19 +145,19 @@ r; t=0.00 17:10:35
   6.             }
   7.             which `pkg'
   8.         }
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 .     }
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 . 
 . /* add unconditionally installed packages */
 .     display in red "=============== Unconditionally installed packages from SSC ==============="
 =============== Unconditionally installed packages from SSC ===============
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 .     display in red "== Packages: `ssc_unconditional'"
 == Packages: egenmore
-r; t=0.00 17:10:35
+r; t=0.00 17:15:06
 
 .     if !missing("`ssc_unconditional'") {
 .         foreach pkg in `ssc_unconditional' {
@@ -167,9 +167,9 @@ r; t=0.00 17:10:35
 Installing egenmore
 checking egenmore consistency and verifying not already installed...
 all files already exist and are up to date.
-r; t=3.00 17:10:38
+r; t=2.89 17:15:08
 .     }
-r; t=3.00 17:10:38
+r; t=2.89 17:15:08
 
 . 
 . /*==============================================================================================*/
@@ -194,7 +194,7 @@ r; t=3.00 17:10:38
 . net install cli-compat, all replace from("https://raw.githubusercontent.com/aeadataeditor/cli-compat-stata/master")
 checking cli-compat consistency and verifying not already installed...
 all files already exist and are up to date.
-r; t=2.08 17:10:40
+r; t=0.48 17:15:09
 
 . 
 . /*-------------- Sometimes, you may get the dreaded esttab error about paths -------------------*/
@@ -212,7 +212,7 @@ r; t=2.08 17:10:40
     lmatabase;lmataado;lmatabma;lmatacollect;lmatadata;lmataerm;lmatafc;lmatagsem;lmatahetdid;lmataivqreg;lmatajm;lmatalasso;lma
 > tamcmc;lmatameta;lmatami;lmatamixlog;lmatanumlib;lmataopt;lmatapath;lmatapostest;lmatapss;lmatasem;lmatasp;lmatasvy;lmatatab;l
 > matats
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 . /*==============================================================================================*/
@@ -222,7 +222,7 @@ r; t=0.00 17:10:40
 . /*==============================================================================================*/
 . 
 . global sdrive ""
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 . 
@@ -233,13 +233,13 @@ r; t=0.00 17:10:40
 . 
 . di "=== Verifying ado files after all install steps"
 === Verifying ado files after all install steps
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . adopath
   [1]  (BASE)      "/usr/local/stata/ado/base/"
   [2]              "."
   [3]  (PLUS)      "/project/ado/plus/"
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . ado
 
@@ -248,34 +248,34 @@ r; t=0.00 17:10:40
 
 [2] package egenmore from http://fmwww.bc.edu/repec/bocode/e
       'EGENMORE': modules to extend the generate function
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . di "=========================="
 ==========================
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 . 
 . 
 . di "========================================= END SETUP + DIAGNOSTICS ===================================="
 ========================================= END SETUP + DIAGNOSTICS ====================================
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
-. r; t=0.00 17:10:40
+. r; t=0.00 17:15:09
 
 . global cdname "$rootdir"
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 . global cd_do "$cdname/Do"
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . global cd_data "$cdname/Data"
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 . use "$cd_data/Longitudinal/Claves.dta", clear
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . ** Delete obs that are not in the survey (but yes in the corruption dataset)
 . ** merge with corruption again
@@ -289,11 +289,11 @@ r; t=0.00 17:10:40
 
     Matched                             1,606  (_merge==3)
     -----------------------------------------
-r; t=0.03 17:10:40
+r; t=0.03 17:15:09
 
 . keep if _merge !=2
 (24,882 observations deleted)
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . desc
 
@@ -367,53 +367,117 @@ _merge          byte    %23.0g     _merge     Matching result from merge
 --------------------------------------------------------------------------------------------------------------------------------
 Sorted by: 
      Note: Dataset has changed since last saved.
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
 . 
 end of do-file
 
-r; t=0.00 17:10:40
+r; t=0.00 17:15:09
 
-. sum unau
+. gen Corrupt = 0
+variable Corrupt already defined
+r(110); t=0.00 17:15:22
 
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-unauthorized |      1,606     2.10655    7.903532          0       80.1
-r; t=0.00 17:13:47
+. replace Corrupt =1 if unau >0 
+(0 real changes made)
+r; t=0.00 17:15:22
 
-. sum unau, missing
-option missing not allowed
-r(198); t=0.00 17:14:10
+. drop Corrupt
+r; t=0.00 17:26:24
 
-. desc unau
+. desc
 
+Contains data from /project/Data/Longitudinal/Claves.dta
+ Observations:         1,606                  
+    Variables:            59                  30 Apr 2025 16:28
+--------------------------------------------------------------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
 --------------------------------------------------------------------------------------------------------------------------------
+clave_mun       str6    %9s                   
+year            float   %9.0g                 
+state           str38   %38s                  
+municipality    str61   %61s                  
+ent             str2    %9s                   
 unauthorized    double  %10.0g                
-r; t=0.00 17:14:15
-
-. codebook unau
-
+ye              str4    %9s                   year
+clavemun        str3    %9s                   
+Auditada        float   %9.0g                 
+bandera_unau    float   %9.0g                 
+Bandera         float   %9.0g                 
+observaciones   str13   %13s                  
+var8            float   %9.0g                 
+XX              float   %9.0g                 
+clave_mun_num   int     %8.0g                 
+c_m             int     %8.0g                 
+Adicionales     float   %9.0g                 
+municipio       str45   %45s                  
+a               str10   %10s                  
+Au2             float   %9.0g                 
+nro_auditoria   float   %9.0g                 
+AlreadyAudited  float   %9.0g                 
+lag_Already     float   %9.0g                 
+lag_Auditada1   float   %9.0g                 
+lag_Auditada2   float   %9.0g                 
+lead_Auditada1  float   %9.0g                 
+lead_Auditada2  float   %9.0g                 
+C_1             float   %9.0g                 
+C_2             float   %9.0g                 
+C_menos1        float   %9.0g                 
+C_menos2        float   %9.0g                 
+una_1           float   %9.0g                 
+una_2           float   %9.0g                 
+una_menos1      float   %9.0g                 
+una_menos2      float   %9.0g                 
+p25             float   %9.0g                 
+p15             float   %9.0g                 
+Corrupt_25      float   %9.0g                 
+Corrupt_25_1    float   %9.0g                 
+Corrupt_25_2    float   %9.0g                 
+Corrupt_25_me~1 float   %9.0g                 
+Corrupt_25_me~2 float   %9.0g                 
+Corrupt_15      float   %9.0g                 
+Corrupt_15_1    float   %9.0g                 
+Corrupt_15_2    float   %9.0g                 
+Corrupt_15_me~1 float   %9.0g                 
+Corrupt_15_me~2 float   %9.0g                 
+VecesAuditada   float   %9.0g                 
+Seleccionada    float   %9.0g                 
+Corr_Acum       float   %9.0g                 
+Corr_Acum_15    float   %9.0g                 
+Corr_Acum_25    float   %9.0g                 
+CorruptPast     float   %9.0g                 
+CorruptPast_15  float   %9.0g                 
+CorruptPast_25  float   %9.0g                 
+lag_CorruptPast float   %9.0g                 
+lag_CorruptP~15 float   %9.0g                 
+lag_CorruptP~25 float   %9.0g                 
+_merge          byte    %23.0g     _merge     Matching result from merge
 --------------------------------------------------------------------------------------------------------------------------------
-unauthorized                                                                                                         (unlabeled)
---------------------------------------------------------------------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+r; t=0.00 17:26:28
 
-                  Type: Numeric (double)
+. gen Corrupt = 0
+r; t=0.00 17:26:32
 
-                 Range: [0,80.1]                      Units: .01
-         Unique values: 161                       Missing .: 0/1,606
+. replace Corrupt =1 if unau >0
+(236 real changes made)
+r; t=0.00 17:26:35
 
-                  Mean: 2.10655
-             Std. dev.: 7.90353
+. tab Corrupt
 
-           Percentiles:     10%       25%       50%       75%       90%
-                              0         0         0         0       3.6
-r; t=0.02 17:14:22
+    Corrupt |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,370       85.31       85.31
+          1 |        236       14.69      100.00
+------------+-----------------------------------
+      Total |      1,606      100.00
+r; t=0.00 17:26:40
 
 . exit
 no; dataset in memory has changed since last saved
     Save the data or specify option clear to exit anyway.
-r(4); t=0.00 17:14:40
+r(4); t=0.00 17:34:34
 
 . exit, clear

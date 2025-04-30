@@ -246,3 +246,10 @@ di "=========================="
 
 
 di "========================================= END SETUP + DIAGNOSTICS ===================================="
+
+global cdname "$rootdir"
+
+global cd_do "$cdname/Do"
+global cd_data "$cdname/Data"
+
+cd "$cdname/"

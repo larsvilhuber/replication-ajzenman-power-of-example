@@ -1,0 +1,2932 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /project/Corruption_Final/Tables/Table4-robustness1.txt
+  log type:  text
+ opened on:  30 Apr 2025, 18:55:00
+r; t=0.00 18:55:00
+
+. *** TABLE IV
+. 
+. areg Count_Index inter Time Corrupt  , a(clave_mun) cluster(clave_mun)
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(3, 76)          =   0.59
+                                                    Prob > F          = 0.6238
+                                                    R-squared         = 0.0706
+                                                    Adj R-squared     = 0.0625
+                                                    Root MSE          = 0.6892
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+ Count_Index | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |  -.0285057   .1090595    -0.26   0.795    -.2457165    .1887051
+        Time |   .0568262   .0453333     1.25   0.214     -.033463    .1471154
+     Corrupt |   .0576128   .0900273     0.64   0.524    -.1216921    .2369176
+       _cons |   .6820712   .0388948    17.54   0.000     .6046054     .759537
+------------------------------------------------------------------------------
+r; t=0.26 18:55:00
+
+. areg Count_Index inter Time Corrupt P_* PDE_* , a(clave_mun) cluster(clave_mu
+> n)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(17, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0769
+                                                    Adj R-squared     = 0.0658
+                                                    Root MSE          = 0.6874
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+ Count_Index | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0817852   .1547545     0.53   0.599    -.2264352    .3900055
+        Time |   .0066434    .063369     0.10   0.917     -.119567    .1328537
+     Corrupt |    .023615   .0937513     0.25   0.802    -.1631068    .2103368
+         P_1 |   .4739918   .2525243     1.88   0.064    -.0289538    .9769375
+         P_2 |   .2532787   .0622525     4.07   0.000     .1292921    .3772652
+         P_3 |   .6666667          .        .       .            .           .
+         P_4 |  -.5546232   .0756203    -7.33   0.000     -.705234   -.4040123
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |   .2860192   .2770363     1.03   0.305    -.2657465    .8377849
+         P_8 |   .6092337   .3836993     1.59   0.116    -.1549698    1.373437
+         P_9 |   .4174171   .2082661     2.00   0.049     .0026192     .832215
+        P_10 |   .0459129   .3248242     0.14   0.888    -.6010306    .6928565
+        P_11 |   .8477801   .3187902     2.66   0.010     .2128544    1.482706
+        P_12 |   .5401445    .194626     2.78   0.007     .1525132    .9277758
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |    .041085   .1662538     0.25   0.805    -.2900381    .3722082
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0093137   .0737287    -0.13   0.900    -.1561571    .1375296
+        P_19 |  -.3120435   .0756203    -4.13   0.000    -.4626544   -.1614326
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .3285715   .1987602     1.65   0.102    -.0672938    .7244367
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.4248507   .3966326    -1.07   0.287    -1.214813    .3651115
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |    .318098   .2289748     1.39   0.169    -.1379449    .7741409
+        P_29 |          0  (omitted)
+        P_30 |   .4183359   .2304854     1.82   0.073    -.0407155    .8773873
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0324581   .2145928    -0.15   0.880    -.4598567    .3949405
+       PDE_2 |  -.3494511   .0622638    -5.61   0.000    -.4734603    -.225442
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .1695043   .1313445     1.29   0.201    -.0920908    .4310995
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .2635358   .1359394     1.94   0.056    -.0072109    .5342825
+      PDE_10 |  -.0704351   .1755108    -0.40   0.689    -.4199952    .2791249
+      PDE_11 |  -.5552442   .1997637    -2.78   0.007    -.9531081   -.1573802
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   .0682576   .1931284     0.35   0.725     -.316391    .4529061
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1780719   .1717009     1.04   0.303    -.1639002     .520044
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.1403744   .0619042    -2.27   0.026    -.2636673   -.0170815
+      PDE_22 |   .1747413   .2671406     0.65   0.515    -.3573152    .7067979
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .1657091   .4277266     0.39   0.700    -.6861824    1.017601
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .1761826   .1625271     1.08   0.282    -.1475183    .4998834
+      PDE_30 |     .23584   .0959149     2.46   0.016      .044809     .426871
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+       _cons |   .4306479   .1884827     2.28   0.025      .055252    .8060438
+------------------------------------------------------------------------------
+r; t=0.08 18:55:00
+
+. areg Count_Index inter P_* PDE_* Time HOMI_CAP_MUN total mis_tot MismoPartido
+>  CorruptPast Corrupt Already, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(22, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0800
+                                                    Adj R-squared     = 0.0684
+                                                    Root MSE          = 0.6865
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+ Count_Index | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0600518   .1328355     0.45   0.653     -.204513    .3246166
+         P_1 |     .36907   .2384391     1.55   0.126    -.1058226    .8439626
+         P_2 |   .2006226   .1863346     1.08   0.285     -.170495    .5717402
+         P_3 |   .5790228   .1467019     3.95   0.000     .2868407     .871205
+         P_4 |  -.5384521   .1736987    -3.10   0.003     -.884403   -.1925012
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.1362003   .2988077    -0.46   0.650    -.7313274    .4589268
+         P_8 |   .7027904   .2958571     2.38   0.020     .1135398    1.292041
+         P_9 |   .3984898   .1477296     2.70   0.009     .1042607    .6927188
+        P_10 |   .0173098   .2724274     0.06   0.950    -.5252764    .5598959
+        P_11 |   .7638291   .3914578     1.95   0.055    -.0158266    1.543485
+        P_12 |   .6091949   .2556775     2.38   0.020      .099969    1.118421
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0057504   .2350411    -0.02   0.981    -.4738754    .4623745
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0630228   .1052292    -0.60   0.551    -.2726048    .1465593
+        P_19 |  -.3434839   .0553071    -6.21   0.000    -.4536375   -.2333304
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |    .353967    .253271     1.40   0.166    -.1504659    .8583999
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.3150793   .2942246    -1.07   0.288    -.9010783    .2709197
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .2765239   .2095659     1.32   0.191    -.1408627    .6939105
+        P_29 |          0  (omitted)
+        P_30 |   .4130799   .2309113     1.79   0.078    -.0468199    .8729796
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0119967   .1653282     0.07   0.942    -.3172829    .3412764
+       PDE_2 |    -.48646   .1283343    -3.79   0.000    -.7420599   -.2308601
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0593333   .0954952    -0.62   0.536    -.2495285    .1308619
+       PDE_8 |          0  (omitted)
+       PDE_9 |    .106823   .1023791     1.04   0.300    -.0970827    .3107286
+      PDE_10 |   .1447305   .3573676     0.40   0.687    -.5670287    .8564898
+      PDE_11 |  -.5462752   .1850674    -2.95   0.004    -.9148688   -.1776815
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.1051188   .2851379    -0.37   0.713    -.6730203    .4627826
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1694406   .1525553     1.11   0.270    -.1343996    .4732807
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.3074445   .1510198    -2.04   0.045    -.6082265   -.0066625
+      PDE_22 |   .2257065   .2490663     0.91   0.368    -.2703521    .7217651
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .1330619    .284486     0.47   0.641    -.4335412    .6996649
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .2222034    .165718     1.34   0.184    -.1078525    .5522594
+      PDE_30 |   .1766262   .0907551     1.95   0.055    -.0041282    .3573805
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0613656   .0836665     0.73   0.466    -.1052706    .2280019
+HOMI_CAP_MUN |   56.27531   236.3481     0.24   0.812    -414.4526    527.0033
+       total |   7.00e-11   4.63e-11     1.51   0.135    -2.23e-11    1.62e-10
+     mis_tot |   .0561735   .0894308     0.63   0.532    -.1219433    .2342904
+MismoParti~G |  -.1324055   .1418019    -0.93   0.353    -.4148284    .1500174
+ CorruptPast |   .0486104   .0612303     0.79   0.430    -.0733403    .1705611
+     Corrupt |   .0226445   .1132059     0.20   0.842    -.2028246    .2481136
+AlreadyAud~d |          0  (omitted)
+       _cons |   .3788568   .1320053     2.87   0.005     .1159456    .6417681
+------------------------------------------------------------------------------
+r; t=0.10 18:55:01
+
+. areg Count_Index inter P_* PDE_* Time nivelultimo_* HOMI_CAP_MUN total mis_to
+> t MismoPartido CorruptPast Corrupt Already TRABAJO_* ed_* , a(clave_mun) clus
+> ter(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: nivelultimo_12 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: TRABAJO_10 omitted because of collinearity.
+note: ed_1 omitted because of collinearity.
+note: ed_2 omitted because of collinearity.
+note: ed_84 omitted because of collinearity.
+note: ed_85 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(66, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.1026
+                                                    Adj R-squared     = 0.0810
+                                                    Root MSE          = 0.6796
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+ Count_Index | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |  -.0051433   .1228959    -0.04   0.967    -.2499118    .2396252
+         P_1 |   .3196132   .2245399     1.42   0.159    -.1275967    .7668231
+         P_2 |   .3892054   .2116762     1.84   0.070    -.0323842     .810795
+         P_3 |   .7609131    .173326     4.39   0.000     .4157044    1.106122
+         P_4 |  -.2967208    .160745    -1.85   0.069    -.6168723    .0234307
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.2206012   .2867399    -0.77   0.444    -.7916931    .3504908
+         P_8 |   .6726535   .2678786     2.51   0.014      .139127     1.20618
+         P_9 |    .332929   .1765568     1.89   0.063    -.0187144    .6845723
+        P_10 |  -.0006914   .2655981    -0.00   0.998    -.5296758    .5282931
+        P_11 |   .8480933   .4020386     2.11   0.038      .047364    1.648822
+        P_12 |   .5051613   .2588101     1.95   0.055    -.0103038    1.020626
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0112179   .2098508    -0.05   0.958     -.429172    .4067363
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |    -.04858   .0942689    -0.52   0.608    -.2363328    .1391727
+        P_19 |  -.3770383   .0820448    -4.60   0.000    -.5404447    -.213632
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .2320141   .2465013     0.94   0.350    -.2589359    .7229641
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.0801514    .294603    -0.27   0.786    -.6669041    .5066013
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .2430786    .194025     1.25   0.214    -.1433558     .629513
+        P_29 |          0  (omitted)
+        P_30 |   .4273824   .2336657     1.83   0.071    -.0380031    .8927679
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0666094   .1545878     0.43   0.668     -.241279    .3744977
+       PDE_2 |  -.3821634   .1710531    -2.23   0.028    -.7228451   -.0414818
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.1421171   .0990438    -1.43   0.155    -.3393799    .0551457
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .1855734   .1098561     1.69   0.095    -.0332239    .4043707
+      PDE_10 |   .1741477   .3005659     0.58   0.564    -.4244812    .7727766
+      PDE_11 |  -.3869872   .1942534    -1.99   0.050    -.7738764    -.000098
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0519535   .2532727    -0.21   0.838    -.5563899    .4524828
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1839923   .1456813     1.26   0.210    -.1061572    .4741418
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.2872509   .1380358    -2.08   0.041    -.5621731   -.0123287
+      PDE_22 |   .2174684   .2101968     1.03   0.304    -.2011748    .6361116
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .4498556   .3099908     1.45   0.151    -.1675446    1.067256
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .3026655     .16631     1.82   0.073    -.0285696    .6339007
+      PDE_30 |   .1816063   .0953388     1.90   0.061    -.0082774    .3714901
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |    .095529   .0779062     1.23   0.224    -.0596347    .2506927
+nivelulti~_1 |   .6603827   .0721003     9.16   0.000     .5167824     .803983
+nivelulti~_2 |   .7115683   .1574938     4.52   0.000     .3978922    1.025245
+nivelultim~3 |   1.087462    .381203     2.85   0.006     .3282303    1.846693
+nivelultim~4 |   .6993733   .0699732     9.99   0.000     .5600095     .838737
+nivelultim~5 |   .7092146   .0679066    10.44   0.000     .5739668    .8444624
+nivelultim~6 |    .641253   .0858863     7.47   0.000     .4701956    .8123105
+nivelultim~7 |   .6494203   .0739869     8.78   0.000     .5020626    .7967781
+nivelultim~8 |   .6055176   .0912131     6.64   0.000     .4238511    .7871842
+nivelultim~9 |   .4947841    .092651     5.34   0.000     .3102536    .6793146
+nivelulti~10 |   .5530001   .0660661     8.37   0.000     .4214181    .6845822
+nivelulti~11 |   .4345645    .113317     3.83   0.000     .2088742    .6602548
+nivelulti~12 |          0  (omitted)
+HOMI_CAP_MUN |   69.27557   188.2252     0.37   0.714    -305.6074    444.1585
+       total |   6.47e-11   4.96e-11     1.30   0.196    -3.41e-11    1.63e-10
+     mis_tot |   .0231271   .0916647     0.25   0.801     -.159439    .2056931
+MismoParti~G |  -.2140062   .1441639    -1.48   0.142    -.5011336    .0731211
+ CorruptPast |   .0239986   .0593032     0.40   0.687     -.094114    .1421112
+     Corrupt |   .0438435   .1084591     0.40   0.687    -.1721715    .2598586
+AlreadyAud~d |          0  (omitted)
+   TRABAJO_1 |  -.1716093   .0794556    -2.16   0.034    -.3298588   -.0133597
+   TRABAJO_2 |   .0144393   .1264742     0.11   0.909    -.2374558    .2663345
+   TRABAJO_3 |  -.1700375   .0794911    -2.14   0.036    -.3283577   -.0117173
+   TRABAJO_4 |   -.224081   .0773923    -2.90   0.005     -.378221    -.069941
+   TRABAJO_5 |  -.0592048   .1008982    -0.59   0.559    -.2601609    .1417513
+   TRABAJO_6 |  -.1782623   .0889754    -2.00   0.049    -.3554721   -.0010525
+   TRABAJO_7 |  -.0643245   .0756768    -0.85   0.398    -.2150479    .0863988
+   TRABAJO_8 |  -.1300818   .0950869    -1.37   0.175    -.3194638    .0593001
+   TRABAJO_9 |   .0197386   .2227797     0.09   0.930    -.4239657    .4634428
+  TRABAJO_10 |          0  (omitted)
+        ed_1 |          0  (omitted)
+        ed_2 |          0  (omitted)
+        ed_3 |  -1.490932   .3306847    -4.51   0.000    -2.149547    -.832316
+        ed_4 |  -1.152014   .1250281    -9.21   0.000    -1.401029   -.9029992
+        ed_5 |  -1.128305    .229515    -4.92   0.000    -1.585424   -.6711862
+        ed_6 |  -1.284501   .1189983   -10.79   0.000    -1.521507   -1.047495
+        ed_7 |   -1.36577   .1323404   -10.32   0.000    -1.629348   -1.102191
+        ed_8 |  -1.357068   .0980623   -13.84   0.000    -1.552376    -1.16176
+        ed_9 |  -1.280166   .0914332   -14.00   0.000    -1.462271   -1.098061
+       ed_10 |  -1.475602   .0908335   -16.25   0.000    -1.656513   -1.294692
+       ed_11 |  -1.406659   .1048512   -13.42   0.000    -1.615488    -1.19783
+       ed_12 |  -1.453094   .0732473   -19.84   0.000    -1.598979    -1.30721
+       ed_13 |  -1.360828   .1126456   -12.08   0.000    -1.585181   -1.136475
+       ed_14 |  -1.295744   .1265329   -10.24   0.000    -1.547756   -1.043732
+       ed_15 |  -1.425309   .1214995   -11.73   0.000    -1.667297   -1.183322
+       ed_16 |   -1.36633   .0921036   -14.83   0.000    -1.549771    -1.18289
+       ed_17 |  -1.387347   .0723822   -19.17   0.000    -1.531509   -1.243186
+       ed_18 |  -1.339519   .0911611   -14.69   0.000    -1.521082   -1.157956
+       ed_19 |  -1.360562   .0941828   -14.45   0.000    -1.548144   -1.172981
+       ed_20 |  -1.448806   .1188451   -12.19   0.000    -1.685507   -1.212106
+       ed_21 |  -1.384788   .0808398   -17.13   0.000    -1.545794   -1.223781
+       ed_22 |  -1.501385   .1013998   -14.81   0.000     -1.70334   -1.299429
+       ed_23 |   -1.28529   .1043575   -12.32   0.000    -1.493136   -1.077444
+       ed_24 |  -1.388949   .1050458   -13.22   0.000    -1.598166   -1.179732
+       ed_25 |  -1.318671   .1390517    -9.48   0.000    -1.595616   -1.041725
+       ed_26 |  -1.390676   .1017034   -13.67   0.000    -1.593235   -1.188116
+       ed_27 |  -1.343865   .1079769   -12.45   0.000     -1.55892   -1.128811
+       ed_28 |  -1.266662   .0919189   -13.78   0.000    -1.449735    -1.08359
+       ed_29 |  -1.379676   .1049648   -13.14   0.000    -1.588732    -1.17062
+       ed_30 |  -1.276592    .096168   -13.27   0.000    -1.468128   -1.085057
+       ed_31 |  -1.429646   .1026453   -13.93   0.000    -1.634082    -1.22521
+       ed_32 |  -1.385796   .1084004   -12.78   0.000    -1.601694   -1.169898
+       ed_33 |  -1.322807   .1107857   -11.94   0.000    -1.543456   -1.102159
+       ed_34 |  -1.448136   .0848888   -17.06   0.000    -1.617207   -1.279065
+       ed_35 |  -1.453566   .0804261   -18.07   0.000    -1.613749   -1.293384
+       ed_36 |  -1.273697   .1054398   -12.08   0.000    -1.483698   -1.063695
+       ed_37 |  -1.419175   .0975523   -14.55   0.000    -1.613468   -1.224883
+       ed_38 |  -1.548438   .0725849   -21.33   0.000    -1.693003   -1.403873
+       ed_39 |  -1.354134   .1188497   -11.39   0.000    -1.590844   -1.117424
+       ed_40 |  -1.384819   .0945959   -14.64   0.000    -1.573223   -1.196415
+       ed_41 |  -1.402571   .1055736   -13.29   0.000    -1.612839   -1.192303
+       ed_42 |  -1.483662   .0902829   -16.43   0.000    -1.663476   -1.303848
+       ed_43 |  -1.289603   .0954282   -13.51   0.000    -1.479665   -1.099542
+       ed_44 |  -1.429788   .1045763   -13.67   0.000     -1.63807   -1.221507
+       ed_45 |  -1.410801   .1056673   -13.35   0.000    -1.621256   -1.200347
+       ed_46 |  -1.382572    .135018   -10.24   0.000    -1.651484    -1.11366
+       ed_47 |  -1.379857   .0954382   -14.46   0.000    -1.569939   -1.189775
+       ed_48 |  -1.397203    .106496   -13.12   0.000    -1.609308   -1.185098
+       ed_49 |  -1.470155   .1222902   -12.02   0.000    -1.713717   -1.226593
+       ed_50 |  -1.346833   .0934916   -14.41   0.000    -1.533038   -1.160629
+       ed_51 |   -1.47292   .1183207   -12.45   0.000    -1.708576   -1.237264
+       ed_52 |  -1.346709   .0897629   -15.00   0.000    -1.525487    -1.16793
+       ed_53 |  -1.526556   .1091682   -13.98   0.000    -1.743984   -1.309129
+       ed_54 |   -1.33906    .104339   -12.83   0.000    -1.546869   -1.131251
+       ed_55 |  -1.390074   .0959433   -14.49   0.000    -1.581162   -1.198986
+       ed_56 |  -1.471307   .1005927   -14.63   0.000    -1.671655   -1.270959
+       ed_57 |  -1.374923   .1362625   -10.09   0.000    -1.646313   -1.103533
+       ed_58 |  -1.405989   .1545034    -9.10   0.000     -1.71371   -1.098269
+       ed_59 |  -1.424945   .0811417   -17.56   0.000    -1.586553   -1.263337
+       ed_60 |   -1.36666   .1729695    -7.90   0.000    -1.711158   -1.022161
+       ed_61 |  -1.344681   .1136002   -11.84   0.000    -1.570935   -1.118426
+       ed_62 |  -1.393607   .1418023    -9.83   0.000    -1.676031   -1.111183
+       ed_63 |   -1.27125   .1126253   -11.29   0.000    -1.495563   -1.046938
+       ed_64 |  -1.442756   .1128686   -12.78   0.000    -1.667553   -1.217959
+       ed_65 |  -1.653207   .1493717   -11.07   0.000    -1.950706   -1.355707
+       ed_66 |  -1.417463   .1190369   -11.91   0.000    -1.654545    -1.18038
+       ed_67 |  -1.089848   .6261515    -1.74   0.086    -2.336936    .1572412
+       ed_68 |  -1.618476   .1296998   -12.48   0.000    -1.876795   -1.360156
+       ed_69 |  -1.324403   .2337805    -5.67   0.000    -1.790017   -.8587886
+       ed_70 |  -1.451806   .1203417   -12.06   0.000    -1.691488   -1.212125
+       ed_71 |  -1.753321   .1535316   -11.42   0.000    -2.059105   -1.447536
+       ed_72 |  -1.379024   .1238685   -11.13   0.000    -1.625729   -1.132318
+       ed_73 |  -1.140258    .186947    -6.10   0.000    -1.512596   -.7679211
+       ed_74 |  -1.962578   .1394738   -14.07   0.000    -2.240364   -1.684792
+       ed_75 |  -1.700566   .1669197   -10.19   0.000    -2.033015   -1.368116
+       ed_76 |  -1.027072   .3501214    -2.93   0.004      -1.7244   -.3297452
+       ed_77 |  -.8878648   .0766448   -11.58   0.000    -1.040516   -.7352135
+       ed_78 |  -1.831198   .1753974   -10.44   0.000    -2.180532   -1.481864
+       ed_79 |  -1.684905   .0867673   -19.42   0.000    -1.857717   -1.512093
+       ed_80 |  -2.194915   .1493552   -14.70   0.000    -2.492381   -1.897448
+       ed_81 |  -1.719858   .2633846    -6.53   0.000    -2.244434   -1.195282
+       ed_82 |  -2.206058    .121344   -18.18   0.000    -2.447735    -1.96438
+       ed_83 |  -1.099106   .1560983    -7.04   0.000    -1.410003   -.7882096
+       ed_84 |          0  (omitted)
+       ed_85 |          0  (omitted)
+       _cons |   1.284084   .1503639     8.54   0.000     .9846085     1.58356
+------------------------------------------------------------------------------
+r; t=0.23 18:55:01
+
+. areg Count_Index inter P_* PDE_*  yy_* Time nivelultimo_* HOMI_CAP_MUN total 
+> mis_tot MismoPartido CorruptPast Corrupt Already TRABAJO_* ed_* , a(clave_mun
+> ) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+note: nivelultimo_12 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: TRABAJO_10 omitted because of collinearity.
+note: ed_1 omitted because of collinearity.
+note: ed_2 omitted because of collinearity.
+note: ed_83 omitted because of collinearity.
+note: ed_84 omitted because of collinearity.
+note: ed_85 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(66, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.1050
+                                                    Adj R-squared     = 0.0826
+                                                    Root MSE          = 0.6787
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+ Count_Index | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0994415   .1170965     0.85   0.398    -.1337763    .3326594
+         P_1 |  -.0978569   .2403331    -0.41   0.685    -.5765217     .380808
+         P_2 |   1.307823   .1784266     7.33   0.000     .9524558     1.66319
+         P_3 |   1.467057   .3290583     4.46   0.000     .8116804    2.122433
+         P_4 |   .3244264   .4752534     0.68   0.497    -.6221228    1.270976
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.5423411   .3526411    -1.54   0.128    -1.244687    .1600044
+         P_8 |   .7004999   .3008089     2.33   0.023      .101387    1.299613
+         P_9 |   .2226916   .1767562     1.26   0.212    -.1293488     .574732
+        P_10 |  -.2029427   .2778198    -0.73   0.467    -.7562687    .3503833
+        P_11 |   1.695483   .4511529     3.76   0.000     .7969344    2.594032
+        P_12 |   .5863711   .2582044     2.27   0.026     .0721125     1.10063
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0890834   .2279001    -0.39   0.697    -.5429858    .3648191
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.1005241   .1187699    -0.85   0.400    -.3370749    .1360266
+        P_19 |  -.4136296   .0996307    -4.15   0.000    -.6120614   -.2151978
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .4623809   .4067264     1.14   0.259     -.347685    1.272447
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |   .0452823   .3752429     0.12   0.904    -.7020787    .7926434
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .0294944   .1901996     0.16   0.877     -.349321    .4083098
+        P_29 |          0  (omitted)
+        P_30 |   .3209429   .3078306     1.04   0.300    -.2921549    .9340406
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.1208419   .1691502    -0.71   0.477    -.4577338      .21605
+       PDE_2 |  -.3389041   .1902879    -1.78   0.079    -.7178953    .0400871
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.2053656   .0936063    -2.19   0.031    -.3917987   -.0189326
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .1259879   .1077918     1.17   0.246    -.0886982    .3406739
+      PDE_10 |    .355502   .3515541     1.01   0.315    -.3446787    1.055683
+      PDE_11 |  -.4783725   .2750007    -1.74   0.086    -1.026084    .0693389
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   -.030922    .254959    -0.12   0.904    -.5387168    .4768729
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .2124611   .1535296     1.38   0.170    -.0933196    .5182419
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.4811307   .1406495    -3.42   0.001    -.7612584    -.201003
+      PDE_22 |  -.3622143   .2704583    -1.34   0.184    -.9008786    .1764501
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.4735273   .5508878    -0.86   0.393    -1.570715    .6236608
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .1321946    .144313     0.92   0.363    -.1552296    .4196188
+      PDE_30 |   .1697187   .0909556     1.87   0.066     -.011435    .3508725
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        yy_1 |    .679023    .275425     2.47   0.016     .1304667    1.227579
+        yy_2 |    .737118   .2171543     3.39   0.001     .3046176    1.169618
+        yy_3 |   1.080993   .4114534     2.63   0.010     .2615125    1.900473
+        yy_4 |   1.623002   .3294381     4.93   0.000      .966869    2.279135
+        yy_5 |   .9885971   .1455293     6.79   0.000     .6987503    1.278444
+        yy_6 |   1.158134   .1232696     9.40   0.000     .9126209    1.403646
+        yy_7 |   .9282698   .1865416     4.98   0.000     .5567401    1.299799
+        yy_8 |   .8295971   .1245366     6.66   0.000     .5815609    1.077633
+        yy_9 |   .8502704   .2116703     4.02   0.000     .4286925    1.271848
+       yy_10 |          0  (omitted)
+        Time |   .1216108   .0916291     1.33   0.188    -.0608844    .3041059
+nivelulti~_1 |   .6490224   .0748913     8.67   0.000     .4998634    .7981813
+nivelulti~_2 |   .7026145   .1582811     4.44   0.000     .3873704    1.017859
+nivelultim~3 |   1.026997   .3832944     2.68   0.009     .2636003    1.790394
+nivelultim~4 |   .6897958   .0723681     9.53   0.000     .5456622    .8339294
+nivelultim~5 |   .6989641   .0705557     9.91   0.000     .5584403    .8394878
+nivelultim~6 |    .629839   .0877542     7.18   0.000     .4550613    .8046167
+nivelultim~7 |   .6411014   .0763836     8.39   0.000     .4889702    .7932325
+nivelultim~8 |   .5972027   .0934766     6.39   0.000     .4110278    .7833775
+nivelultim~9 |    .493428   .0947178     5.21   0.000     .3047811     .682075
+nivelulti~10 |   .5460218   .0689188     7.92   0.000     .4087582    .6832855
+nivelulti~11 |   .4227079   .1137093     3.72   0.000     .1962363    .6491796
+nivelulti~12 |          0  (omitted)
+HOMI_CAP_MUN |   119.2494   200.1833     0.60   0.553    -279.4503     517.949
+       total |   7.38e-11   4.08e-11     1.81   0.074    -7.39e-12    1.55e-10
+     mis_tot |   .1165676   .0924936     1.26   0.211    -.0676493    .3007846
+MismoParti~G |  -.1659974    .120169    -1.38   0.171    -.4053347    .0733398
+ CorruptPast |  -.1942695   .0836638    -2.32   0.023    -.3609004   -.0276385
+     Corrupt |  -.0509768   .1027243    -0.50   0.621      -.25557    .1536163
+AlreadyAud~d |          0  (omitted)
+   TRABAJO_1 |  -.1617456   .0785618    -2.06   0.043    -.3182149   -.0052763
+   TRABAJO_2 |   .0273531   .1269733     0.22   0.830    -.2255361    .2802424
+   TRABAJO_3 |  -.1612321    .078144    -2.06   0.043    -.3168693   -.0055948
+   TRABAJO_4 |   -.213799   .0760774    -2.81   0.006    -.3653202   -.0622778
+   TRABAJO_5 |   -.054663   .0984592    -0.56   0.580    -.2507615    .1414355
+   TRABAJO_6 |  -.1680465   .0885903    -1.90   0.062    -.3444893    .0083963
+   TRABAJO_7 |  -.0594287   .0753639    -0.79   0.433    -.2095289    .0906716
+   TRABAJO_8 |  -.1189645   .0948456    -1.25   0.214    -.3078659    .0699369
+   TRABAJO_9 |   .0596628   .2223657     0.27   0.789    -.3832169    .5025424
+  TRABAJO_10 |          0  (omitted)
+        ed_1 |          0  (omitted)
+        ed_2 |          0  (omitted)
+        ed_3 |  -1.362413   .3365565    -4.05   0.000    -2.032723   -.6921022
+        ed_4 |  -1.057577   .1063075    -9.95   0.000    -1.269307   -.8458477
+        ed_5 |  -.9951565   .2597228    -3.83   0.000    -1.512439   -.4778737
+        ed_6 |  -1.161213   .1168432    -9.94   0.000    -1.393926   -.9284993
+        ed_7 |  -1.247169   .1547446    -8.06   0.000     -1.55537   -.9389688
+        ed_8 |  -1.232821   .1064031   -11.59   0.000    -1.444741   -1.020901
+        ed_9 |  -1.158504   .1192517    -9.71   0.000    -1.396015    -.920994
+       ed_10 |  -1.346888   .1115622   -12.07   0.000    -1.569084   -1.124693
+       ed_11 |  -1.277918   .1348232    -9.48   0.000    -1.546442   -1.009395
+       ed_12 |  -1.322498   .1146625   -11.53   0.000    -1.550868   -1.094128
+       ed_13 |  -1.233248   .1111943   -11.09   0.000     -1.45471   -1.011785
+       ed_14 |  -1.163328   .1568418    -7.42   0.000    -1.475706    -.850951
+       ed_15 |  -1.294182   .1333922    -9.70   0.000    -1.559856   -1.028509
+       ed_16 |  -1.233841   .1130196   -10.92   0.000    -1.458939   -1.008743
+       ed_17 |  -1.261192   .1014382   -12.43   0.000    -1.463224    -1.05916
+       ed_18 |  -1.200907   .1041764   -11.53   0.000    -1.408393    -.993422
+       ed_19 |    -1.2314   .1064967   -11.56   0.000    -1.443507   -1.019294
+       ed_20 |  -1.316369   .1312493   -10.03   0.000    -1.577775   -1.054964
+       ed_21 |  -1.246778   .1109365   -11.24   0.000    -1.467728   -1.025829
+       ed_22 |  -1.362145   .1111705   -12.25   0.000     -1.58356    -1.14073
+       ed_23 |  -1.148737   .1255542    -9.15   0.000      -1.3988   -.8986744
+       ed_24 |  -1.258888    .131823    -9.55   0.000    -1.521436   -.9963399
+       ed_25 |  -1.184309   .1455827    -8.13   0.000    -1.474262    -.894356
+       ed_26 |  -1.266356   .1324228    -9.56   0.000    -1.530099   -1.002613
+       ed_27 |  -1.215851   .1137453   -10.69   0.000    -1.442395   -.9893077
+       ed_28 |  -1.138205   .1149657    -9.90   0.000    -1.367179   -.9092312
+       ed_29 |  -1.252722   .1220083   -10.27   0.000    -1.495723   -1.009722
+       ed_30 |  -1.142219   .1035715   -11.03   0.000      -1.3485   -.9359389
+       ed_31 |  -1.301948   .1182259   -11.01   0.000    -1.537415   -1.066481
+       ed_32 |  -1.246683   .1177833   -10.58   0.000    -1.481268   -1.012097
+       ed_33 |  -1.190474    .126548    -9.41   0.000    -1.442516   -.9384316
+       ed_34 |  -1.322835   .0898818   -14.72   0.000     -1.50185    -1.14382
+       ed_35 |  -1.325002   .1152225   -11.50   0.000    -1.554487   -1.095517
+       ed_36 |  -1.151703   .1158519    -9.94   0.000    -1.382442   -.9209637
+       ed_37 |  -1.289525   .1036976   -12.44   0.000    -1.496057   -1.082994
+       ed_38 |  -1.420127   .1092526   -13.00   0.000    -1.637722   -1.202531
+       ed_39 |  -1.228525   .1304057    -9.42   0.000     -1.48825   -.9687992
+       ed_40 |  -1.264111   .1159068   -10.91   0.000    -1.494959   -1.033262
+       ed_41 |  -1.274461    .121379   -10.50   0.000    -1.516208   -1.032713
+       ed_42 |  -1.353671   .1130184   -11.98   0.000    -1.578767   -1.128576
+       ed_43 |  -1.163647   .1056802   -11.01   0.000    -1.374128    -.953167
+       ed_44 |  -1.302503   .1282474   -10.16   0.000     -1.55793   -1.047076
+       ed_45 |  -1.271409   .1144328   -11.11   0.000    -1.499322   -1.043496
+       ed_46 |  -1.257479    .147091    -8.55   0.000    -1.550436   -.9645215
+       ed_47 |  -1.250313   .1236927   -10.11   0.000    -1.496669   -1.003958
+       ed_48 |  -1.273376   .1314283    -9.69   0.000    -1.535138   -1.011614
+       ed_49 |   -1.33947   .1217484   -11.00   0.000    -1.581953   -1.096987
+       ed_50 |  -1.223656   .1051315   -11.64   0.000    -1.433044   -1.014269
+       ed_51 |  -1.348307   .1350772    -9.98   0.000    -1.617337   -1.079278
+       ed_52 |  -1.223476   .0968711   -12.63   0.000    -1.416411    -1.03054
+       ed_53 |   -1.40133    .117321   -11.94   0.000    -1.634996   -1.167665
+       ed_54 |   -1.21545   .1468161    -8.28   0.000    -1.507859     -.92304
+       ed_55 |  -1.265278   .1091001   -11.60   0.000     -1.48257   -1.047986
+       ed_56 |  -1.339256   .1222114   -10.96   0.000    -1.582661   -1.095851
+       ed_57 |  -1.245427   .1396695    -8.92   0.000    -1.523602   -.9672507
+       ed_58 |  -1.279959   .1480545    -8.65   0.000    -1.574835   -.9850829
+       ed_59 |  -1.297143   .1053303   -12.32   0.000    -1.506926   -1.087359
+       ed_60 |  -1.238123   .1966057    -6.30   0.000    -1.629697   -.8465488
+       ed_61 |   -1.21794   .1451727    -8.39   0.000    -1.507077   -.9288038
+       ed_62 |  -1.267854   .1713381    -7.40   0.000    -1.609103   -.9266043
+       ed_63 |  -1.142052   .1425772    -8.01   0.000    -1.426019   -.8580853
+       ed_64 |  -1.300037   .1594635    -8.15   0.000    -1.617636   -.9824375
+       ed_65 |  -1.529872   .1443414   -10.60   0.000    -1.817353   -1.242391
+       ed_66 |  -1.287653   .1590082    -8.10   0.000    -1.604345   -.9709605
+       ed_67 |  -.9720255   .6365857    -1.53   0.131    -2.239896    .2958448
+       ed_68 |  -1.491298   .1503923    -9.92   0.000     -1.79083   -1.191765
+       ed_69 |  -1.195149   .2257761    -5.29   0.000    -1.644821   -.7454772
+       ed_70 |  -1.326439   .1230968   -10.78   0.000    -1.571608    -1.08127
+       ed_71 |  -1.599706   .1462283   -10.94   0.000    -1.890945   -1.308467
+       ed_72 |  -1.239711   .1967982    -6.30   0.000    -1.631668   -.8477529
+       ed_73 |  -1.008588   .2015964    -5.00   0.000    -1.410102   -.6070735
+       ed_74 |  -1.835965   .1433971   -12.80   0.000    -2.121565   -1.550365
+       ed_75 |  -1.592865   .1571213   -10.14   0.000    -1.905799   -1.279931
+       ed_76 |  -.8983827   .3398664    -2.64   0.010    -1.575285   -.2214802
+       ed_77 |  -.7687988   .1008971    -7.62   0.000    -.9697528   -.5678447
+       ed_78 |  -1.672345   .1840764    -9.09   0.000    -2.038965   -1.305725
+       ed_79 |  -1.552573   .0986669   -15.74   0.000    -1.749085   -1.356061
+       ed_80 |  -2.061107   .1619924   -12.72   0.000    -2.383743   -1.738471
+       ed_81 |  -1.595433   .2515082    -6.34   0.000    -2.096355   -1.094511
+       ed_82 |  -2.110144   .1081372   -19.51   0.000    -2.325518   -1.894771
+       ed_83 |          0  (omitted)
+       ed_84 |          0  (omitted)
+       ed_85 |          0  (omitted)
+       _cons |   .4414372   .2089457     2.11   0.038     .0252858    .8575887
+------------------------------------------------------------------------------
+r; t=0.24 18:55:01
+
+. 
+. 
+. areg Uno inter Time Corrupt , a(clave_mun) cluster(clave_mun)
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(3, 76)          =   0.40
+                                                    Prob > F          = 0.7514
+                                                    R-squared         = 0.0815
+                                                    Adj R-squared     = 0.0735
+                                                    Root MSE          = 0.4718
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Uno | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |  -.0390027   .0753067    -0.52   0.606     -.188989    .1109835
+        Time |   .0447684   .0435743     1.03   0.307    -.0420174    .1315541
+     Corrupt |   .0590775   .0672157     0.88   0.382    -.0747942    .1929492
+       _cons |   .5583508   .0383969    14.54   0.000     .4818767    .6348249
+------------------------------------------------------------------------------
+r; t=0.03 18:55:01
+
+. areg Uno inter Time Corrupt P_* PDE_*, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(18, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0904
+                                                    Adj R-squared     = 0.0794
+                                                    Root MSE          = 0.4699
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Uno | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0107975   .1158709     0.09   0.926    -.2199793    .2415744
+        Time |    .015438   .0500629     0.31   0.759    -.0842709    .1151469
+     Corrupt |   .0369176   .0639508     0.58   0.565    -.0904514    .1642866
+         P_1 |   .3056364   .2157292     1.42   0.161    -.1240256    .7352983
+         P_2 |   .4061735    .049359     8.23   0.000     .3078665    .5044805
+         P_3 |   .3333333   8.08e-09  4.1e+07   0.000     .3333333    .3333333
+         P_4 |   .0631532   .0606847     1.04   0.301    -.0577109    .1840172
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |   .2107842   .2205549     0.96   0.342     -.228489    .6500574
+         P_8 |   .5707108   .2840398     2.01   0.048     .0049964    1.136425
+         P_9 |   .4636453   .1709724     2.71   0.008     .1231243    .8041663
+        P_10 |   .0199285   .2457462     0.08   0.936    -.4695175    .5093744
+        P_11 |   .1403343   .3238979     0.43   0.666    -.5047642    .7854328
+        P_12 |   .6303171   .1523977     4.14   0.000     .3267907    .9338435
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.1215256   .1381441    -0.88   0.382    -.3966635    .1536123
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |   .0975856   .0592922     1.65   0.104    -.0205049    .2156762
+        P_19 |  -.2131532   .0606847    -3.51   0.001    -.3340172   -.0922891
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .3831841   .1746603     2.19   0.031     .0353179    .7310503
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.2742797   .2915662    -0.94   0.350    -.8549842    .3064247
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .2078153   .1745913     1.19   0.238    -.1399135    .5555441
+        P_29 |          0  (omitted)
+        P_30 |   .2268487   .1855974     1.22   0.225    -.1428007     .596498
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0100087   .1974148    -0.05   0.960    -.4031943    .3831769
+       PDE_2 |  -.2545653   .0493647    -5.16   0.000    -.3528836    -.156247
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .1491405   .0979318     1.52   0.132    -.0459075    .3441885
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .1080181   .1127688     0.96   0.341    -.1165804    .3326165
+      PDE_10 |   .0678456     .13533     0.50   0.618    -.2016875    .3373787
+      PDE_11 |  -.1189388   .1849706    -0.64   0.522    -.4873397    .2494621
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   .0235216   .1515463     0.16   0.877    -.2783091    .3253523
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1322539   .1514743     0.87   0.385    -.1694333    .4339411
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.1029868   .0491032    -2.10   0.039    -.2007842   -.0051894
+      PDE_22 |   .1232533    .200467     0.61   0.541    -.2760113    .5225178
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.0069801   .3413823    -0.02   0.984    -.6869019    .6729417
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .1683887   .1278641     1.32   0.192    -.0862748    .4230522
+      PDE_30 |    .232075   .0991116     2.34   0.022      .034677    .4294729
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+       _cons |   .3888898   .1404909     2.77   0.007     .1090779    .6687016
+------------------------------------------------------------------------------
+r; t=0.06 18:55:01
+
+. areg Uno inter P_* PDE_* Time HOMI_CAP_MUN total mis_tot MismoPartido Corrupt
+> Past Corrupt Already, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(22, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0926
+                                                    Adj R-squared     = 0.0812
+                                                    Root MSE          = 0.4694
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Uno | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |  -.0100146   .1081729    -0.09   0.926    -.2254596    .2054304
+         P_1 |     .23953   .2042124     1.17   0.244    -.1671943    .6462542
+         P_2 |   .3150229   .1458116     2.16   0.034     .0246139    .6054319
+         P_3 |   .3426345   .0995965     3.44   0.001      .144271    .5409981
+         P_4 |   .1001693   .1224585     0.82   0.416    -.1437279    .3440664
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0972559   .2489717    -0.39   0.697     -.593126    .3986142
+         P_8 |   .6316432   .3003959     2.10   0.039      .033353    1.229933
+         P_9 |   .4527762   .1541178     2.94   0.004      .145824    .7597285
+        P_10 |  -.0005286   .2170257    -0.00   0.998    -.4327728    .4317156
+        P_11 |   .1866146   .3486101     0.54   0.594    -.5077026    .8809319
+        P_12 |   .6500826   .1835431     3.54   0.001     .2845249     1.01564
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.1191707   .1812012    -0.66   0.513    -.4800641    .2417227
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |   .0816456   .0864309     0.94   0.348    -.0904964    .2537877
+        P_19 |   -.226175   .0496589    -4.55   0.000    -.3250792   -.1272709
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .4344231     .20103     2.16   0.034     .0340371    .8348091
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |   -.203169   .3004873    -0.68   0.501    -.8016412    .3953033
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .2007688    .161032     1.25   0.216    -.1199543     .521492
+        P_29 |          0  (omitted)
+        P_30 |   .2183369   .1697077     1.29   0.202    -.1196653    .5563391
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0193571   .1658275     0.12   0.907     -.310917    .3496313
+       PDE_2 |  -.3290095   .1019134    -3.23   0.002    -.5319875   -.1260314
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .0033466   .0776245     0.04   0.966     -.151256    .1579491
+       PDE_8 |          0  (omitted)
+       PDE_9 |    .028788   .1224377     0.24   0.815    -.2150677    .2726437
+      PDE_10 |   .1829362   .3158927     0.58   0.564    -.4462186     .812091
+      PDE_11 |  -.1387598   .1672355    -0.83   0.409    -.4718382    .1943187
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0450578   .2015966    -0.22   0.824    -.4465722    .3564565
+      PDE_15 |          0  (omitted)
+      PDE_16 |    .103305   .1286768     0.80   0.425    -.1529771    .3595871
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.1944691    .120994    -1.61   0.112    -.4354495    .0465113
+      PDE_22 |   .1480422   .1862114     0.80   0.429    -.2228301    .5189144
+      PDE_23 |          0  (omitted)
+      PDE_24 |   -.112097    .242982    -0.46   0.646    -.5960377    .3718436
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .1242618   .1257663     0.99   0.326    -.1262235    .3747472
+      PDE_30 |   .2061307   .0991218     2.08   0.041     .0087125    .4035489
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0487262   .0630397     0.77   0.442    -.0768283    .1742807
+HOMI_CAP_MUN |     5.8524   200.2251     0.03   0.977    -392.9305    404.6353
+       total |   4.38e-11   4.42e-11     0.99   0.325    -4.42e-11    1.32e-10
+     mis_tot |   .0088311   .0765702     0.12   0.908    -.1436717    .1613339
+MismoParti~G |  -.0147473    .094447    -0.16   0.876    -.2028549    .1733603
+ CorruptPast |   .0010392   .0484819     0.02   0.983    -.0955208    .0975992
+     Corrupt |   .0375236   .0789196     0.48   0.636    -.1196585    .1947057
+AlreadyAud~d |          0  (omitted)
+       _cons |   .3709676   .1040407     3.57   0.001     .1637526    .5781827
+------------------------------------------------------------------------------
+r; t=0.08 18:55:01
+
+. areg Uno inter P_* PDE_* Time  HOMI_CAP_MUN total mis_tot MismoPartido Corrup
+> tPast Corrupt Already yy_* , a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(30, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0950
+                                                    Adj R-squared     = 0.0827
+                                                    Root MSE          = 0.4690
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Uno | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0306619   .1096336     0.28   0.780    -.1876924    .2490163
+         P_1 |  -.0084869   .2109128    -0.04   0.968     -.428556    .4115823
+         P_2 |   .2467477   .1132742     2.18   0.032     .0211427    .4723528
+         P_3 |   .1893687   .1837523     1.03   0.306    -.1766057     .555343
+         P_4 |  -.0767734   .3319674    -0.23   0.818    -.7379438    .5843969
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |   -.291122   .2817037    -1.03   0.305    -.8521836    .2699396
+         P_8 |   .6064545   .3382285     1.79   0.077    -.0671859    1.280095
+         P_9 |   .4114116   .1618384     2.54   0.013     .0890826    .7337406
+        P_10 |   -.131194   .2269698    -0.58   0.565    -.5832437    .3208556
+        P_11 |   .0815585   .3537269     0.23   0.818    -.6229496    .7860667
+        P_12 |     .64717   .2008146     3.22   0.002      .247213    1.047127
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |   -.143544   .1920185    -0.75   0.457     -.525982     .238894
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |   .0712033   .1195177     0.60   0.553    -.1668369    .3092434
+        P_19 |  -.2303769   .0792756    -2.91   0.005    -.3882679   -.0724859
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |     .48469    .318881     1.52   0.133    -.1504166    1.119797
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.1644632   .4151918    -0.40   0.693    -.9913893    .6624628
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .0604743   .1495075     0.40   0.687    -.2372956    .3582443
+        P_29 |          0  (omitted)
+        P_30 |   .2062401   .2078608     0.99   0.324    -.2077505    .6202306
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.1021754   .1634545    -0.63   0.534    -.4277233    .2233725
+       PDE_2 |  -.2941757   .1175302    -2.50   0.014    -.5282574   -.0600939
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0391496   .0713732    -0.55   0.585    -.1813017    .1030025
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0092562   .1322735     0.07   0.944    -.2541893    .2727017
+      PDE_10 |   .2498731    .376008     0.66   0.508    -.4990118     .998758
+      PDE_11 |  -.1176734   .2572458    -0.46   0.649    -.6300228    .3946761
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0120821   .1884818    -0.06   0.949    -.3874761    .3633119
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1474235   .1242859     1.19   0.239    -.1001134    .3949603
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.2997045   .1209455    -2.48   0.015    -.5405885   -.0588206
+      PDE_22 |  -.2028065   .2263106    -0.90   0.373    -.6535431    .2479302
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.5026641   .4234615    -1.19   0.239    -1.346061    .3407325
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0657182   .1380455     0.48   0.635    -.2092233    .3406598
+      PDE_30 |   .2048166   .1114728     1.84   0.070    -.0172008     .426834
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0640536   .0687124     0.93   0.354    -.0727991    .2009062
+HOMI_CAP_MUN |   32.13031   222.2658     0.14   0.885    -410.5504    474.8111
+       total |   4.82e-11   3.72e-11     1.29   0.199    -2.60e-11    1.22e-10
+     mis_tot |   .0894332   .0901737     0.99   0.324    -.0901632    .2690297
+MismoParti~G |  -.0367584   .1227983    -0.30   0.765    -.2813324    .2078156
+ CorruptPast |  -.1329728   .0714866    -1.86   0.067    -.2753507    .0094052
+     Corrupt |  -.0140086     .08352    -0.17   0.867     -.180353    .1523358
+AlreadyAud~d |          0  (omitted)
+        yy_1 |  -.2941679   .1832353    -1.61   0.113    -.6591127    .0707768
+        yy_2 |  -.2165666   .1726477    -1.25   0.214    -.5604242     .127291
+        yy_3 |  -.0934647   .3361603    -0.28   0.782     -.762986    .5760565
+        yy_4 |   .6940464   .2094514     3.31   0.001     .2768876    1.111205
+        yy_5 |  -.0216513   .1471331    -0.15   0.883    -.3146922    .2713897
+        yy_6 |   .0102241   .1651243     0.06   0.951    -.3186494    .3390977
+        yy_7 |  -.1268442    .161025    -0.79   0.433    -.4475533    .1938649
+        yy_8 |  -.1847921   .1778174    -1.04   0.302    -.5389461     .169362
+        yy_9 |  -.1269266   .2166376    -0.59   0.560    -.5583976    .3045445
+       yy_10 |          0  (omitted)
+       _cons |   .6400162   .2004931     3.19   0.002     .2406995    1.039333
+------------------------------------------------------------------------------
+r; t=0.09 18:55:01
+
+. areg Uno inter P_* PDE_* Time nivelultimo_* HOMI_CAP_MUN total mis_tot MismoP
+> artido CorruptPast Corrupt Already TRABAJO_* ed_* yy_* , a(clave_mun) cluster
+> (clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: nivelultimo_12 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: TRABAJO_10 omitted because of collinearity.
+note: ed_1 omitted because of collinearity.
+note: ed_2 omitted because of collinearity.
+note: ed_84 omitted because of collinearity.
+note: ed_85 omitted because of collinearity.
+note: yy_9 omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(66, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.1139
+                                                    Adj R-squared     = 0.0918
+                                                    Root MSE          = 0.4650
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Uno | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |  -.0048173   .1015055    -0.05   0.962    -.2069831    .1973485
+         P_1 |   .0075958   .2037482     0.04   0.970    -.3982039    .4133956
+         P_2 |   .4410764   .2399035     1.84   0.070    -.0367328    .9188856
+         P_3 |   .3407144   .1208938     2.82   0.006     .0999336    .5814952
+         P_4 |   .0681026   .2736121     0.25   0.804     -.476843    .6130482
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.3899918   .2884749    -1.35   0.180    -.9645393    .1845558
+         P_8 |   .5907105   .3034908     1.95   0.055    -.0137438    1.195165
+         P_9 |   .3757677   .1652321     2.27   0.026     .0466794    .7048559
+        P_10 |   -.135755   .2146587    -0.63   0.529    -.5632848    .2917749
+        P_11 |   .1815274   .4226986     0.43   0.669    -.6603498    1.023405
+        P_12 |   .5630584   .1876775     3.00   0.004     .1892662    .9368505
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.1319251   .1818739    -0.73   0.470    -.4941583    .2303081
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |   .0916652   .1077519     0.85   0.398    -.1229412    .3062717
+        P_19 |  -.2221079   .0886089    -2.51   0.014    -.3985878   -.0456279
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |    .420232   .3028131     1.39   0.169    -.1828726    1.023337
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.0301531     .38119    -0.08   0.937    -.7893587    .7290526
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .0640803   .1422534     0.45   0.654    -.2192418    .3474024
+        P_29 |          0  (omitted)
+        P_30 |   .2134282   .2181928     0.98   0.331    -.2211405    .6479969
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0699817   .1601583    -0.44   0.663    -.3889646    .2490011
+       PDE_2 |  -.2328874    .163037    -1.43   0.157    -.5576037    .0918288
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0912768   .0687191    -1.33   0.188    -.2281428    .0455892
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0549054    .132234     0.42   0.679    -.2084615    .3182722
+      PDE_10 |   .2410657   .3320523     0.73   0.470    -.4202738    .9024053
+      PDE_11 |  -.0875707   .2741459    -0.32   0.750    -.6335796    .4584383
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   .0373161    .187004     0.20   0.842    -.3351346    .4097667
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .1302843   .1356128     0.96   0.340    -.1398121    .4003806
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.2827121   .1134014    -2.49   0.015    -.5085707   -.0568536
+      PDE_22 |  -.1731064   .2170391    -0.80   0.428    -.6053772    .2591643
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.3663178   .4434625    -0.83   0.411     -1.24955    .5169142
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0573715   .1317388     0.44   0.664    -.2050091    .3197521
+      PDE_30 |   .2041466   .1137592     1.79   0.077    -.0224245    .4307178
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0786122   .0632316     1.24   0.218    -.0473243    .2045488
+nivelulti~_1 |   .5816115   .0453389    12.83   0.000     .4913112    .6719117
+nivelulti~_2 |   .5811113   .1048489     5.54   0.000     .3722867    .7899359
+nivelultim~3 |   .7809654   .2385776     3.27   0.002      .305797    1.256134
+nivelultim~4 |   .6198126   .0460829    13.45   0.000     .5280306    .7115946
+nivelultim~5 |   .6194846   .0483921    12.80   0.000     .5231033    .7158658
+nivelultim~6 |   .5933397   .0705588     8.41   0.000     .4528096    .7338698
+nivelultim~7 |   .5829838   .0513158    11.36   0.000     .4807795    .6851881
+nivelultim~8 |   .5654311   .0697896     8.10   0.000     .4264331    .7044291
+nivelultim~9 |      .4947   .0684612     7.23   0.000     .3583476    .6310524
+nivelulti~10 |    .512088   .0452317    11.32   0.000     .4220013    .6021748
+nivelulti~11 |   .4824667   .0923348     5.23   0.000     .2985659    .6663674
+nivelulti~12 |          0  (omitted)
+HOMI_CAP_MUN |   28.23411   188.5909     0.15   0.881    -347.3772    403.8455
+       total |   4.56e-11   3.70e-11     1.23   0.221    -2.80e-11    1.19e-10
+     mis_tot |   .0466019   .0883727     0.53   0.599    -.1294075    .2226114
+MismoParti~G |  -.0293533    .117341    -0.25   0.803    -.2630581    .2043515
+ CorruptPast |   -.127266   .0730882    -1.74   0.086    -.2728338    .0183018
+     Corrupt |  -.0087827   .0836541    -0.10   0.917    -.1753943    .1578289
+AlreadyAud~d |          0  (omitted)
+   TRABAJO_1 |  -.1508148   .0600104    -2.51   0.014    -.2703358   -.0312938
+   TRABAJO_2 |  -.0845986   .0823561    -1.03   0.308    -.2486251    .0794278
+   TRABAJO_3 |  -.1384514   .0601965    -2.30   0.024    -.2583432   -.0185596
+   TRABAJO_4 |  -.1627036   .0595558    -2.73   0.008    -.2813192   -.0440881
+   TRABAJO_5 |  -.0879973   .0637418    -1.38   0.171      -.21495    .0389555
+   TRABAJO_6 |  -.1457298   .0690236    -2.11   0.038    -.2832023   -.0082573
+   TRABAJO_7 |  -.0801025    .061772    -1.30   0.199    -.2031322    .0429272
+   TRABAJO_8 |  -.1224961    .059869    -2.05   0.044    -.2417356   -.0032566
+   TRABAJO_9 |  -.0689263    .121674    -0.57   0.573    -.3112611    .1734085
+  TRABAJO_10 |          0  (omitted)
+        ed_1 |          0  (omitted)
+        ed_2 |          0  (omitted)
+        ed_3 |  -.7823168   .1870142    -4.18   0.000    -1.154788   -.4098457
+        ed_4 |  -.1829968   .0758913    -2.41   0.018    -.3341474   -.0318462
+        ed_5 |  -.3946892   .1391383    -2.84   0.006     -.671807   -.1175713
+        ed_6 |  -.4123531   .0839917    -4.91   0.000    -.5796371   -.2450691
+        ed_7 |  -.4245715   .1165302    -3.64   0.000    -.6566615   -.1924816
+        ed_8 |  -.4529178   .0793502    -5.71   0.000    -.6109574   -.2948782
+        ed_9 |  -.4009028   .0884022    -4.53   0.000    -.5769711   -.2248346
+       ed_10 |  -.5346908   .0826126    -6.47   0.000    -.6992281   -.3701536
+       ed_11 |  -.4564586   .0979982    -4.66   0.000     -.651639   -.2612782
+       ed_12 |  -.5231327   .0980735    -5.33   0.000    -.7184631   -.3278023
+       ed_13 |  -.4360257   .0847002    -5.15   0.000    -.6047207   -.2673307
+       ed_14 |  -.4369982   .0851145    -5.13   0.000    -.6065185   -.2674778
+       ed_15 |  -.5174204   .1059097    -4.89   0.000    -.7283579    -.306483
+       ed_16 |  -.4483355    .099598    -4.50   0.000    -.6467021   -.2499689
+       ed_17 |  -.4775192   .0770083    -6.20   0.000    -.6308944   -.3241439
+       ed_18 |  -.4573333   .0809449    -5.65   0.000    -.6185489   -.2961176
+       ed_19 |  -.4893363    .085192    -5.74   0.000    -.6590109   -.3196617
+       ed_20 |   -.531903   .0954962    -5.57   0.000    -.7221002   -.3417057
+       ed_21 |  -.4387864    .084295    -5.21   0.000    -.6066745   -.2708983
+       ed_22 |   -.537295   .0849601    -6.32   0.000    -.7065077   -.3680824
+       ed_23 |  -.4031274   .0759245    -5.31   0.000    -.5543441   -.2519107
+       ed_24 |  -.5070229   .0951347    -5.33   0.000    -.6965001   -.3175457
+       ed_25 |  -.4480024    .098726    -4.54   0.000    -.6446321   -.2513726
+       ed_26 |  -.4924069   .0828816    -5.94   0.000      -.65748   -.3273338
+       ed_27 |  -.4595985   .0771865    -5.95   0.000    -.6133288   -.3058682
+       ed_28 |  -.4360838   .0765337    -5.70   0.000    -.5885138   -.2836538
+       ed_29 |  -.5037118   .0904687    -5.57   0.000    -.6838959   -.3235277
+       ed_30 |  -.4134557   .0832205    -4.97   0.000    -.5792037   -.2477077
+       ed_31 |  -.4720408   .0882338    -5.35   0.000    -.6477736    -.296308
+       ed_32 |  -.4698129   .0781244    -6.01   0.000    -.6254111   -.3142146
+       ed_33 |  -.4326602   .0847966    -5.10   0.000    -.6015473   -.2637732
+       ed_34 |  -.5330348   .0738151    -7.22   0.000    -.6800502   -.3860194
+       ed_35 |  -.5007201   .0899247    -5.57   0.000    -.6798206   -.3216196
+       ed_36 |  -.4108548   .0907804    -4.53   0.000    -.5916597   -.2300499
+       ed_37 |   -.478621   .0884761    -5.41   0.000    -.6548364   -.3024055
+       ed_38 |  -.5810126   .0883203    -6.58   0.000    -.7569177   -.4051075
+       ed_39 |  -.4940637   .0948202    -5.21   0.000    -.6829145   -.3052129
+       ed_40 |  -.4981806   .0894829    -5.57   0.000    -.6764012   -.3199599
+       ed_41 |  -.4882215   .0934644    -5.22   0.000     -.674372   -.3020709
+       ed_42 |  -.5201991   .0887252    -5.86   0.000    -.6969107   -.3434875
+       ed_43 |  -.4164611   .0944815    -4.41   0.000    -.6046372    -.228285
+       ed_44 |  -.4980083   .0983205    -5.07   0.000    -.6938305   -.3021861
+       ed_45 |  -.4972855   .0812604    -6.12   0.000    -.6591296   -.3354415
+       ed_46 |  -.4837736   .1055914    -4.58   0.000    -.6940772   -.2734701
+       ed_47 |  -.4815099   .0864082    -5.57   0.000    -.6536067   -.3094131
+       ed_48 |  -.4700162   .0983729    -4.78   0.000    -.6659428   -.2740895
+       ed_49 |  -.5289573   .1058351    -5.00   0.000    -.7397462   -.3181684
+       ed_50 |  -.3792679   .0963614    -3.94   0.000    -.5711882   -.1873477
+       ed_51 |  -.5151541   .0971738    -5.30   0.000    -.7086924   -.3216157
+       ed_52 |  -.4293887   .0815726    -5.26   0.000    -.5918546   -.2669227
+       ed_53 |  -.5557525   .0979628    -5.67   0.000    -.7508623   -.3606426
+       ed_54 |  -.3634368   .1029368    -3.53   0.001    -.5684532   -.1584203
+       ed_55 |  -.4706711   .0917183    -5.13   0.000     -.653344   -.2879983
+       ed_56 |  -.5584957   .0807659    -6.91   0.000     -.719355   -.3976364
+       ed_57 |   -.519728   .0927184    -5.61   0.000    -.7043927   -.3350634
+       ed_58 |  -.5250971   .0906847    -5.79   0.000    -.7057112   -.3444829
+       ed_59 |  -.5181804   .0940408    -5.51   0.000     -.705479   -.3308819
+       ed_60 |   -.534289   .1319637    -4.05   0.000    -.7971174   -.2714605
+       ed_61 |  -.4530909   .1051595    -4.31   0.000    -.6625341   -.2436477
+       ed_62 |  -.5466606   .1402906    -3.90   0.000    -.8260735   -.2672476
+       ed_63 |  -.4268452   .1217749    -3.51   0.001     -.669381   -.1843094
+       ed_64 |   -.494946   .1393126    -3.55   0.001     -.772411    -.217481
+       ed_65 |  -.6909922   .1019787    -6.78   0.000    -.8941003   -.4878841
+       ed_66 |  -.5451568   .1071288    -5.09   0.000    -.7585223   -.3317913
+       ed_67 |  -.5059696   .2576517    -1.96   0.053    -1.019127    .0071881
+       ed_68 |  -.6403931   .1305785    -4.90   0.000    -.9004627   -.3803235
+       ed_69 |  -.4755665    .173645    -2.74   0.008    -.8214106   -.1297224
+       ed_70 |   -.407464   .1079295    -3.78   0.000    -.6224242   -.1925038
+       ed_71 |  -.7310777    .123807    -5.90   0.000    -.9776607   -.4844948
+       ed_72 |  -.5088693   .1468315    -3.47   0.001    -.8013095   -.2164291
+       ed_73 |  -.4287328   .1288763    -3.33   0.001    -.6854122   -.1720534
+       ed_74 |  -.9071674    .112599    -8.06   0.000    -1.131428    -.682907
+       ed_75 |  -.7202473   .1362075    -5.29   0.000    -.9915281   -.4489664
+       ed_76 |   -.219665   .0811631    -2.71   0.008    -.3813152   -.0580147
+       ed_77 |  -.2317186   .0784384    -2.95   0.004    -.3879422   -.0754951
+       ed_78 |   -.843083   .1183871    -7.12   0.000    -1.078871   -.6072946
+       ed_79 |  -.6843529    .076569    -8.94   0.000    -.8368533   -.5318524
+       ed_80 |  -1.111002   .1005773   -11.05   0.000    -1.311319   -.9106853
+       ed_81 |   -.579997   .2231318    -2.60   0.011    -1.024403   -.1355915
+       ed_82 |  -1.207249   .0782011   -15.44   0.000       -1.363   -1.051498
+       ed_83 |  -.3648214   .2343997    -1.56   0.124    -.8316687     .102026
+       ed_84 |          0  (omitted)
+       ed_85 |          0  (omitted)
+        yy_1 |  -.1250795   .1480645    -0.84   0.401    -.4199754    .1698164
+        yy_2 |  -.0678551   .1476989    -0.46   0.647     -.362023    .2263129
+        yy_3 |   .0156639    .308346     0.05   0.960    -.5984603    .6297882
+        yy_4 |   .8180727   .1981041     4.13   0.000     .4235141    1.212631
+        yy_5 |   .0993622   .1374572     0.72   0.472    -.1744076     .373132
+        yy_6 |   .1326552   .1221291     1.09   0.281    -.1105859    .3758963
+        yy_7 |   .0013553   .1603181     0.01   0.993    -.3179459    .3206566
+        yy_8 |  -.0504057   .1709236    -0.29   0.769    -.3908295    .2900182
+        yy_9 |          0  (omitted)
+       yy_10 |          0  (omitted)
+       _cons |    .532259   .1994292     2.67   0.009     .1350614    .9294566
+------------------------------------------------------------------------------
+r; t=0.25 18:55:02
+
+. 
+. areg Dos inter Time Corrupt , a(clave_mun) cluster(clave_mun)
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(3, 76)          =   0.48
+                                                    Prob > F          = 0.7002
+                                                    R-squared         = 0.0332
+                                                    Adj R-squared     = 0.0248
+                                                    Root MSE          = 0.3129
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Dos | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0059874   .0325353     0.18   0.854    -.0588124    .0707871
+        Time |   .0086324   .0102912     0.84   0.404    -.0118643    .0291291
+     Corrupt |   .0020221   .0201112     0.10   0.920    -.0380329    .0420771
+       _cons |   .1057525   .0087791    12.05   0.000     .0882675    .1232375
+------------------------------------------------------------------------------
+r; t=0.02 18:55:02
+
+. areg Dos inter Time Corrupt P_* PDE_*, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(17, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0378
+                                                    Adj R-squared     = 0.0262
+                                                    Root MSE          = 0.3124
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Dos | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0412236   .0484137     0.85   0.397    -.0552007    .1376479
+        Time |  -.0017122   .0238034    -0.07   0.943    -.0491207    .0456963
+     Corrupt |  -.0015247   .0264114    -0.06   0.954    -.0541275    .0510781
+         P_1 |   .1765703   .0645309     2.74   0.008     .0480459    .3050947
+         P_2 |  -.1252122   .0232159    -5.39   0.000    -.1714507   -.0789738
+         P_3 |   .3333333          .        .       .            .           .
+         P_4 |    -.62868    .018168   -34.60   0.000    -.6648647   -.5924953
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |   .0806796   .0779641     1.03   0.304    -.0745994    .2359587
+         P_8 |    .094445   .1027258     0.92   0.361    -.1101512    .2990413
+         P_9 |   .0412128   .0942525     0.44   0.663    -.1465074     .228933
+        P_10 |   .0765325   .0893641     0.86   0.394    -.1014514    .2545165
+        P_11 |   .6653326   .0716318     9.29   0.000     .5226654    .8079998
+        P_12 |  -.0964339   .0698498    -1.38   0.171    -.2355519    .0426842
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |   .1242272   .0601284     2.07   0.042     .0044711    .2439832
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0855952   .0178269    -4.80   0.000    -.1211005   -.0500898
+        P_19 |  -.0879867    .018168    -4.84   0.000    -.1241714   -.0518019
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |  -.0480079   .0520392    -0.92   0.359     -.151653    .0556372
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.0915011   .1078492    -0.85   0.399    -.3063014    .1232991
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .1155855   .0688072     1.68   0.097    -.0214559    .2526269
+        P_29 |          0  (omitted)
+        P_30 |   .1571679   .1142889     1.38   0.173    -.0704581    .3847939
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0113438   .0461467    -0.25   0.806    -.1032528    .0805653
+       PDE_2 |  -.0776037   .0231743    -3.35   0.001    -.1237594   -.0314481
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .0250312   .0416282     0.60   0.549    -.0578785    .1079409
+       PDE_8 |          0  (omitted)
+       PDE_9 |    .091398   .0951339     0.96   0.340    -.0980777    .2808737
+      PDE_10 |  -.1209119   .0391866    -3.09   0.003    -.1989588    -.042865
+      PDE_11 |  -.4394318    .044512    -9.87   0.000    -.5280851   -.3507785
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   .0558059   .0694535     0.80   0.424    -.0825227    .1941344
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0462957   .0442784     1.05   0.299    -.0418925    .1344839
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.0259494   .0230642    -1.13   0.264    -.0718856    .0199869
+      PDE_22 |   .0638733   .0794238     0.80   0.424    -.0943129    .2220595
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .1774448   .1081064     1.64   0.105    -.0378677    .3927572
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0138514   .0361613     0.38   0.703    -.0581701    .0858728
+      PDE_30 |   .0124015   .0983368     0.13   0.900    -.1834532    .2082562
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+       _cons |   .0177565   .0574709     0.31   0.758    -.0967068    .1322198
+------------------------------------------------------------------------------
+r; t=0.07 18:55:02
+
+. areg Dos inter P_* PDE_* Time HOMI_CAP_MUN total mis_tot MismoPartido Corrupt
+> Past Corrupt Already, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(22, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0398
+                                                    Adj R-squared     = 0.0276
+                                                    Root MSE          = 0.3122
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Dos | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0416201   .0429528     0.97   0.336    -.0439279     .127168
+         P_1 |    .137834    .069247     1.99   0.050    -.0000833    .2757512
+         P_2 |   -.111125   .0530094    -2.10   0.039    -.2167024   -.0055476
+         P_3 |   .2714973   .0549906     4.94   0.000     .1619741    .3810205
+         P_4 |  -.6345128   .0592989   -10.70   0.000    -.7526169   -.5164088
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0298271    .096512    -0.31   0.758    -.2220474    .1623932
+         P_8 |   .1398059    .085086     1.64   0.104    -.0296577    .3092694
+         P_9 |    .035005   .0824139     0.42   0.672    -.1291365    .1991464
+        P_10 |   .0627251   .0703625     0.89   0.375    -.0774139    .2028641
+        P_11 |   .5684354    .121317     4.69   0.000     .3268115    .8100592
+        P_12 |  -.0551437   .0871789    -0.63   0.529    -.2287754    .1184881
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |    .078953   .0834318     0.95   0.347    -.0872159    .2451218
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.1200212   .0264511    -4.54   0.000    -.1727031   -.0673394
+        P_19 |  -.1045955   .0146619    -7.13   0.000    -.1337972   -.0753938
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |  -.0711049   .0695858    -1.02   0.310     -.209697    .0674873
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.0428666   .0861263    -0.50   0.620    -.2144019    .1286687
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   .0843367   .0646251     1.31   0.196    -.0443753    .2130487
+        P_29 |          0  (omitted)
+        P_30 |   .1536881   .1083146     1.42   0.160    -.0620391    .3694152
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0019289   .0519437     0.04   0.970     -.101526    .1053838
+       PDE_2 |   -.129818    .031991    -4.06   0.000    -.1935335   -.0661024
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0383911   .0438939    -0.87   0.385    -.1258133    .0490311
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0361047   .0939567     0.38   0.702    -.1510264    .2232358
+      PDE_10 |  -.0226436   .0937894    -0.24   0.810    -.2094415    .1641542
+      PDE_11 |  -.4189154   .0445577    -9.40   0.000    -.5076598   -.3301711
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0256523   .0993173    -0.26   0.797    -.2234598    .1721552
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0587201   .0434606     1.35   0.181    -.0278392    .1452795
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |   -.090065   .0352673    -2.55   0.013    -.1603059   -.0198241
+      PDE_22 |    .080439   .0772651     1.04   0.301    -.0734478    .2343258
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .2218535   .0974993     2.28   0.026     .0276669      .41604
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0748419   .0563476     1.33   0.188    -.0373841    .1870678
+      PDE_30 |   -.009247    .092668    -0.10   0.921    -.1938114    .1753174
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0128123   .0263083     0.49   0.628    -.0395853    .0652099
+HOMI_CAP_MUN |   47.49458   66.83839     0.71   0.480    -85.62561    180.6148
+       total |   2.36e-11   7.69e-12     3.07   0.003     8.30e-12    3.90e-11
+     mis_tot |   .0406595   .0192692     2.11   0.038     .0022815    .0790375
+MismoParti~G |  -.0808039   .0536376    -1.51   0.136    -.1876323    .0260246
+ CorruptPast |   .0301841   .0189966     1.59   0.116    -.0076508    .0680191
+     Corrupt |   .0006509   .0301094     0.02   0.983    -.0593173     .060619
+AlreadyAud~d |          0  (omitted)
+       _cons |  -.0097821   .0476361    -0.21   0.838    -.1046577    .0850934
+------------------------------------------------------------------------------
+r; t=0.07 18:55:02
+
+. areg Dos inter P_* PDE_* Time  HOMI_CAP_MUN total mis_tot MismoPartido Corrup
+> tPast Corrupt Already yy_* , a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(30, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0425
+                                                    Adj R-squared     = 0.0294
+                                                    Root MSE          = 0.3119
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Dos | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0695075   .0332821     2.09   0.040     .0032203    .1357946
+         P_1 |  -.0622106   .0911168    -0.68   0.497    -.2436853    .1192642
+         P_2 |  -.2837004   .1210655    -2.34   0.022    -.5248233   -.0425775
+         P_3 |   .1450409    .044984     3.22   0.002     .0554474    .2346344
+         P_4 |  -.9398559   .1931336    -4.87   0.000    -1.324515    -.555197
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.1394824   .1136877    -1.23   0.224    -.3659111    .0869462
+         P_8 |   .2473826   .0940443     2.63   0.010     .0600772     .434688
+         P_9 |   .0150098   .0832181     0.18   0.857    -.1507334     .180753
+        P_10 |  -.0128534   .0839329    -0.15   0.879    -.1800203    .1543136
+        P_11 |   .4366596   .1227833     3.56   0.001     .1921154    .6812038
+        P_12 |  -.0797454   .0976673    -0.82   0.417    -.2742666    .1147759
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |    .005703   .0896254     0.06   0.949    -.1728014    .1842074
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.1628979   .0438454    -3.72   0.000    -.2502236   -.0755721
+        P_19 |  -.1270862   .0365925    -3.47   0.001    -.1999665   -.0542059
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .1696873   .1665442     1.02   0.311    -.1620143    .5013888
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |   .1720463   .0995628     1.73   0.088    -.0262501    .3703427
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |  -.0037988   .0727428    -0.05   0.958    -.1486787     .141081
+        P_29 |          0  (omitted)
+        P_30 |    .058773   .1332432     0.44   0.660    -.2066039    .3241498
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0480251   .0691868    -0.69   0.490    -.1858225    .0897724
+       PDE_2 |  -.1409096   .0282906    -4.98   0.000    -.1972553   -.0845639
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0619756   .0375732    -1.65   0.103    -.1368091    .0128578
+       PDE_8 |          0  (omitted)
+       PDE_9 |  -.0024052   .0872526    -0.03   0.978    -.1761837    .1713734
+      PDE_10 |   .1691291   .1124157     1.50   0.137    -.0547661    .3930243
+      PDE_11 |  -.4217347   .0780994    -5.40   0.000    -.5772831   -.2661863
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0074261   .1005477    -0.07   0.941    -.2076842     .192832
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0911585   .0505208     1.80   0.075    -.0094625    .1917795
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.1733447   .0404111    -4.29   0.000    -.2538304   -.0928589
+      PDE_22 |  -.1503443   .0974764    -1.54   0.127    -.3444854    .0437969
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.2056879   .2046107    -1.01   0.318    -.6132054    .2018296
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0800241   .0414048     1.93   0.057    -.0024407    .1624888
+      PDE_30 |  -.0148135   .0704776    -0.21   0.834    -.1551817    .1255548
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |    .035225   .0394055     0.89   0.374    -.0432579    .1137079
+HOMI_CAP_MUN |   109.3734   69.07218     1.58   0.117     -28.1958    246.9426
+       total |   2.64e-11   8.42e-12     3.13   0.002     9.62e-12    4.31e-11
+     mis_tot |   .0733364   .0424162     1.73   0.088    -.0111427    .1578155
+MismoParti~G |  -.1231341   .0359643    -3.42   0.001    -.1947633    -.051505
+ CorruptPast |  -.0625753   .0326232    -1.92   0.059      -.12755    .0023994
+     Corrupt |   -.026523    .023172    -1.14   0.256    -.0726739     .019628
+AlreadyAud~d |          0  (omitted)
+        yy_1 |  -.3345772    .140453    -2.38   0.020    -.6143137   -.0548408
+        yy_2 |  -.3234324    .126178    -2.56   0.012    -.5747377    -.072127
+        yy_3 |  -.0279781   .2043517    -0.14   0.891    -.4349797    .3790235
+        yy_4 |  -.3138797   .1716004    -1.83   0.071    -.6556515    .0278922
+        yy_5 |  -.2444956   .1188145    -2.06   0.043    -.4811352    -.007856
+        yy_6 |  -.1400138   .1178297    -1.19   0.238    -.3746919    .0946643
+        yy_7 |  -.2075888   .1244798    -1.67   0.100    -.4555118    .0403341
+        yy_8 |  -.3062131   .1055996    -2.90   0.005    -.5165328   -.0958934
+        yy_9 |  -.2339686   .1208038    -1.94   0.056    -.4745702     .006633
+       yy_10 |          0  (omitted)
+       _cons |   .3171647   .1280577     2.48   0.015     .0621157    .5722137
+------------------------------------------------------------------------------
+r; t=0.09 18:55:02
+
+. areg Dos inter P_* PDE_* Time nivelultimo_* HOMI_CAP_MUN total mis_tot MismoP
+> artido CorruptPast Corrupt Already TRABAJO_* ed_* yy_* , a(clave_mun) cluster
+> (clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: nivelultimo_12 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: TRABAJO_10 omitted because of collinearity.
+note: ed_1 omitted because of collinearity.
+note: ed_2 omitted because of collinearity.
+note: ed_84 omitted because of collinearity.
+note: ed_85 omitted because of collinearity.
+note: yy_9 omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(66, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0601
+                                                    Adj R-squared     = 0.0366
+                                                    Root MSE          = 0.3096
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+         Dos | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0520482   .0291082     1.79   0.078    -.0059259    .1100223
+         P_1 |  -.0733415   .0851643    -0.86   0.392    -.2429609    .0962778
+         P_2 |  -.0265434   .0579927    -0.46   0.648    -.1420458     .088959
+         P_3 |   .3679231   .1411261     2.61   0.011     .0868462        .649
+         P_4 |  -.6444537    .242498    -2.66   0.010     -1.12743   -.1614771
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |   -.165187   .1053141    -1.57   0.121    -.3749383    .0445643
+         P_8 |   .2057297   .0979833     2.10   0.039      .010579    .4008804
+         P_9 |  -.0005981   .0809957    -0.01   0.994    -.1619151    .1607189
+        P_10 |  -.0072315   .0830405    -0.09   0.931     -.172621     .158158
+        P_11 |   .5936668   .1733898     3.42   0.001     .2483311    .9390025
+        P_12 |  -.0850222   .1116935    -0.76   0.449    -.3074792    .1374348
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0121255   .0904709    -0.13   0.894     -.192314    .1680629
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.1575459   .0409913    -3.84   0.000    -.2391871   -.0759047
+        P_19 |  -.1484976   .0429651    -3.46   0.001    -.2340699   -.0629252
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   .1084363    .186708     0.58   0.563     -.263425    .4802976
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |   .2325296   .1008843     2.30   0.024     .0316012     .433458
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |   -.015058   .0685314    -0.22   0.827    -.1515501    .1214341
+        P_29 |          0  (omitted)
+        P_30 |   .0633585    .126094     0.50   0.617    -.1877795    .3144966
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |  -.0219229   .0672705    -0.33   0.745    -.1559038    .1120579
+       PDE_2 |  -.1193131   .0426384    -2.80   0.007    -.2042348   -.0343914
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0742211   .0367631    -2.02   0.047    -.1474412    -.001001
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0319042   .0851339     0.37   0.709    -.1376546     .201463
+      PDE_10 |   .1539284   .1067002     1.44   0.153    -.0585834    .3664403
+      PDE_11 |  -.3472729   .0922827    -3.76   0.000    -.5310698    -.163476
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0113993    .106561    -0.11   0.915    -.2236339    .2008353
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0945811   .0571361     1.66   0.102    -.0192152    .2083774
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.1664336   .0405206    -4.11   0.000    -.2471374   -.0857298
+      PDE_22 |  -.1420064   .0878357    -1.62   0.110    -.3169463    .0329336
+      PDE_23 |          0  (omitted)
+      PDE_24 |  -.0697157   .2187045    -0.32   0.751    -.5053034     .365872
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0867466   .0436721     1.99   0.051     -.000234    .1737272
+      PDE_30 |  -.0095726   .0705428    -0.14   0.892    -.1500707    .1309255
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0359239   .0403514     0.89   0.376    -.0444429    .1162908
+nivelulti~_1 |   .0561507   .0387968     1.45   0.152    -.0211199    .1334213
+nivelulti~_2 |   .0957108   .0720105     1.33   0.188    -.0477106    .2391323
+nivelultim~3 |    .258108   .2232242     1.16   0.251    -.1864816    .7026976
+nivelultim~4 |   .0594379   .0364009     1.63   0.107    -.0130608    .1319365
+nivelultim~5 |   .0664377   .0348234     1.91   0.060    -.0029191    .1357945
+nivelultim~6 |   .0467148   .0361462     1.29   0.200    -.0252766    .1187061
+nivelultim~7 |    .055274   .0373118     1.48   0.143    -.0190389     .129587
+nivelultim~8 |   .0470855   .0392285     1.20   0.234    -.0310448    .1252158
+nivelultim~9 |  -.0091782   .0383393    -0.24   0.811    -.0855376    .0671813
+nivelulti~10 |   .0298484   .0378765     0.79   0.433    -.0455892    .1052861
+nivelulti~11 |  -.0462679   .0368834    -1.25   0.214    -.1197276    .0271919
+nivelulti~12 |          0  (omitted)
+HOMI_CAP_MUN |   114.1605   63.38112     1.80   0.076    -12.07395     240.395
+       total |   2.39e-11   8.44e-12     2.83   0.006     7.10e-12    4.07e-11
+     mis_tot |   .0527065    .042385     1.24   0.217    -.0317105    .1371236
+MismoParti~G |  -.1223789   .0381118    -3.21   0.002    -.1982851   -.0464728
+ CorruptPast |    -.06345   .0312972    -2.03   0.046    -.1257838   -.0011161
+     Corrupt |  -.0147653   .0215469    -0.69   0.495    -.0576796     .028149
+AlreadyAud~d |          0  (omitted)
+   TRABAJO_1 |  -.0230356   .0351859    -0.65   0.515    -.0931144    .0470432
+   TRABAJO_2 |   .0564583   .0506016     1.12   0.268    -.0443235    .1572401
+   TRABAJO_3 |  -.0303555   .0401398    -0.76   0.452    -.1103008    .0495898
+   TRABAJO_4 |  -.0497712   .0333735    -1.49   0.140    -.1162403    .0166979
+   TRABAJO_5 |    .026344   .0555761     0.47   0.637    -.0843454    .1370335
+   TRABAJO_6 |  -.0286129   .0437255    -0.65   0.515    -.1156998     .058474
+   TRABAJO_7 |   .0127566   .0311285     0.41   0.683    -.0492411    .0747544
+   TRABAJO_8 |  -.0181199    .039962    -0.45   0.652    -.0977111    .0614713
+   TRABAJO_9 |   .0723374   .1062039     0.68   0.498    -.1391859    .2838607
+  TRABAJO_10 |          0  (omitted)
+        ed_1 |          0  (omitted)
+        ed_2 |          0  (omitted)
+        ed_3 |   -.643775   .1642732    -3.92   0.000    -.9709535   -.3165966
+        ed_4 |   -.940363   .0377857   -24.89   0.000     -1.01562   -.8651064
+        ed_5 |  -.7206689   .1156368    -6.23   0.000    -.9509796   -.4903583
+        ed_6 |  -.8320831   .0554047   -15.02   0.000    -.9424312    -.721735
+        ed_7 |  -.8806638   .0491028   -17.94   0.000    -.9784605   -.7828671
+        ed_8 |  -.8673938   .0466046   -18.61   0.000    -.9602148   -.7745728
+        ed_9 |  -.8347503     .04264   -19.58   0.000    -.9196751   -.7498254
+       ed_10 |  -.8756394   .0480627   -18.22   0.000    -.9713646   -.7799142
+       ed_11 |  -.8813724   .0396751   -22.21   0.000    -.9603922   -.8023526
+       ed_12 |   -.877675   .0380207   -23.08   0.000    -.9533999   -.8019502
+       ed_13 |  -.8542592   .0510988   -16.72   0.000    -.9560312   -.7524872
+       ed_14 |  -.8204229   .0662778   -12.38   0.000    -.9524266   -.6884193
+       ed_15 |  -.8624588   .0357216   -24.14   0.000    -.9336045   -.7913131
+       ed_16 |  -.8533387   .0298142   -28.62   0.000    -.9127188   -.7939586
+       ed_17 |  -.8510587   .0427682   -19.90   0.000    -.9362389   -.7658785
+       ed_18 |  -.8112173   .0420727   -19.28   0.000    -.8950123   -.7274222
+       ed_19 |  -.8067879   .0374777   -21.53   0.000    -.8814313   -.7321445
+       ed_20 |  -.8628918   .0419993   -20.55   0.000    -.9465407   -.7792429
+       ed_21 |  -.8747889   .0433332   -20.19   0.000    -.9610945   -.7884833
+       ed_22 |  -.8910556   .0362389   -24.59   0.000    -.9632317   -.8188796
+       ed_23 |  -.8373764   .0530502   -15.78   0.000     -.943035   -.7317177
+       ed_24 |  -.8322863   .0436583   -19.06   0.000    -.9192394   -.7453331
+       ed_25 |  -.8185596   .0511188   -16.01   0.000    -.9203715   -.7167476
+       ed_26 |  -.8508219   .0436555   -19.49   0.000    -.9377693   -.7638744
+       ed_27 |  -.8319607   .0461262   -18.04   0.000    -.9238291   -.7400924
+       ed_28 |  -.7994804   .0484642   -16.50   0.000    -.8960053   -.7029556
+       ed_29 |  -.8405301    .041655   -20.18   0.000    -.9234933   -.7575668
+       ed_30 |  -.8123606    .043785   -18.55   0.000    -.8995661   -.7251551
+       ed_31 |  -.8827341    .046387   -19.03   0.000    -.9751218   -.7903465
+       ed_32 |  -.8616859   .0571028   -15.09   0.000     -.975416   -.7479558
+       ed_33 |  -.8229511   .0508042   -16.20   0.000    -.9241364   -.7217657
+       ed_34 |  -.8587545   .0399884   -21.48   0.000    -.9383984   -.7791107
+       ed_35 |  -.8842128   .0377752   -23.41   0.000    -.9594486   -.8089769
+       ed_36 |  -.8136359   .0400345   -20.32   0.000    -.8933715   -.7339004
+       ed_37 |  -.8751457    .034331   -25.49   0.000    -.9435218   -.8067697
+       ed_38 |  -.8946232   .0382444   -23.39   0.000    -.9707936   -.8184529
+       ed_39 |  -.8214397   .0511044   -16.07   0.000     -.923223   -.7196563
+       ed_40 |  -.8429346   .0432497   -19.49   0.000    -.9290738   -.7567954
+       ed_41 |  -.8659161   .0430815   -20.10   0.000    -.9517204   -.7801118
+       ed_42 |  -.9045671   .0386654   -23.39   0.000    -.9815759   -.8275583
+       ed_43 |  -.8122199   .0423514   -19.18   0.000    -.8965701   -.7278697
+       ed_44 |  -.8822698   .0494548   -17.84   0.000    -.9807677    -.783772
+       ed_45 |  -.8597917   .0477547   -18.00   0.000    -.9549035   -.7646799
+       ed_46 |  -.8551655   .0454703   -18.81   0.000    -.9457274   -.7646036
+       ed_47 |  -.8357711   .0480642   -17.39   0.000    -.9314993   -.7400429
+       ed_48 |   -.857895   .0424517   -20.21   0.000    -.9424449    -.773345
+       ed_49 |    -.86752   .0454893   -19.07   0.000    -.9581198   -.7769202
+       ed_50 |  -.8899447   .0343662   -25.90   0.000    -.9583908   -.8214985
+       ed_51 |  -.8999501   .0458655   -19.62   0.000    -.9912992    -.808601
+       ed_52 |  -.8660387   .0391964   -22.09   0.000     -.944105   -.7879723
+       ed_53 |  -.8947721   .0433269   -20.65   0.000    -.9810651   -.8084792
+       ed_54 |  -.9070428   .0534931   -16.96   0.000    -1.013583    -.800502
+       ed_55 |  -.8726831   .0410196   -21.27   0.000    -.9543808   -.7909854
+       ed_56 |  -.8780408   .0422535   -20.78   0.000    -.9621958   -.7938857
+       ed_57 |  -.8064642   .0604719   -13.34   0.000    -.9269044    -.686024
+       ed_58 |  -.8308696   .0699152   -11.88   0.000    -.9701178   -.6916214
+       ed_59 |  -.8487359   .0451839   -18.78   0.000    -.9387275   -.7587443
+       ed_60 |  -.7939511   .0550474   -14.42   0.000    -.9035875   -.6843146
+       ed_61 |  -.8467996   .0552583   -15.32   0.000     -.956856   -.7367431
+       ed_62 |  -.8037597   .0629652   -12.77   0.000    -.9291657   -.6783538
+       ed_63 |   -.791243   .0580284   -13.64   0.000    -.9068165   -.6756695
+       ed_64 |  -.8657777   .0577554   -14.99   0.000    -.9808075   -.7507479
+       ed_65 |  -.8944977   .0472638   -18.93   0.000    -.9886318   -.8003637
+       ed_66 |  -.8016587   .0806155    -9.94   0.000    -.9622184   -.6410991
+       ed_67 |  -.7555866   .2357186    -3.21   0.002    -1.225061   -.2861122
+       ed_68 |   -.897138   .0536627   -16.72   0.000    -1.004017   -.7902594
+       ed_69 |  -.7711251   .1039734    -7.42   0.000     -.978206   -.5640441
+       ed_70 |  -.9692051   .0383389   -25.28   0.000    -1.045564   -.8928465
+       ed_71 |  -.9339171   .0371138   -25.16   0.000    -1.007836   -.8599985
+       ed_72 |  -.7968214   .0573766   -13.89   0.000    -.9110967   -.6825461
+       ed_73 |  -.6306619   .1060929    -5.94   0.000    -.8419643   -.4193596
+       ed_74 |  -.9786624   .0434482   -22.52   0.000    -1.065197   -.8921279
+       ed_75 |  -.9361824   .0378005   -24.77   0.000    -1.011469   -.8608961
+       ed_76 |  -.7245147   .3469515    -2.09   0.040    -1.415529   -.0335008
+       ed_77 |   -.520114    .037481   -13.88   0.000     -.594764    -.445464
+       ed_78 |  -.9113396   .0674096   -13.52   0.000    -1.045597   -.7770819
+       ed_79 |  -.9299141   .0336705   -27.62   0.000    -.9969748   -.8628534
+       ed_80 |  -1.002163   .0609217   -16.45   0.000    -1.123499    -.880827
+       ed_81 |  -1.068994   .0890292   -12.01   0.000    -1.246311   -.8916774
+       ed_82 |  -.9597787    .042005   -22.85   0.000    -1.043439   -.8761184
+       ed_83 |  -.5996614   .1319441    -4.54   0.000    -.8624508   -.3368719
+       ed_84 |          0  (omitted)
+       ed_85 |          0  (omitted)
+        yy_1 |  -.0645047   .0654574    -0.99   0.328    -.1948743     .065865
+        yy_2 |  -.0667984   .0557387    -1.20   0.234    -.1778116    .0442149
+        yy_3 |   .2022307    .157439     1.28   0.203    -.1113363    .5157978
+        yy_4 |  -.0457527   .1441879    -0.32   0.752    -.3329278    .2414223
+        yy_5 |    .002175   .0380587     0.06   0.955    -.0736254    .0779754
+        yy_6 |   .1008705   .0457931     2.20   0.031     .0096656    .1920753
+        yy_7 |   .0390254   .0538916     0.72   0.471    -.0683091    .1463599
+        yy_8 |  -.0601833   .0696351    -0.86   0.390    -.1988736     .078507
+        yy_9 |          0  (omitted)
+       yy_10 |          0  (omitted)
+       _cons |   .8881648   .1105125     8.04   0.000       .66806     1.10827
+------------------------------------------------------------------------------
+r; t=0.22 18:55:02
+
+. 
+. 
+. areg Tres inter Time Corrupt , a(clave_mun) cluster(clave_mun)
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(3, 76)          =   7.68
+                                                    Prob > F          = 0.0002
+                                                    R-squared         = 0.0392
+                                                    Adj R-squared     = 0.0309
+                                                    Root MSE          = 0.1363
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+        Tres | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0414757   .0115817     3.58   0.001     .0184088    .0645426
+        Time |  -.0086157    .012038    -0.72   0.476    -.0325915    .0153602
+     Corrupt |  -.0227745   .0130193    -1.75   0.084    -.0487047    .0031557
+       _cons |   .0823507   .0115629     7.12   0.000     .0593213    .1053801
+------------------------------------------------------------------------------
+r; t=0.05 18:55:02
+
+. areg Tres inter Time Corrupt P_* PDE_*, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(17, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0469
+                                                    Adj R-squared     = 0.0354
+                                                    Root MSE          = 0.1358
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+        Tres | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0687284   .0193136     3.56   0.001      .030262    .1071948
+        Time |  -.0044164   .0096728    -0.46   0.649    -.0236813    .0148486
+     Corrupt |   -.019748   .0108615    -1.82   0.073    -.0413806    .0018846
+         P_1 |   -.045542   .0367637    -1.24   0.219    -.1187632    .0276792
+         P_2 |   .0564985   .0098829     5.72   0.000      .036815    .0761819
+         P_3 |   .0025883          .        .       .            .           .
+         P_4 |    .086732   .0119554     7.25   0.000     .0629207    .1105433
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0216426   .0366192    -0.59   0.556    -.0945761    .0512909
+         P_8 |  -.1122419   .0424823    -2.64   0.010    -.1968527    -.027631
+         P_9 |   -.126438   .0621781    -2.03   0.045    -.2502764   -.0025996
+        P_10 |  -.1140989   .0437199    -2.61   0.011    -.2011747   -.0270231
+        P_11 |   .0395195   .0509971     0.77   0.441    -.0620501     .141089
+        P_12 |   .0288016   .0352397     0.82   0.416    -.0413844    .0989876
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |    .013996   .0402006     0.35   0.729    -.0660705    .0940625
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0943765   .0117582    -8.03   0.000     -.117795   -.0709579
+        P_19 |     -.0666   .0119554    -5.57   0.000    -.0904113   -.0427887
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |  -.0909087   .0356643    -2.55   0.013    -.1619403   -.0198771
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.0961883   .0432813    -2.22   0.029    -.1823905   -.0099861
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |  -.0346528   .0363898    -0.95   0.344    -.1071293    .0378236
+        P_29 |          0  (omitted)
+        P_30 |   .0373342   .0599036     0.62   0.535    -.0819743    .1566426
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0540925    .037194     1.45   0.150    -.0199858    .1281709
+       PDE_2 |   .0821294   .0103437     7.94   0.000     .0615282    .1027306
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .0309738    .013573     2.28   0.025     .0039408    .0580068
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0955722   .0602749     1.59   0.117    -.0244756    .2156201
+      PDE_10 |  -.0448067   .0134222    -3.34   0.001    -.0715393   -.0180742
+      PDE_11 |   .0423613   .0327866     1.29   0.200    -.0229388    .1076614
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |   .0486954   .0351766     1.38   0.170    -.0213649    .1187557
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0510907   .0315741     1.62   0.110    -.0117946     .113976
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |   .0211116   .0103098     2.05   0.044     .0005778    .0416454
+      PDE_22 |   .0144614    .037255     0.39   0.699    -.0597383    .0886611
+      PDE_23 |          0  (omitted)
+      PDE_24 |    .067703   .0530751     1.28   0.206    -.0380052    .1734112
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0114472   .0127549     0.90   0.372    -.0139565    .0368508
+      PDE_30 |   .0434222   .0451061     0.96   0.339    -.0464144    .1332589
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+       _cons |   .0718965   .0241689     2.97   0.004     .0237599    .1200331
+------------------------------------------------------------------------------
+r; t=0.07 18:55:02
+
+. areg Tres inter P_* PDE_* Time HOMI_CAP_MUN total mis_tot MismoPartido Corrup
+> tPast Corrupt Already, a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(22, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0535
+                                                    Adj R-squared     = 0.0416
+                                                    Root MSE          = 0.1354
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+        Tres | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0613907   .0178548     3.44   0.001     .0258298    .0969516
+         P_1 |  -.0251309   .0250591    -1.00   0.319    -.0750404    .0247786
+         P_2 |   .0666166   .0169981     3.92   0.000      .032762    .1004711
+         P_3 |  -.0226006   .0243725    -0.93   0.357    -.0711426    .0259414
+         P_4 |   .1393459   .0288604     4.83   0.000     .0818653    .1968264
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0531929   .0426619    -1.25   0.216    -.1381614    .0317757
+         P_8 |  -.1362716   .0591959    -2.30   0.024    -.2541704   -.0183728
+         P_9 |  -.1431194     .05486    -2.61   0.011    -.2523826   -.0338561
+        P_10 |   -.076073   .0248956    -3.06   0.003    -.1256568   -.0264892
+        P_11 |   .0002733   .0570094     0.00   0.996    -.1132707    .1138173
+        P_12 |   .0404074   .0332988     1.21   0.229     -.025913    .1067278
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0139135   .0383902    -0.36   0.718    -.0903743    .0625472
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.1143852    .017221    -6.64   0.000    -.1486838   -.0800866
+        P_19 |  -.0751845   .0089418    -8.41   0.000    -.0929936   -.0573753
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |   -.083391   .0268386    -3.11   0.003    -.1368447   -.0299373
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.1106634   .0606794    -1.82   0.072    -.2315169    .0101902
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |  -.0406864   .0240026    -1.70   0.094    -.0884917    .0071189
+        P_29 |          0  (omitted)
+        P_30 |    .022452   .0519805     0.43   0.667    -.0810761    .1259802
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0769218   .0406551     1.89   0.062    -.0040498    .1578934
+       PDE_2 |   .0623425   .0117276     5.32   0.000     .0389849       .0857
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |   .0013337   .0139315     0.10   0.924    -.0264133    .0290807
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0422708   .0537776     0.79   0.434    -.0648366    .1493782
+      PDE_10 |  -.0379475   .0505679    -0.75   0.455    -.1386622    .0627672
+      PDE_11 |   .0449671   .0237833     1.89   0.062    -.0024014    .0923355
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0134987   .0417019    -0.32   0.747    -.0965552    .0695578
+      PDE_15 |          0  (omitted)
+      PDE_16 |    .053646   .0226498     2.37   0.020     .0085351    .0987569
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |    .000276   .0120919     0.02   0.982     -.023807    .0243591
+      PDE_22 |   .0591626    .025456     2.32   0.023     .0084625    .1098627
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .0753349   .0457703     1.65   0.104    -.0158247    .1664944
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0370342   .0230263     1.61   0.112    -.0088266     .082895
+      PDE_30 |   .0220325   .0403097     0.55   0.586    -.0582513    .1023163
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0176931   .0096834     1.83   0.072    -.0015932    .0369793
+HOMI_CAP_MUN |   28.44111   32.78739     0.87   0.388    -36.86064    93.74287
+       total |  -1.66e-12   3.40e-12    -0.49   0.627    -8.43e-12    5.11e-12
+     mis_tot |   .0294128   .0125025     2.35   0.021      .004512    .0543137
+MismoParti~G |   -.028152   .0217609    -1.29   0.200    -.0714926    .0151887
+ CorruptPast |   .0685439   .0147285     4.65   0.000     .0392095    .0978783
+     Corrupt |  -.0256432   .0123086    -2.08   0.041    -.0501579   -.0011284
+AlreadyAud~d |          0  (omitted)
+       _cons |   .0338496   .0208026     1.63   0.108    -.0075824    .0752817
+------------------------------------------------------------------------------
+r; t=0.07 18:55:02
+
+. areg Tres inter P_* PDE_* Time  HOMI_CAP_MUN total mis_tot MismoPartido Corru
+> ptPast Corrupt Already yy_* , a(clave_mun) cluster(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(30, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0548
+                                                    Adj R-squared     = 0.0419
+                                                    Root MSE          = 0.1354
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+        Tres | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0658179   .0188798     3.49   0.001     .0282156    .1034202
+         P_1 |  -.0590826   .0314898    -1.88   0.064       -.1218    .0036348
+         P_2 |   .0107323   .0207806     0.52   0.607    -.0306559    .0521205
+         P_3 |  -.0549873   .0301008    -1.83   0.072    -.1149381    .0049636
+         P_4 |   .0854442   .0417388     2.05   0.044     .0023142    .1685743
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0677018    .040985    -1.65   0.103    -.1493305    .0139268
+         P_8 |  -.1660797   .0455233    -3.65   0.000    -.2567472   -.0754122
+         P_9 |  -.1461587   .0545698    -2.68   0.009     -.254844   -.0374735
+        P_10 |  -.0912658   .0262208    -3.48   0.001     -.143489   -.0390425
+        P_11 |  -.0254859   .0633395    -0.40   0.689    -.1516375    .1006656
+        P_12 |   .0495422   .0432253     1.15   0.255    -.0365484    .1356329
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |   .0128041   .0415849     0.31   0.759    -.0700194    .0956276
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0931138   .0218187    -4.27   0.000    -.1365694   -.0496581
+        P_19 |  -.0611793   .0189849    -3.22   0.002    -.0989911   -.0233676
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |  -.1164586   .0358998    -3.24   0.002    -.1879592    -.044958
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.1667672   .0475686    -3.51   0.001    -.2615084    -.072026
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |  -.0609658    .024079    -2.53   0.013    -.1089234   -.0130083
+        P_29 |          0  (omitted)
+        P_30 |   .0312385   .0526024     0.59   0.554    -.0735283    .1360052
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0432883    .042741     1.01   0.314    -.0418378    .1284144
+       PDE_2 |   .0827113   .0139861     5.91   0.000     .0548555     .110567
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0088531   .0149144    -0.59   0.555    -.0385576    .0208514
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0444327   .0472094     0.94   0.350    -.0495929    .1384584
+      PDE_10 |  -.0656129    .038874    -1.69   0.096     -.143037    .0118113
+      PDE_11 |   .0786972   .0393175     2.00   0.049     .0003897    .1570048
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0200716   .0383462    -0.52   0.602    -.0964447    .0563016
+      PDE_15 |          0  (omitted)
+      PDE_16 |    .063693   .0244472     2.61   0.011     .0150021    .1123839
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |   -.006087   .0168542    -0.36   0.719    -.0396552    .0274811
+      PDE_22 |  -.0065879   .0316812    -0.21   0.836    -.0696865    .0565107
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .1047607   .0589111     1.78   0.079     -.012571    .2220923
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0488579   .0212271     2.30   0.024     .0065806    .0911353
+      PDE_30 |   .0251092   .0377457     0.67   0.508    -.0500679    .1002863
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0098469   .0134662     0.73   0.467    -.0169734    .0366673
+HOMI_CAP_MUN |    8.27078   27.55454     0.30   0.765    -46.60885    63.15041
+       total |  -3.59e-13   4.65e-12    -0.08   0.939    -9.62e-12    8.90e-12
+     mis_tot |   .0196546   .0217229     0.90   0.368    -.0236102    .0629195
+MismoParti~G |  -.0601986   .0201434    -2.99   0.004    -.1003176   -.0200797
+ CorruptPast |   .0333076   .0152962     2.18   0.033     .0028426    .0637727
+     Corrupt |  -.0364365   .0112789    -3.23   0.002    -.0589004   -.0139727
+AlreadyAud~d |          0  (omitted)
+        yy_1 |  -.1070614   .0358922    -2.98   0.004    -.1785469   -.0355759
+        yy_2 |  -.1187194   .0304709    -3.90   0.000    -.1794075   -.0580312
+        yy_3 |  -.1068314   .0377858    -2.83   0.006    -.1820884   -.0315745
+        yy_4 |  -.1947883   .0692295    -2.81   0.006    -.3326707   -.0569059
+        yy_5 |  -.0676897   .0287262    -2.36   0.021     -.124903   -.0104765
+        yy_6 |  -.0786646   .0251196    -3.13   0.002    -.1286946   -.0286346
+        yy_7 |  -.1061332    .031081    -3.41   0.001    -.1680363     -.04423
+        yy_8 |  -.0831447   .0364455    -2.28   0.025    -.1557321   -.0105573
+        yy_9 |  -.0769688   .0297612    -2.59   0.012    -.1362434   -.0176942
+       yy_10 |          0  (omitted)
+       _cons |   .1697182   .0321135     5.28   0.000     .1057585    .2336778
+------------------------------------------------------------------------------
+r; t=0.12 18:55:02
+
+. areg Tres inter P_* PDE_* Time nivelultimo_* HOMI_CAP_MUN total mis_tot Mismo
+> Partido CorruptPast Corrupt Already TRABAJO_* ed_* yy_* , a(clave_mun) cluste
+> r(clave_mun)
+note: P_5 omitted because of collinearity.
+note: P_6 omitted because of collinearity.
+note: P_13 omitted because of collinearity.
+note: P_14 omitted because of collinearity.
+note: P_16 omitted because of collinearity.
+note: P_17 omitted because of collinearity.
+note: P_20 omitted because of collinearity.
+note: P_21 omitted because of collinearity.
+note: P_23 omitted because of collinearity.
+note: P_24 omitted because of collinearity.
+note: P_26 omitted because of collinearity.
+note: P_27 omitted because of collinearity.
+note: P_29 omitted because of collinearity.
+note: P_31 omitted because of collinearity.
+note: P_32 omitted because of collinearity.
+note: P_33 omitted because of collinearity.
+note: P_34 omitted because of collinearity.
+note: PDE_3 omitted because of collinearity.
+note: PDE_4 omitted because of collinearity.
+note: PDE_5 omitted because of collinearity.
+note: PDE_6 omitted because of collinearity.
+note: PDE_8 omitted because of collinearity.
+note: PDE_12 omitted because of collinearity.
+note: PDE_13 omitted because of collinearity.
+note: PDE_15 omitted because of collinearity.
+note: PDE_17 omitted because of collinearity.
+note: PDE_18 omitted because of collinearity.
+note: PDE_19 omitted because of collinearity.
+note: PDE_20 omitted because of collinearity.
+note: PDE_23 omitted because of collinearity.
+note: PDE_25 omitted because of collinearity.
+note: PDE_26 omitted because of collinearity.
+note: PDE_27 omitted because of collinearity.
+note: PDE_28 omitted because of collinearity.
+note: PDE_31 omitted because of collinearity.
+note: PDE_32 omitted because of collinearity.
+note: PDE_33 omitted because of collinearity.
+note: PDE_34 omitted because of collinearity.
+note: PDE_35 omitted because of collinearity.
+note: nivelultimo_12 omitted because of collinearity.
+note: AlreadyAudited omitted because of collinearity.
+note: TRABAJO_10 omitted because of collinearity.
+note: ed_1 omitted because of collinearity.
+note: ed_2 omitted because of collinearity.
+note: ed_84 omitted because of collinearity.
+note: ed_85 omitted because of collinearity.
+note: yy_9 omitted because of collinearity.
+note: yy_10 omitted because of collinearity.
+
+Linear regression, absorbing indicators             Number of obs     =  9,150
+Absorbed variable: clave_mun                        No. of categories =     77
+                                                    F(66, 76)         =      .
+                                                    Prob > F          =      .
+                                                    R-squared         = 0.0704
+                                                    Adj R-squared     = 0.0472
+                                                    Root MSE          = 0.1345
+
+                             (Std. err. adjusted for 77 clusters in clave_mun)
+------------------------------------------------------------------------------
+             |               Robust
+        Tres | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       inter |   .0599955   .0213624     2.81   0.006     .0174486    .1025424
+         P_1 |  -.0653174   .0328056    -1.99   0.050    -.1306555    .0000206
+         P_2 |   .1024538   .0259485     3.95   0.000     .0507727    .1541348
+         P_3 |   .0250864   .0287108     0.87   0.385    -.0320961    .0822689
+         P_4 |    .174373   .0482087     3.62   0.001     .0783571    .2703889
+         P_5 |          0  (omitted)
+         P_6 |          0  (omitted)
+         P_7 |  -.0837174   .0402048    -2.08   0.041    -.1637922   -.0036425
+         P_8 |  -.1548093   .0489583    -3.16   0.002    -.2523183   -.0573003
+         P_9 |  -.1484598   .0531774    -2.79   0.007    -.2543717   -.0425478
+        P_10 |  -.0897141   .0340118    -2.64   0.010    -.1574545   -.0219736
+        P_11 |   .0112879   .0606296     0.19   0.853    -.1094664    .1320422
+        P_12 |    .077098   .0492942     1.56   0.122    -.0210799    .1752758
+        P_13 |          0  (omitted)
+        P_14 |          0  (omitted)
+        P_15 |  -.0018103   .0430509    -0.04   0.967    -.0875537     .083933
+        P_16 |          0  (omitted)
+        P_17 |          0  (omitted)
+        P_18 |  -.0952139   .0228153    -4.17   0.000    -.1406545   -.0497733
+        P_19 |  -.0612249   .0215239    -2.84   0.006    -.1040934   -.0183565
+        P_20 |          0  (omitted)
+        P_21 |          0  (omitted)
+        P_22 |  -.1173145   .0375858    -3.12   0.003    -.1921732   -.0424559
+        P_23 |          0  (omitted)
+        P_24 |          0  (omitted)
+        P_25 |  -.1320265   .0542456    -2.43   0.017    -.2400661    -.023987
+        P_26 |          0  (omitted)
+        P_27 |          0  (omitted)
+        P_28 |  -.0682379   .0254574    -2.68   0.009    -.1189407   -.0175352
+        P_29 |          0  (omitted)
+        P_30 |   .0179915   .0499872     0.36   0.720    -.0815666    .1175496
+        P_31 |          0  (omitted)
+        P_32 |          0  (omitted)
+        P_33 |          0  (omitted)
+        P_34 |          0  (omitted)
+       PDE_1 |   .0481059   .0444884     1.08   0.283    -.0405003    .1367122
+       PDE_2 |   .0837332   .0240991     3.47   0.001     .0357358    .1317307
+       PDE_3 |          0  (omitted)
+       PDE_4 |          0  (omitted)
+       PDE_5 |          0  (omitted)
+       PDE_6 |          0  (omitted)
+       PDE_7 |  -.0103583    .018037    -0.57   0.567    -.0462821    .0255654
+       PDE_8 |          0  (omitted)
+       PDE_9 |   .0528311   .0456271     1.16   0.251    -.0380432    .1437053
+      PDE_10 |  -.0462158   .0375458    -1.23   0.222    -.1209947     .028563
+      PDE_11 |   .1095308   .0466799     2.35   0.022     .0165597    .2025018
+      PDE_12 |          0  (omitted)
+      PDE_13 |          0  (omitted)
+      PDE_14 |  -.0384673   .0467085    -0.82   0.413    -.1314953    .0545607
+      PDE_15 |          0  (omitted)
+      PDE_16 |   .0661913   .0249578     2.65   0.010     .0164836     .115899
+      PDE_17 |          0  (omitted)
+      PDE_18 |          0  (omitted)
+      PDE_19 |          0  (omitted)
+      PDE_20 |          0  (omitted)
+      PDE_21 |  -.0071414     .01926    -0.37   0.712     -.045501    .0312183
+      PDE_22 |  -.0105152   .0342837    -0.31   0.760     -.078797    .0577666
+      PDE_23 |          0  (omitted)
+      PDE_24 |   .1226385   .0652342     1.88   0.064    -.0072866    .2525636
+      PDE_25 |          0  (omitted)
+      PDE_26 |          0  (omitted)
+      PDE_27 |          0  (omitted)
+      PDE_28 |          0  (omitted)
+      PDE_29 |   .0486716   .0213307     2.28   0.025     .0061877    .0911554
+      PDE_30 |   .0264329   .0358682     0.74   0.463    -.0450049    .0978707
+      PDE_31 |          0  (omitted)
+      PDE_32 |          0  (omitted)
+      PDE_33 |          0  (omitted)
+      PDE_34 |          0  (omitted)
+      PDE_35 |          0  (omitted)
+        Time |   .0074607   .0147291     0.51   0.614    -.0218748    .0367962
+nivelulti~_1 |  -.0293261   .0174074    -1.68   0.096    -.0639959    .0053437
+nivelulti~_2 |  -.0051539   .0387695    -0.13   0.895      -.08237    .0720623
+nivelultim~3 |  -.0617402   .0307554    -2.01   0.048    -.1229949   -.0004855
+nivelultim~4 |  -.0247154   .0140741    -1.76   0.083    -.0527464    .0033155
+nivelultim~5 |  -.0185667     .01256    -1.48   0.143    -.0435821    .0064486
+nivelultim~6 |  -.0433778    .016784    -2.58   0.012    -.0768059   -.0099496
+nivelultim~7 |  -.0197923   .0141708    -1.40   0.167    -.0480159    .0084312
+nivelultim~8 |  -.0156309   .0167525    -0.93   0.354    -.0489964    .0177347
+nivelultim~9 |  -.0203242   .0163278    -1.24   0.217    -.0528438    .0121954
+nivelulti~10 |   -.027251   .0139597    -1.95   0.055     -.055054    .0005521
+nivelulti~11 |  -.0529433   .0168818    -3.14   0.002    -.0865664   -.0193202
+nivelulti~12 |          0  (omitted)
+HOMI_CAP_MUN |   17.58807   26.60916     0.66   0.511    -35.40866     70.5848
+       total |   8.90e-14   4.68e-12     0.02   0.985    -9.24e-12    9.42e-12
+     mis_tot |   .0167723   .0226901     0.74   0.462     -.028419    .0619636
+MismoParti~G |  -.0568082   .0213893    -2.66   0.010    -.0994088   -.0142077
+ CorruptPast |   .0302577   .0149798     2.02   0.047     .0004228    .0600926
+     Corrupt |  -.0314645   .0109856    -2.86   0.005    -.0533443   -.0095847
+AlreadyAud~d |          0  (omitted)
+   TRABAJO_1 |  -.0166947   .0176787    -0.94   0.348    -.0519049    .0185155
+   TRABAJO_2 |  -.0027023   .0210052    -0.13   0.898    -.0445378    .0391332
+   TRABAJO_3 |  -.0251615   .0187829    -1.34   0.184    -.0625709    .0122478
+   TRABAJO_4 |  -.0274972   .0172101    -1.60   0.114    -.0617741    .0067797
+   TRABAJO_5 |  -.0059888   .0204599    -0.29   0.771    -.0467382    .0347606
+   TRABAJO_6 |  -.0090733   .0182881    -0.50   0.621    -.0454972    .0273506
+   TRABAJO_7 |  -.0151231   .0215938    -0.70   0.486     -.058131    .0278848
+   TRABAJO_8 |  -.0280891   .0157854    -1.78   0.079    -.0595286    .0033503
+   TRABAJO_9 |  -.0466621   .0210259    -2.22   0.029    -.0885388   -.0047854
+  TRABAJO_10 |          0  (omitted)
+        ed_1 |          0  (omitted)
+        ed_2 |          0  (omitted)
+        ed_3 |  -.7150669   .0258345   -27.68   0.000    -.7665209    -.663613
+        ed_4 |  -.7630095   .0238579   -31.98   0.000    -.8105266   -.7154925
+        ed_5 |  -.6083854   .0810051    -7.51   0.000    -.7697211   -.4470497
+        ed_6 |  -.7194163    .031234   -23.03   0.000    -.7816243   -.6572083
+        ed_7 |  -.7128291   .0286364   -24.89   0.000    -.7698633   -.6557948
+        ed_8 |  -.7232597   .0286843   -25.21   0.000    -.7803895   -.6661299
+        ed_9 |   -.726007   .0265873   -27.31   0.000    -.7789603   -.6730538
+       ed_10 |  -.7041615   .0300206   -23.46   0.000    -.7639527   -.6443702
+       ed_11 |  -.7312577   .0233281   -31.35   0.000    -.7777196   -.6847958
+       ed_12 |  -.7152497   .0266879   -26.80   0.000    -.7684033   -.6620962
+       ed_13 |  -.7297481   .0247842   -29.44   0.000      -.77911   -.6803862
+       ed_14 |  -.6932588   .0362272   -19.14   0.000    -.7654116    -.621106
+       ed_15 |  -.7323066   .0265782   -27.55   0.000    -.7852417   -.6793716
+       ed_16 |  -.7164213   .0259241   -27.64   0.000    -.7680535    -.664789
+       ed_17 |  -.7297882   .0194584   -37.51   0.000    -.7685429   -.6910334
+       ed_18 |  -.6945625   .0287595   -24.15   0.000    -.7518421    -.637283
+       ed_19 |  -.7106748   .0236375   -30.07   0.000    -.7577529   -.6635967
+       ed_20 |  -.7163405    .025565   -28.02   0.000    -.7672576   -.6654234
+       ed_21 |  -.7152127   .0254418   -28.11   0.000    -.7658845    -.664541
+       ed_22 |  -.7294325   .0237173   -30.76   0.000    -.7766695   -.6821955
+       ed_23 |  -.7047361   .0308499   -22.84   0.000    -.7661789   -.6432933
+       ed_24 |  -.7224717   .0252312   -28.63   0.000    -.7727239   -.6722195
+       ed_25 |  -.7108045   .0295483   -24.06   0.000     -.769655   -.6519541
+       ed_26 |  -.7069101   .0328297   -21.53   0.000     -.772296   -.6415241
+       ed_27 |  -.7063208   .0274569   -25.72   0.000    -.7610059   -.6516357
+       ed_28 |  -.7140813    .027319   -26.14   0.000    -.7684917   -.6596708
+       ed_29 |  -.7040691    .027098   -25.98   0.000    -.7580394   -.6500988
+       ed_30 |  -.7178149   .0263162   -27.28   0.000    -.7702281   -.6654018
+       ed_31 |  -.7359057   .0228601   -32.19   0.000    -.7814354   -.6903759
+       ed_32 |  -.7039367   .0320045   -21.99   0.000    -.7676793   -.6401942
+       ed_33 |   -.719185   .0258761   -27.79   0.000    -.7707217   -.6676484
+       ed_34 |  -.7186813   .0263722   -27.25   0.000     -.771206   -.6661565
+       ed_35 |  -.7183707   .0240857   -29.83   0.000    -.7663415   -.6703998
+       ed_36 |  -.7199637   .0242229   -29.72   0.000    -.7682078   -.6717197
+       ed_37 |  -.7197761   .0258705   -27.82   0.000    -.7713018   -.6682505
+       ed_38 |  -.7283509   .0236944   -30.74   0.000    -.7755424   -.6811594
+       ed_39 |  -.7133953   .0268636   -26.56   0.000    -.7668987   -.6598918
+       ed_40 |  -.7183466   .0246054   -29.19   0.000    -.7673524   -.6693408
+       ed_41 |  -.7219511   .0251973   -28.65   0.000    -.7721359   -.6717663
+       ed_42 |  -.7271167   .0267083   -27.22   0.000    -.7803108   -.6739226
+       ed_43 |   -.718095   .0278199   -25.81   0.000    -.7735032   -.6626868
+       ed_44 |  -.7270273   .0245605   -29.60   0.000    -.7759437   -.6781109
+       ed_45 |  -.7103861   .0318889   -22.28   0.000    -.7738983   -.6468738
+       ed_46 |  -.7123977   .0268503   -26.53   0.000    -.7658746   -.6589208
+       ed_47 |  -.7202629    .024338   -29.59   0.000    -.7687363   -.6717895
+       ed_48 |  -.7016092   .0282993   -24.79   0.000    -.7579722   -.6452462
+       ed_49 |  -.7213073   .0260701   -27.67   0.000    -.7732305   -.6693841
+       ed_50 |  -.7352885   .0276443   -26.60   0.000    -.7903469   -.6802301
+       ed_51 |  -.7161488   .0264377   -27.09   0.000     -.768804   -.6634936
+       ed_52 |  -.7191293   .0276123   -26.04   0.000    -.7741239   -.6641347
+       ed_53 |  -.7253914   .0251587   -28.83   0.000    -.7754993   -.6752835
+       ed_54 |  -.7536358   .0232472   -32.42   0.000    -.7999365   -.7073351
+       ed_55 |  -.7230277   .0318089   -22.73   0.000    -.7863807   -.6596747
+       ed_56 |  -.7188705   .0263106   -27.32   0.000    -.7712727   -.6664684
+       ed_57 |  -.6811476   .0313557   -21.72   0.000    -.7435979   -.6186973
+       ed_58 |  -.7014929   .0354326   -19.80   0.000    -.7720631   -.6309227
+       ed_59 |  -.7071918   .0293554   -24.09   0.000    -.7656582   -.6487253
+       ed_60 |  -.6423541    .036018   -17.83   0.000    -.7140902    -.570618
+       ed_61 |  -.7216539   .0281694   -25.62   0.000    -.7777581   -.6655497
+       ed_62 |  -.6985406   .0396709   -17.61   0.000    -.7775521   -.6195292
+       ed_63 |  -.7147248   .0334365   -21.38   0.000    -.7813193   -.6481303
+       ed_64 |  -.7054468   .0327123   -21.57   0.000    -.7705989   -.6402947
+       ed_65 |  -.7213992   .0291544   -24.74   0.000    -.7794652   -.6633332
+       ed_66 |  -.6931943   .0373643   -18.55   0.000    -.7676118   -.6187768
+       ed_67 |  -.6399917   .0931543    -6.87   0.000    -.8255246   -.4544589
+       ed_68 |  -.7469405   .0230535   -32.40   0.000    -.7928556   -.7010255
+       ed_69 |  -.6605428   .0526989   -12.53   0.000    -.7655018   -.5555839
+       ed_70 |  -.7688827   .0290303   -26.49   0.000    -.8267015    -.711064
+       ed_71 |  -.7163254    .032588   -21.98   0.000    -.7812301   -.6514208
+       ed_72 |  -.7346784   .0254329   -28.89   0.000    -.7853324   -.6840243
+       ed_73 |  -.6459759   .0722455    -8.94   0.000    -.7898653   -.5020866
+       ed_74 |  -.7668676   .0317158   -24.18   0.000    -.8300351   -.7037002
+       ed_75 |  -.7313419   .0263879   -27.72   0.000    -.7838979   -.6787858
+       ed_76 |  -.7530575   .0385022   -19.56   0.000    -.8297412   -.6763738
+       ed_77 |  -.5773595    .025219   -22.89   0.000    -.6275875   -.5271315
+       ed_78 |  -.6984428   .0364307   -19.17   0.000    -.7710008   -.6258848
+       ed_79 |  -.7319531   .0232442   -31.49   0.000    -.7782479   -.6856583
+       ed_80 |  -.7139321   .0277495   -25.73   0.000    -.7692001   -.6586641
+       ed_81 |  -.7084627   .0311086   -22.77   0.000    -.7704208   -.6465045
+       ed_82 |  -.6945419   .0254768   -27.26   0.000    -.7452833   -.6438004
+       ed_83 |  -.6325705   .0440928   -14.35   0.000    -.7203889   -.5447521
+       ed_84 |          0  (omitted)
+       ed_85 |          0  (omitted)
+        yy_1 |  -.0151701   .0314355    -0.48   0.631    -.0777793     .047439
+        yy_2 |  -.0300426   .0283947    -1.06   0.293    -.0865955    .0265104
+        yy_3 |   -.015368   .0407959    -0.38   0.707    -.0966202    .0658841
+        yy_4 |  -.1217265   .0880497    -1.38   0.171    -.2970926    .0536396
+        yy_5 |   .0187335   .0201087     0.93   0.354    -.0213164    .0587835
+        yy_6 |    .004578    .028433     0.16   0.873    -.0520512    .0612071
+        yy_7 |  -.0230437   .0295923    -0.78   0.439    -.0819819    .0358945
+        yy_8 |  -.0008229   .0324975    -0.03   0.980    -.0655474    .0639015
+        yy_9 |          0  (omitted)
+       yy_10 |          0  (omitted)
+       _cons |   .8428424   .0539304    15.63   0.000     .7354306    .9502541
+------------------------------------------------------------------------------
+r; t=0.34 18:55:03
+
+. 
+. cap log close

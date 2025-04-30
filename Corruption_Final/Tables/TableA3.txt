@@ -1,13 +1,14 @@
-----------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Users/nicolasajzenman/Dropbox/Corruption_G/Tables/TableA3.txt
+       log:  /project/Tables/TableA3.txt
   log type:  text
- opened on:  29 May 2020, 18:55:38
+ opened on:  30 Apr 2025, 16:29:04
+r; t=0.00 16:29:04
 
 . 
 . su Count_Index Uno Dos Tres Tranza Confiable Romper Robar NotReturn
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
+    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
  Count_Index |      9,150    .7416393    .9058436          0          4
          Uno |      9,150    .4938798    .4999899          0          1
@@ -19,6 +20,7 @@
       Romper |      9,406    .2099724    .4073102          0          1
        Robar |      9,432    .0617048    .2406314          0          1
    NotReturn |      9,443    .2206926    .4147356          0          1
+r; t=0.02 16:29:04
 
 . 
 . cap log close

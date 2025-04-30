@@ -1,0 +1,376 @@
+--------------------------------------------------------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 17:10:35
+r; t=0.00 17:10:35
+
+. 
+. /* capture what system we are running on */
+. 
+. di in red "HOSTNAME: `c(hostname)'"
+HOSTNAME: 212d1bc448ba
+r; t=0.00 17:10:35
+
+. 
+. /* used only for system info */
+. log using "`systeminfo'", name(system) replace text
+(file /project/logs/system_30_Apr_2025-17_10_35-statauser.log not found)
+--------------------------------------------------------------------------------------------------------------------------------
+      name:  system
+       log:  /project/logs/system_30_Apr_2025-17_10_35-statauser.log
+  log type:  text
+ opened on:  30 Apr 2025, 17:10:35
+r; t=0.00 17:10:35
+
+. 
+. /* It will provide some info about how and when the program was run */
+. 
+. /* install any packages locally */
+. di "=== Redirecting where Stata searches for ado files ==="
+=== Redirecting where Stata searches for ado files ===
+r; t=0.00 17:10:35
+
+. capture mkdir "$rootdir/ado"
+r; t=0.00 17:10:35
+
+. adopath - PERSONAL
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+  [5]  (OLDPLACE)  "~/ado/"
+r; t=0.00 17:10:35
+
+. adopath - OLDPLACE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]  (SITE)      "/usr/local/ado/"
+  [3]              "."
+  [4]  (PLUS)      "~/ado/plus/"
+r; t=0.00 17:10:35
+
+. adopath - SITE
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "~/ado/plus/"
+r; t=0.00 17:10:35
+
+. sysdir set PLUS     "$rootdir/ado/plus"
+r; t=0.00 17:10:35
+
+. sysdir set PERSONAL "$rootdir/ado"       // may be needed for some packages
+r; t=0.00 17:10:35
+
+. sysdir
+   STATA:  /usr/local/stata/
+    BASE:  /usr/local/stata/ado/base/
+    SITE:  /usr/local/ado/
+    PLUS:  /project/ado/plus/
+PERSONAL:  /project/ado/
+OLDPLACE:  ~/ado/
+r; t=0.00 17:10:35
+
+. 
+. /*==============================================================================================*/
+. /* If present, add the authors' replication-package specific ado file path                      */
+. /* This is defined above                                                                        */
+. /*==============================================================================================*/
+. 
+. if "`author_adopath'" != "" {             // The author adopath variable is filled out
+.     adopath ++ "$rootdir/`author_adopath'"
+r; t=0.00 17:10:35
+. }
+r; t=0.00 17:10:35
+
+. 
+. /* now let's check what's there */
+. 
+. di "=== Verifying pre-existing ado files - normally, this should be EMPTY upon first run"
+=== Verifying pre-existing ado files - normally, this should be EMPTY upon first run
+r; t=0.00 17:10:35
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 17:10:35
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli-compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written with GUI Stata in mind.
+
+[2] package egenmore from http://fmwww.bc.edu/repec/bocode/e
+      'EGENMORE': modules to extend the generate function
+r; t=0.00 17:10:35
+
+. di "=========================="
+==========================
+r; t=0.00 17:10:35
+
+. 
+. 
+. /* this is long, so we pause the main log file */
+. log off ldi
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+  log type:  text
+ paused on:  30 Apr 2025, 17:10:35
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+      name:  ldi
+       log:  /project/logs/logfile_30_Apr_2025-17_10_35-statauser.log
+  log type:  text
+resumed on:  30 Apr 2025, 17:10:35
+r; t=0.00 17:10:35
+
+. 
+. 
+. /* add packages to the macro */
+.     
+.     display in red "============ Installing packages/commands from SSC ============="
+============ Installing packages/commands from SSC =============
+r; t=0.00 17:10:35
+
+.     display in red "== Packages: `ssc_packages'"
+== Packages: 
+r; t=0.00 17:10:35
+
+.     if !missing("`ssc_packages'") {
+.         foreach pkg in `ssc_packages' {
+  2.             capture which `pkg'
+  3.             if _rc == 111 {                 
+  4.                dis "Installing `pkg'"
+  5.                 ssc install `pkg', replace
+  6.             }
+  7.             which `pkg'
+  8.         }
+r; t=0.00 17:10:35
+.     }
+r; t=0.00 17:10:35
+
+. 
+. /* add unconditionally installed packages */
+.     display in red "=============== Unconditionally installed packages from SSC ==============="
+=============== Unconditionally installed packages from SSC ===============
+r; t=0.00 17:10:35
+
+.     display in red "== Packages: `ssc_unconditional'"
+== Packages: egenmore
+r; t=0.00 17:10:35
+
+.     if !missing("`ssc_unconditional'") {
+.         foreach pkg in `ssc_unconditional' {
+  2.             dis "Installing `pkg'"
+  3.             ssc install `pkg', replace
+  4.         }
+Installing egenmore
+checking egenmore consistency and verifying not already installed...
+all files already exist and are up to date.
+r; t=3.00 17:10:38
+.     }
+r; t=3.00 17:10:38
+
+. 
+. /*==============================================================================================*/
+. /* If you need to "net install" packages, add lines to this section                             */
+.     * Install packages using net
+.     * net install grc1leg, from("http://www.stata.com/users/vwiggins/")
+. 
+. /*==============================================================================================*/
+. /* yet other programs have no install capability, and may need to be copied */
+. /*==============================================================================================*/
+. 
+. // e.g.
+. //  copy (URL) (name_of_file.ado)
+. // example:
+. // copy http://www.sacarny.com/wp-content/uploads/2015/08/ebayes.ado ebayes.ado
+. 
+. 
+. /*==============================================================================================*/
+. /* This toolbox allows us to run code that still contains interactive commands (which it should not) */
+. /*==============================================================================================*/
+. 
+. net install cli-compat, all replace from("https://raw.githubusercontent.com/aeadataeditor/cli-compat-stata/master")
+checking cli-compat consistency and verifying not already installed...
+all files already exist and are up to date.
+r; t=2.08 17:10:40
+
+. 
+. /*-------------- Sometimes, you may get the dreaded esttab error about paths -------------------*/
+. /* in that case, uncomment the following line, and overwrite the estout package with the newer one */
+. 
+. // net install estout, replace from(https://raw.githubusercontent.com/benjann/estout/master/)
+. 
+. /*==============================================================================================*/
+. /* after installing all packages, it may be necessary to issue the mata mlib index command */
+. /* This should always be the LAST command after installing all packages                    */
+. /*==============================================================================================*/
+. 
+.         mata: mata mlib index
+.mlib libraries to be searched are now
+    lmatabase;lmataado;lmatabma;lmatacollect;lmatadata;lmataerm;lmatafc;lmatagsem;lmatahetdid;lmataivqreg;lmatajm;lmatalasso;lma
+> tamcmc;lmatameta;lmatami;lmatamixlog;lmatanumlib;lmataopt;lmatapath;lmatapostest;lmatapss;lmatasem;lmatasp;lmatasvy;lmatatab;l
+> matats
+r; t=0.00 17:10:40
+
+. 
+. /*==============================================================================================*/
+. /* This is specific to AEA replication environment. May not be needed if no confidential data   */
+. /* are used in the reproducibility check.                                                       */
+. /* Replicator should check the JIRA field "Working location of restricted data" for right path  */
+. /*==============================================================================================*/
+. 
+. global sdrive ""
+r; t=0.00 17:10:40
+
+. 
+. 
+. /*==============================================================================================*/
+. /* After all the setup work, let's check again what's installed in the ado directories          */
+. /*==============================================================================================*/
+. 
+. 
+. di "=== Verifying ado files after all install steps"
+=== Verifying ado files after all install steps
+r; t=0.00 17:10:40
+
+. adopath
+  [1]  (BASE)      "/usr/local/stata/ado/base/"
+  [2]              "."
+  [3]  (PLUS)      "/project/ado/plus/"
+r; t=0.00 17:10:40
+
+. ado
+
+[1] package cli-compat from https://raw.githubusercontent.com/aeadataeditor/cli-compat-stata/master
+      'cli-compat': Commands that provide compatibility with programs written with GUI Stata in mind.
+
+[2] package egenmore from http://fmwww.bc.edu/repec/bocode/e
+      'EGENMORE': modules to extend the generate function
+r; t=0.00 17:10:40
+
+. di "=========================="
+==========================
+r; t=0.00 17:10:40
+
+. 
+. 
+. 
+. di "========================================= END SETUP + DIAGNOSTICS ===================================="
+========================================= END SETUP + DIAGNOSTICS ====================================
+r; t=0.00 17:10:40
+
+. r; t=0.00 17:10:40
+
+. global cdname "$rootdir"
+r; t=0.00 17:10:40
+
+. 
+. global cd_do "$cdname/Do"
+r; t=0.00 17:10:40
+
+. global cd_data "$cdname/Data"
+r; t=0.00 17:10:40
+
+. 
+. use "$cd_data/Longitudinal/Claves.dta", clear
+r; t=0.00 17:10:40
+
+. ** Delete obs that are not in the survey (but yes in the corruption dataset)
+. ** merge with corruption again
+. merge 1:m clave_mun using  "$cd_data/Data_Corruption/TodosLosMuni_ConAudits_ConAlreadyAudited.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        24,882
+        from master                         0  (_merge==1)
+        from using                     24,882  (_merge==2)
+
+    Matched                             1,606  (_merge==3)
+    -----------------------------------------
+r; t=0.03 17:10:40
+
+. keep if _merge !=2
+(24,882 observations deleted)
+r; t=0.00 17:10:40
+
+. desc
+
+Contains data from /project/Data/Longitudinal/Claves.dta
+ Observations:         1,606                  
+    Variables:            60                  30 Apr 2025 16:28
+--------------------------------------------------------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+--------------------------------------------------------------------------------------------------------------------------------
+clave_mun       str6    %9s                   
+year            float   %9.0g                 
+state           str38   %38s                  
+municipality    str61   %61s                  
+ent             str2    %9s                   
+unauthorized    double  %10.0g                
+ye              str4    %9s                   year
+clavemun        str3    %9s                   
+Auditada        float   %9.0g                 
+bandera_unau    float   %9.0g                 
+Bandera         float   %9.0g                 
+observaciones   str13   %13s                  
+var8            float   %9.0g                 
+XX              float   %9.0g                 
+clave_mun_num   int     %8.0g                 
+c_m             int     %8.0g                 
+Adicionales     float   %9.0g                 
+municipio       str45   %45s                  
+a               str10   %10s                  
+Au2             float   %9.0g                 
+nro_auditoria   float   %9.0g                 
+AlreadyAudited  float   %9.0g                 
+Corrupt         float   %9.0g                 
+lag_Already     float   %9.0g                 
+lag_Auditada1   float   %9.0g                 
+lag_Auditada2   float   %9.0g                 
+lead_Auditada1  float   %9.0g                 
+lead_Auditada2  float   %9.0g                 
+C_1             float   %9.0g                 
+C_2             float   %9.0g                 
+C_menos1        float   %9.0g                 
+C_menos2        float   %9.0g                 
+una_1           float   %9.0g                 
+una_2           float   %9.0g                 
+una_menos1      float   %9.0g                 
+una_menos2      float   %9.0g                 
+p25             float   %9.0g                 
+p15             float   %9.0g                 
+Corrupt_25      float   %9.0g                 
+Corrupt_25_1    float   %9.0g                 
+Corrupt_25_2    float   %9.0g                 
+Corrupt_25_me~1 float   %9.0g                 
+Corrupt_25_me~2 float   %9.0g                 
+Corrupt_15      float   %9.0g                 
+Corrupt_15_1    float   %9.0g                 
+Corrupt_15_2    float   %9.0g                 
+Corrupt_15_me~1 float   %9.0g                 
+Corrupt_15_me~2 float   %9.0g                 
+VecesAuditada   float   %9.0g                 
+Seleccionada    float   %9.0g                 
+Corr_Acum       float   %9.0g                 
+Corr_Acum_15    float   %9.0g                 
+Corr_Acum_25    float   %9.0g                 
+CorruptPast     float   %9.0g                 
+CorruptPast_15  float   %9.0g                 
+CorruptPast_25  float   %9.0g                 
+lag_CorruptPast float   %9.0g                 
+lag_CorruptP~15 float   %9.0g                 
+lag_CorruptP~25 float   %9.0g                 
+_merge          byte    %23.0g     _merge     Matching result from merge
+--------------------------------------------------------------------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+r; t=0.00 17:10:40
+
+. 
+end of do-file
+
+r; t=0.00 17:10:40
+
